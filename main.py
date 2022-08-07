@@ -61,14 +61,17 @@ class AutoGanj(commands.Bot):
                     "prefix": "&",
                     "choose_roles": None,
                     "modules":
-                    {
+                    {                        
                         "tripwire": False,
-                        "userdata": True,
+                        "userdata": False,
                         "realtime_logging": False,
                         "gpt3_jarvis": False,
                         "gpt3_emgee": False,
                         "basedboost": False,
-                        "dispam": True
+                        "quotamanager": False,
+                        "rules": False,
+                        "roles": False,
+                        "dispam": False
                     }
                 }
 

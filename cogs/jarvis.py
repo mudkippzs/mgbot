@@ -17,7 +17,8 @@ QUOTA_LIMIT = 50
 
 class Jarvis(commands.Cog):
     def __init__(self, client):
-        config = load_json_config("config.json")        
+        config = load_json_config("config.json")
+        self.api_key = config["jarvis_key"]    
         self.client = client
         self.prompt_history = {}
         self.message_memory = {}
@@ -53,7 +54,7 @@ class Jarvis(commands.Cog):
         write_json_config("config.json", config)
 
     def post_to_gpt3(self, payload):
-        openai.api_key = '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'
+        openai.api_key = self.api_key
         #formatted_payload = "\n".join(payload)
         return openai.Completion.create(
             model="text-davinci-002",
@@ -109,23 +110,7 @@ class Jarvis(commands.Cog):
             quotas = load_json_config("quotas.json")
             if str(message.author.id) not in quotas["jarvis"]:
                 quotas["jarvis"][str(message.author.id)] = QUOTA_LIMIT
-
-        #     if str(message.channel.id) not in self.message_memory:
-        #         self.message_memory[str(message.channel.id)] = []
-
-        #     member_list = [str({"uid": m.id, "name": m.display_name, "roles": ','.join([r.name for r in m.roles])}) for m in message.guild.members if m.status == discord.Status.online]
-
-        #     if str(message.id) not in self.message_memory[str(message.channel.id)]:
-        #         message_string = f"GUILD_ID <{message.guild.id}> MESSAGE_ID <{message.id}> CHANNEL_NAME <{message.channel.id}> MESSAGE_CREATED <{message.created_at}> AUTHOR <{message.author.display_name}> MESSAGE <{message.clean_content}>"
-        #         self.message_memory[str(message.channel.id)].append(message_string)
-
-        #     if len(self.message_memory) > 100:
-        #         self.message_memory = self.message_memory[:100]
-
-        #     message_memory_string = "Current Online Members\n\n" + "\n".join(member_list) + "\n\nMessage Log:\n\n" + "\n".join(self.message_memory[str(message.channel.id)])
-
-        #     message_memory_string = message_memory_string[:3000]
-
+        
             rolelist = [r.name for r in message.author.roles]
             role_lock = True
             for role in rolelist:
