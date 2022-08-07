@@ -1,6 +1,0 @@
-[autoganjlogs] [2022-07-26 @ 01:44:25] :: Cog loaded: cogs.tripwire
-[autoganjlogs] [2022-07-26 @ 01:44:25] :: Cog loaded: cogs.logging
-[autoganjlogs] [2022-07-26 @ 01:44:28] :: AutoGanj#4302 is online!
-[autoganjlogs] [2022-07-26 @ 01:44:29] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
-[autoganjlogs] [2022-07-26 @ 01:44:31] :: [💬general :: [1mgañjā#9046[0m [[33mEDIT[0m]> testa
-[autoganjlogs] [2022-07-26 @ 01:44:35] :: [💬general :: [1mgañjā#9046[0m [[31mDELETE[0m]> <RawMessageDeleteEvent message_id=1001288866822639736 channel_id=832999632610656290 guild_id=832999632028041226 cached_message=<Message id=1001288866822639736 channel=<TextChannel id=832999632610656290 name='💬general' position=23 nsfw=False category_id=832999632610656289 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick=None guild=<Guild id=832999632028041226 name='🌳🌳The Old Forest🌳🌳' shard_id=0 chunked=True member_count=5>> flags=<MessageFlags value=0>>>
