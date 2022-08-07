@@ -1,0 +1,49 @@
+[autoganjlogs] [2022-08-04 @ 16:12:42] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Basedtask
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Boostcog
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Dispam
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: ExportRoles
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Jarvis
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Logger
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Quotatask
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: RaidDefense
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: RoleManagement
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: RolesPerms
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Rules
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Serverlogs
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Tripwire
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: Userinfo
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: ------------------
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded: 14 cogs
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Connected to server: Middle Ground (Members: 116)...
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Connected to server: 🌳🌳The Old Forest🌳🌳 (Members: 5)...
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Connected to server: PillBox (Members: 6)...
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loading views...
+[autoganjlogs] [2022-08-04 @ 16:12:46] :: Loaded 3 invites from 3 servers.
+[autoganjlogs] [2022-08-04 @ 16:13:01] ::  🤖staff-bot-commands ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:13:01+00:00
+[autoganjlogs] [2022-08-04 @ 16:13:05] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &acquiretarget ImNotSteve
+[autoganjlogs] [2022-08-04 @ 16:13:05] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > ```Target: ImNotSteve#5260 scanned and locked.```
+[autoganjlogs] [2022-08-04 @ 16:13:06] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:13:06] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > ```Preparing countermeasures...```
+[autoganjlogs] [2022-08-04 @ 16:13:06] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:13:30] ::  🤖staff-bot-commands ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:13:30+00:00
+[autoganjlogs] [2022-08-04 @ 16:13:31] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &turnloose
+[autoganjlogs] [2022-08-04 @ 16:13:31] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7efd1c5ebca0>, <class 'discord.ext.commands.errors.MissingRequiredArgument'>: members is a required argument that is missing." ""
+[autoganjlogs] [2022-08-04 @ 16:13:31] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:13:42] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 16:13:51] ::  🤖staff-bot-commands ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:13:51+00:00
+[autoganjlogs] [2022-08-04 @ 16:13:54] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &turnloose ImNotSteve
+[autoganjlogs] [2022-08-04 @ 16:13:54] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7efd1c556a00>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: TypeError: object of type 'Member' has no len()" ""
+[autoganjlogs] [2022-08-04 @ 16:13:55] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:14:42] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 16:15:42] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 16:16:42] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 16:16:57] ::  🤖staff-bot-commands ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:16:57+00:00
+[autoganjlogs] [2022-08-04 @ 16:17:02] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &turnloose ImNotSteve
+[autoganjlogs] [2022-08-04 @ 16:17:02] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7efd1c5ed1f0>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: NameError: name 'member' is not defined" ""
+[autoganjlogs] [2022-08-04 @ 16:17:02] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:17:42] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 16:17:44] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &turnloose ImNotSteve
+[autoganjlogs] [2022-08-04 @ 16:17:44] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7efd1c5e8f40>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: NameError: name 'CHANNELS' is not defined" ""
+[autoganjlogs] [2022-08-04 @ 16:17:45] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 

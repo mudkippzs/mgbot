@@ -1,0 +1,52 @@
+[autoganjlogs] [2022-08-04 @ 14:34:25] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Basedtask
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Boostcog
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Dispam
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: ExportRoles
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Jarvis
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Logger
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Quotatask
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: RaidDefense
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: RoleManagement
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: RolesPerms
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Rules
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Serverlogs
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Tripwire
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: Userinfo
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: ------------------
+[autoganjlogs] [2022-08-04 @ 14:34:27] :: Loaded: 14 cogs
+[autoganjlogs] [2022-08-04 @ 14:34:28] :: Loaded 3 invites from 3 servers.
+[autoganjlogs] [2022-08-04 @ 14:34:40] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Location!
+[autoganjlogs] [2022-08-04 @ 14:34:40] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Server Alerts!
+[autoganjlogs] [2022-08-04 @ 14:34:41] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Favorite Pets!
+[autoganjlogs] [2022-08-04 @ 14:40:40] ::        🃏choose-roles ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 13:40:40+00:00
+[autoganjlogs] [2022-08-04 @ 14:40:41] ::         💩shitposting :: [1mIceBladeNetwork#0001[0m [[32mREACT ADD[0m]> 😌
+[autoganjlogs] [2022-08-04 @ 14:40:42] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004745699205857332 channel=<TextChannel id=1002643541257879662 name='🃏choose-roles' position=10 nsfw=False category_id=820096016602366002 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=116>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-08-04 @ 14:40:42] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > ?purge 100
+[autoganjlogs] [2022-08-04 @ 14:40:42] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:40:43] ::        🃏choose-roles :: [1m             Unknown[0m [[31mDELETED[0m]> Message ID: {1004744184814653600, 1004744182960767066, 1004745699205857332, 1004744181559853116}
+[autoganjlogs] [2022-08-04 @ 14:40:43] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:40:43] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:40:44] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:40:44] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:41:13] ::         💩shitposting :: [1mHexistential Crisis#0864[0m [[32mREACT ADD[0m]> dread
+[autoganjlogs] [2022-08-04 @ 14:41:24] ::             📜bot-log :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > ?purge 100
+[autoganjlogs] [2022-08-04 @ 14:41:25] ::             📜bot-log :: [1m             Unknown[0m [[31mDELETED[0m]> Message ID: {1004743799945302016, 1004745700237647913, 1004745876666851418, 1004743630633840740}
+[autoganjlogs] [2022-08-04 @ 14:41:25] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:41:25] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:42:36] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Location!
+[autoganjlogs] [2022-08-04 @ 14:42:37] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Server Alerts!
+[autoganjlogs] [2022-08-04 @ 14:42:37] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Favorite Pets!
+[autoganjlogs] [2022-08-04 @ 14:44:19] ::                 🔆irl :: [1mSuper Bi and Proud#3039[0m [[32mREACT ADD[0m]> ⭐
+[autoganjlogs] [2022-08-04 @ 14:44:20] ::                 🔆irl :: [1mSuper Bi and Proud#3039[0m [[32mREACT ADD[0m]> thistbh
+[autoganjlogs] [2022-08-04 @ 14:45:01] ::        🃏choose-roles ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 13:45:01+00:00
+[autoganjlogs] [2022-08-04 @ 14:45:01] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > ?purge 5
+[autoganjlogs] [2022-08-04 @ 14:45:02] ::        🃏choose-roles :: [1m             Unknown[0m [[31mDELETED[0m]> Message ID: {1004746787514503298, 1004746182133821491, 1004746180229615756, 1004746183962529903}
+[autoganjlogs] [2022-08-04 @ 14:45:02] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:45:02] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:45:02] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:45:03] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:45:04] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Location!
+[autoganjlogs] [2022-08-04 @ 14:45:05] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Server Alerts!
+[autoganjlogs] [2022-08-04 @ 14:45:05] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Favorite Pets!

@@ -1,0 +1,102 @@
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Tripwire
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Jarvis
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Serverlogs
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Rules
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Boostcog
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: ButtonRoleCog
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: ExportRoles
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Basedtask
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Userinfo
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Loaded: Logger
+[autoganjlogs] [2022-07-30 @ 12:09:23] :: Error handling "on_ready" with "" ""
+[autoganjlogs] [2022-07-30 @ 12:09:24] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &roles
+[autoganjlogs] [2022-07-30 @ 12:09:24] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:09:24] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f208e2a8730>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: ValueError: could not find open space for item" ""
+[autoganjlogs] [2022-07-30 @ 12:09:24] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002895685043109959 channel=<TextChannel id=1002884287261065287 name='📜bot-log' position=101 nsfw=False category_id=822863122310103081 news=False> type=<MessageType.default: 0> author=<Member id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:09:24] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:09:24] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:15:45] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002897281986613299 channel=<TextChannel id=823656840701149194 name='🤖staff-bot-commands' position=11 nsfw=False category_id=820077049036406806 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:15:45] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f208d233dc0>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: ValueError: could not find open space for item" ""
+[autoganjlogs] [2022-07-30 @ 12:15:45] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:15:45] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:18:52] :: Error handling "on_member_join" with "<class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:18:52] :: Error handling "on_member_join" with "<class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:18:52] ::     📜server-activity :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Home#7994[0m > 
+[autoganjlogs] [2022-07-30 @ 12:18:52] ::      📜join-leave-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 12:18:52] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:18:53] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:02] ::               📖rules :: [1m           Home#7994[0m [[32mREACT ADD[0m]> ✅
+[autoganjlogs] [2022-07-30 @ 12:19:03] :: Error handling "on_member_update" with "<class 'discord.member.Member'>: Home#7994, <class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:19:03] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:03] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:05] ::               📖rules :: [1m           Home#7994[0m [[31mREACT REMOVE[0m]> ✅
+[autoganjlogs] [2022-07-30 @ 12:19:05] :: Error handling "on_member_update" with "<class 'discord.member.Member'>: Home#7994, <class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:19:05] :: Error handling "on_member_update" with "<class 'discord.member.Member'>: Home#7994, <class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:19:06] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:06] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002898124685185075 channel=<TextChannel id=1002884287261065287 name='📜bot-log' position=101 nsfw=False category_id=822863122310103081 news=False> type=<MessageType.default: 0> author=<Member id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:19:06] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:06] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002898127122071552 channel=<TextChannel id=1002884287261065287 name='📜bot-log' position=101 nsfw=False category_id=822863122310103081 news=False> type=<MessageType.default: 0> author=<Member id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:19:06] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:06] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:07] ::               📖rules :: [1m           Home#7994[0m [[32mREACT ADD[0m]> ✅
+[autoganjlogs] [2022-07-30 @ 12:19:07] :: Error handling "on_member_update" with "<class 'discord.member.Member'>: Home#7994, <class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:19:08] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:08] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:40] :: Error handling "on_member_remove" with "<class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:19:40] :: Error handling "on_member_remove" with "<class 'discord.member.Member'>: Home#7994" ""
+[autoganjlogs] [2022-07-30 @ 12:19:40] ::      📜join-leave-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:40] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:19:41] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:20:00] ::                 🔆irl :: [[95mSTARTED TYPING[0m]> [1m      gitmo joe#4193[0m @ 2022-07-30 11:20:00+00:00
+[autoganjlogs] [2022-07-30 @ 12:20:10] ::                 🔆irl :: [[95mSTARTED TYPING[0m]> [1m      gitmo joe#4193[0m @ 2022-07-30 11:20:10+00:00
+[autoganjlogs] [2022-07-30 @ 12:20:11] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      gitmo joe#4193[0m > Successfully testing below 100ng/ml cotinine
+[autoganjlogs] [2022-07-30 @ 12:20:18] ::                 🔆irl :: [[95mSTARTED TYPING[0m]> [1m      gitmo joe#4193[0m @ 2022-07-30 11:20:17+00:00
+[autoganjlogs] [2022-07-30 @ 12:20:23] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      gitmo joe#4193[0m > I have "ceased smoking"
+[autoganjlogs] [2022-07-30 @ 12:20:49] ::                 🔆irl :: [1m          gañjā#9046[0m [[32mREACT ADD[0m]> based
+[autoganjlogs] [2022-07-30 @ 12:20:50] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:20:50] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 12:21:48] ::                 🔆irl :: [[95mSTARTED TYPING[0m]> [1m      gitmo joe#4193[0m @ 2022-07-30 11:21:48+00:00
+[autoganjlogs] [2022-07-30 @ 12:21:58] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      gitmo joe#4193[0m > I have some 10ng/ml tests coming in the mail
+[autoganjlogs] [2022-07-30 @ 12:21:58] ::                 🔆irl :: [[95mSTARTED TYPING[0m]> [1m      gitmo joe#4193[0m @ 2022-07-30 11:21:58+00:00
+[autoganjlogs] [2022-07-30 @ 12:22:04] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      gitmo joe#4193[0m > No way the surgeons test below that
+[autoganjlogs] [2022-07-30 @ 12:25:51] :: Unbased now...
+[autoganjlogs] [2022-07-30 @ 12:25:51] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 12:25:51] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:31:00] ::             📜bot-log ::        [[95mSTARTED TYPING[0m]> [1m          gañjā#9046[0m @ 2022-07-30 11:31:00+00:00
+[autoganjlogs] [2022-07-30 @ 12:31:20] ::             📜bot-log ::                            [[95mSTARTED TYPING[0m]> [1m          gañjā#9046[0m @ 2022-07-30 11:31:20+00:00
+[autoganjlogs] [2022-07-30 @ 12:31:30] ::             📜bot-log ::                  [[95mSTARTED TYPING[0m]> [1m          gañjā#9046[0m @ 2022-07-30 11:31:30+00:00
+[autoganjlogs] [2022-07-30 @ 12:31:45] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > test
+[autoganjlogs] [2022-07-30 @ 12:31:45] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > test
+[autoganjlogs] [2022-07-30 @ 12:31:46] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:46] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:46] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:47] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:47] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002901318458933258 channel=<TextChannel id=823656840701149194 name='🤖staff-bot-commands' position=11 nsfw=False category_id=820077049036406806 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:31:47] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:48] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:31:48] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002901321566924861 channel=<TextChannel id=823656840701149194 name='🤖staff-bot-commands' position=11 nsfw=False category_id=820077049036406806 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:31:48] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:48] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:48] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:31:48] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > st
+[autoganjlogs] [2022-07-30 @ 12:31:55] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > dfsgdsfg
+[autoganjlogs] [2022-07-30 @ 12:31:55] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002901352881594449 channel=<TextChannel id=823656840701149194 name='🤖staff-bot-commands' position=11 nsfw=False category_id=820077049036406806 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:31:55] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002901352881594449 channel=<TextChannel id=823656840701149194 name='🤖staff-bot-commands' position=11 nsfw=False category_id=820077049036406806 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:31:55] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002901352881594449 channel=<TextChannel id=823656840701149194 name='🤖staff-bot-commands' position=11 nsfw=False category_id=820077049036406806 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 12:31:55] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:31:56] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > sdf
+[autoganjlogs] [2022-07-30 @ 12:31:56] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:31:56] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > gsdf
+[autoganjlogs] [2022-07-30 @ 12:31:56] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 12:31:56] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > gds
+[autoganjlogs] [2022-07-30 @ 12:31:57] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > fg
+[autoganjlogs] [2022-07-30 @ 12:31:57] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > dsfgdfg
+[autoganjlogs] [2022-07-30 @ 12:34:21] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [1m      tomacatx1#0199[0m @ 2022-07-30 11:34:21+00:00
+[autoganjlogs] [2022-07-30 @ 12:34:29] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [1m      tomacatx1#0199[0m @ 2022-07-30 11:34:29+00:00
+[autoganjlogs] [2022-07-30 @ 12:34:38] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [1m      tomacatx1#0199[0m @ 2022-07-30 11:34:38+00:00
+[autoganjlogs] [2022-07-30 @ 12:34:42] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      tomacatx1#0199[0m > why are you only asking for wives, maybe there are some strong and independent males among us who can bake, have you thought of that, huh?
+[autoganjlogs] [2022-07-30 @ 12:35:19] ::                 🔆irl :: [1m      gitmo joe#4193[0m [[32mREACT ADD[0m]> ⭐
+[autoganjlogs] [2022-07-30 @ 12:35:25] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [1m      gitmo joe#4193[0m @ 2022-07-30 11:35:25+00:00
+[autoganjlogs] [2022-07-30 @ 12:35:31] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      gitmo joe#4193[0m > We know why she's asking for wives ;)
+[autoganjlogs] [2022-07-30 @ 12:37:33] :: /home/dev/Code/autoganj

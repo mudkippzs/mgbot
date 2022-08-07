@@ -1,0 +1,6 @@
+[autoganjlogs] [2022-07-25 @ 12:13:22] :: Cog loaded: cogs.tripwire
+[autoganjlogs] [2022-07-25 @ 12:13:25] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-25 @ 12:20:56] :: Regex: ^(?=.*(hello))(?=.*(world)).*$ - String: hello world
+[autoganjlogs] [2022-07-25 @ 12:20:56] :: Regex: ^(?=.*(hey)).*$ - String: hello world
+[autoganjlogs] [2022-07-25 @ 12:22:04] :: [Not Matched] Regex: ^(?=.*(hello))(?=.*(world)).*$ - String: hello world
+[autoganjlogs] [2022-07-25 @ 12:22:04] :: [Not Matched] Regex: ^(?=.*(hey)).*$ - String: hello world

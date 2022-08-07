@@ -1,0 +1,31 @@
+[autoganjlogs] [2022-07-26 @ 21:27:32] :: Cog loaded: cogs.tripwire
+[autoganjlogs] [2022-07-26 @ 21:27:33] :: Cog loaded: cogs.jarvis
+[autoganjlogs] [2022-07-26 @ 21:27:33] :: Cog loaded: cogs.export_roles
+[autoganjlogs] [2022-07-26 @ 21:27:33] :: Cog loaded: cogs.userdata
+[autoganjlogs] [2022-07-26 @ 21:27:33] :: Cog loaded: cogs.logging
+[autoganjlogs] [2022-07-26 @ 21:27:35] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-26 @ 21:27:38] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:27:38+00:00
+[autoganjlogs] [2022-07-26 @ 21:27:40] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &activatejarvis
+[autoganjlogs] [2022-07-26 @ 21:28:08] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:28:07+00:00
+[autoganjlogs] [2022-07-26 @ 21:28:09] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &activatejarvis
+[autoganjlogs] [2022-07-26 @ 21:28:24] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:28:24+00:00
+[autoganjlogs] [2022-07-26 @ 21:28:24] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &activate
+[autoganjlogs] [2022-07-26 @ 21:28:29] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:28:29+00:00
+[autoganjlogs] [2022-07-26 @ 21:28:35] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &activatejarvis
+[autoganjlogs] [2022-07-26 @ 21:28:36] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> How are you today?
+
+Example:
+
+User: Hello, Jarvis! How are you today?
+
+JARVIS: Hello, Sir! I am doing well, thank you for asking.
+
+User: What is the weather like today?
+
+JARVIS: It is currently raining, Sir.
+
+User: What is the weather like tomorrow?
+
+JARVIS: It is currently raining, Sir.
+
+User: What is the weather like in

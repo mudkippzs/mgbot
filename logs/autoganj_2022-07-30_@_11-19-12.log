@@ -1,0 +1,106 @@
+[autoganjlogs] [2022-07-30 @ 11:19:13] :: Error in on_connect
+[autoganjlogs] [2022-07-30 @ 11:19:13] :: ()
+[autoganjlogs] [2022-07-30 @ 11:19:13] :: {}
+[autoganjlogs] [2022-07-30 @ 11:19:14] ::         💩shitposting :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1mIceBladeNetwork#0001[0m > Sounds like projection bud
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Tripwire
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Jarvis
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Serverlogs
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Rules
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Boostcog
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: ButtonRoleCog
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: ExportRoles
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Basedtask
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Userinfo
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Loaded: Logger
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: Error in on_ready
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: ()
+[autoganjlogs] [2022-07-30 @ 11:19:15] :: {}
+[autoganjlogs] [2022-07-30 @ 11:19:38] :: Error in on_member_update
+[autoganjlogs] [2022-07-30 @ 11:19:38] :: (<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=92>>, <Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=92>>)
+[autoganjlogs] [2022-07-30 @ 11:19:38] :: {}
+[autoganjlogs] [2022-07-30 @ 11:19:38] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 11:19:38] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:19:38+00:00
+[autoganjlogs] [2022-07-30 @ 11:20:18] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:20:18+00:00
+[autoganjlogs] [2022-07-30 @ 11:20:28] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:20:28+00:00
+[autoganjlogs] [2022-07-30 @ 11:20:41] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:20:41+00:00
+[autoganjlogs] [2022-07-30 @ 11:20:51] :: Error in on_member_join
+[autoganjlogs] [2022-07-30 @ 11:20:51] :: (<Member id=418222766014332929 name='Yamie' discriminator='5989' bot=False nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>>,)
+[autoganjlogs] [2022-07-30 @ 11:20:51] :: {}
+[autoganjlogs] [2022-07-30 @ 11:20:51] :: Error in on_member_join
+[autoganjlogs] [2022-07-30 @ 11:20:51] :: (<Member id=418222766014332929 name='Yamie' discriminator='5989' bot=False nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>>,)
+[autoganjlogs] [2022-07-30 @ 11:20:51] :: {}
+[autoganjlogs] [2022-07-30 @ 11:20:51] ::      📜join-leave-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 11:20:51] ::     📜server-activity :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          Yamie#5989[0m > 
+[autoganjlogs] [2022-07-30 @ 11:20:51] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:20:51+00:00
+[autoganjlogs] [2022-07-30 @ 11:21:01] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:21:01+00:00
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: Error in on_message
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: (<Message id=1002883532399595550 channel=<TextChannel id=820097984024018944 name='💩shitposting' position=26 nsfw=True category_id=820096462695694336 news=False> type=<MessageType.default: 0> author=<Member id=301790800252239872 name='Hexistential Crisis' discriminator='0864' bot=False nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>,)
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: {}
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: Error in on_message
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: (<Message id=1002883532399595550 channel=<TextChannel id=820097984024018944 name='💩shitposting' position=26 nsfw=True category_id=820096462695694336 news=False> type=<MessageType.default: 0> author=<Member id=301790800252239872 name='Hexistential Crisis' discriminator='0864' bot=False nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>,)
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: {}
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: Error in on_message
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: (<Message id=1002883532399595550 channel=<TextChannel id=820097984024018944 name='💩shitposting' position=26 nsfw=True category_id=820096462695694336 news=False> type=<MessageType.default: 0> author=<Member id=301790800252239872 name='Hexistential Crisis' discriminator='0864' bot=False nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>,)
+[autoganjlogs] [2022-07-30 @ 11:21:07] :: {}
+[autoganjlogs] [2022-07-30 @ 11:21:31] ::         💩shitposting :: [1mHexistential Crisis#0864[0m [[32mREACT ADD[0m]> cringe
+[autoganjlogs] [2022-07-30 @ 11:21:31] :: Error in on_member_update
+[autoganjlogs] [2022-07-30 @ 11:21:31] :: (<Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>>, <Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>>)
+[autoganjlogs] [2022-07-30 @ 11:21:31] :: {}
+[autoganjlogs] [2022-07-30 @ 11:21:31] :: Error in on_member_update
+[autoganjlogs] [2022-07-30 @ 11:21:31] :: (<Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>>, <Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>>)
+[autoganjlogs] [2022-07-30 @ 11:21:31] :: {}
+[autoganjlogs] [2022-07-30 @ 11:21:48] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-30 10:21:48+00:00
+[autoganjlogs] [2022-07-30 @ 11:21:58] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-30 10:21:58+00:00
+[autoganjlogs] [2022-07-30 @ 11:22:08] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-30 10:22:08+00:00
+[autoganjlogs] [2022-07-30 @ 11:22:17] ::         💩shitposting :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1mIceBladeNetwork#0001[0m > Pretty transphobia to assume all transfolk support that <a:jiggly_pensive:714989821742940211>
+[autoganjlogs] [2022-07-30 @ 11:22:19] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-30 10:22:19+00:00
+[autoganjlogs] [2022-07-30 @ 11:22:23] ::         💩shitposting :: [1mIceBladeNetwork#0001[0m [[33mEDITED[0m]> Pretty transphobic to assume all transfolk support that <a:jiggly_pensive:714989821742940211>
+[autoganjlogs] [2022-07-30 @ 11:22:23] :: Error in on_message_edit
+[autoganjlogs] [2022-07-30 @ 11:22:23] :: (<Message id=1002883826776809522 channel=<TextChannel id=820097984024018944 name='💩shitposting' position=26 nsfw=True category_id=820096462695694336 news=False> type=<MessageType.default: 0> author=<Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>, <Message id=1002883826776809522 channel=<TextChannel id=820097984024018944 name='💩shitposting' position=26 nsfw=True category_id=820096462695694336 news=False> type=<MessageType.default: 0> author=<Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=93>> flags=<MessageFlags value=0>>)
+[autoganjlogs] [2022-07-30 @ 11:22:23] :: {}
+[autoganjlogs] [2022-07-30 @ 11:22:23] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 11:22:27] ::         💩shitposting :: [1mIceBladeNetwork#0001[0m [[32mREACT ADD[0m]> cringe
+[autoganjlogs] [2022-07-30 @ 11:22:28] ::         💩shitposting :: [1mIceBladeNetwork#0001[0m [[31mREACT REMOVE[0m]> cringe
+[autoganjlogs] [2022-07-30 @ 11:22:33] :: Error in on_member_join
+[autoganjlogs] [2022-07-30 @ 11:22:33] :: (<Member id=108162987101052928 name='Simpa' discriminator='0001' bot=False nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>>,)
+[autoganjlogs] [2022-07-30 @ 11:22:33] :: {}
+[autoganjlogs] [2022-07-30 @ 11:22:33] :: Error in on_member_join
+[autoganjlogs] [2022-07-30 @ 11:22:33] :: (<Member id=108162987101052928 name='Simpa' discriminator='0001' bot=False nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>>,)
+[autoganjlogs] [2022-07-30 @ 11:22:33] :: {}
+[autoganjlogs] [2022-07-30 @ 11:22:34] ::     📜server-activity :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          Simpa#0001[0m > 
+[autoganjlogs] [2022-07-30 @ 11:22:35] ::      📜join-leave-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 11:22:37] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:22:37+00:00
+[autoganjlogs] [2022-07-30 @ 11:22:45] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:22:45+00:00
+[autoganjlogs] [2022-07-30 @ 11:22:47] ::         💩shitposting :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1mHexistential Crisis#0864[0m > then call me transphobe.
+[autoganjlogs] [2022-07-30 @ 11:22:47] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-30 10:22:47+00:00
+[autoganjlogs] [2022-07-30 @ 11:22:59] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-30 10:22:59+00:00
+[autoganjlogs] [2022-07-30 @ 11:23:33] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:23:33+00:00
+[autoganjlogs] [2022-07-30 @ 11:23:41] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:23:41+00:00
+[autoganjlogs] [2022-07-30 @ 11:23:50] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:23:49+00:00
+[autoganjlogs] [2022-07-30 @ 11:24:06] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:24:06+00:00
+[autoganjlogs] [2022-07-30 @ 11:24:06] :: Error in on_guild_channel_create
+[autoganjlogs] [2022-07-30 @ 11:24:06] :: (<TextChannel id=1002884287261065287 name='📜bot-log' position=101 nsfw=False category_id=822863122310103081 news=False>,)
+[autoganjlogs] [2022-07-30 @ 11:24:06] :: {}
+[autoganjlogs] [2022-07-30 @ 11:24:06] :: Error in on_guild_channel_create
+[autoganjlogs] [2022-07-30 @ 11:24:06] :: (<TextChannel id=1002884287261065287 name='📜bot-log' position=101 nsfw=False category_id=822863122310103081 news=False>,)
+[autoganjlogs] [2022-07-30 @ 11:24:06] :: {}
+[autoganjlogs] [2022-07-30 @ 11:24:07] ::         📜channel-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 11:24:19] ::         💩shitposting :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1mHexistential Crisis#0864[0m > if you don't support it then why aren't you out there calling it out like the rest of the world?
+[autoganjlogs] [2022-07-30 @ 11:24:22] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:24:22+00:00
+[autoganjlogs] [2022-07-30 @ 11:24:30] ::         💩shitposting :: [[95mSTARTED TYPING[0m]> [1mHexistential Crisis#0864[0m @ 2022-07-30 10:24:30+00:00
+[autoganjlogs] [2022-07-30 @ 11:24:39] ::         💩shitposting :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1mHexistential Crisis#0864[0m > sounds a lot like a not in my backyard mentality.
+[autoganjlogs] [2022-07-30 @ 11:25:23] ::         📺media-links :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > https://open.spotify.com/track/4ECNtOnqzxutZkXP4TE3n3?si=5beb000d545147e7
+[autoganjlogs] [2022-07-30 @ 11:25:24] ::         📺media-links :: [1m             Unknown[0m [[33mEDITED[0m]> Message ID: 1002884608200822855
+[autoganjlogs] [2022-07-30 @ 11:25:24] :: Error in on_message_edit
+[autoganjlogs] [2022-07-30 @ 11:25:24] :: (<Message id=1002884608200822855 channel=<TextChannel id=820098301050880080 name='📺media-links' position=29 nsfw=False category_id=820096462695694336 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>> flags=<MessageFlags value=0>>, <Message id=1002884608200822855 channel=<TextChannel id=820098301050880080 name='📺media-links' position=29 nsfw=False category_id=820096462695694336 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick='Ganj' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>> flags=<MessageFlags value=0>>)
+[autoganjlogs] [2022-07-30 @ 11:25:24] :: {}
+[autoganjlogs] [2022-07-30 @ 11:25:25] ::         📺media-links :: [[95mSTARTED TYPING[0m]> [1m          gañjā#9046[0m @ 2022-07-30 10:25:25+00:00
+[autoganjlogs] [2022-07-30 @ 11:25:32] ::         📺media-links :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > <@433097995832000513> i hear you're a man of dad rock too
+[autoganjlogs] [2022-07-30 @ 11:26:13] :: Error in on_guild_update
+[autoganjlogs] [2022-07-30 @ 11:26:13] :: (<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>, <Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>)
+[autoganjlogs] [2022-07-30 @ 11:26:13] :: {}
+[autoganjlogs] [2022-07-30 @ 11:26:40] :: Error in on_member_update
+[autoganjlogs] [2022-07-30 @ 11:26:40] :: (<Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>>, <Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>>)
+[autoganjlogs] [2022-07-30 @ 11:26:40] :: {}
+[autoganjlogs] [2022-07-30 @ 11:26:40] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 

@@ -1,0 +1,14 @@
+[autoganjlogs] [2022-07-26 @ 01:46:07] :: Cog loaded: cogs.tripwire
+[autoganjlogs] [2022-07-26 @ 01:46:07] :: Cog loaded: cogs.logging
+[autoganjlogs] [2022-07-26 @ 01:46:10] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-26 @ 01:46:11] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
+[autoganjlogs] [2022-07-26 @ 01:46:14] :: [💬general :: [1mgañjā#9046[0m [[33mEDIT[0m]> testa
+[autoganjlogs] [2022-07-26 @ 01:46:38] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
+[autoganjlogs] [2022-07-26 @ 01:46:41] :: [💬general :: [1mgañjā#9046[0m [[31mDELETE[0m]> <Message id=1001289409091620864 channel=<TextChannel id=832999632610656290 name='💬general' position=23 nsfw=False category_id=832999632610656289 news=False> type=<MessageType.default: 0> author=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick=None guild=<Guild id=832999632028041226 name='🌳🌳The Old Forest🌳🌳' shard_id=0 chunked=True member_count=5>> flags=<MessageFlags value=0>>
+[autoganjlogs] [2022-07-26 @ 01:46:59] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
+[autoganjlogs] [2022-07-26 @ 01:47:20] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
+[autoganjlogs] [2022-07-26 @ 01:47:23] :: [💬general :: [1mgañjā#9046[0m [[31mDELETE[0m]> test
+[autoganjlogs] [2022-07-26 @ 01:47:48] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
+[autoganjlogs] [2022-07-26 @ 01:47:53] :: [💬general :: [1mgañjā#9046[0m [[32mREACT ADD[0m]> <RawReactionActionEvent message_id=1001289705037516810 user_id=218521566412013568 channel_id=832999632610656290 guild_id=832999632028041226 emoji=<PartialEmoji animated=False name='pepeclown' id=824318463349620807> event_type='REACTION_ADD' member=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick=None guild=<Guild id=832999632028041226 name='🌳🌳The Old Forest🌳🌳' shard_id=0 chunked=True member_count=5>>>
+[autoganjlogs] [2022-07-26 @ 01:48:31] :: [💬general :: [1mgañjā#9046[0m [[31mREACT REMOVE[0m]> pepeclown
+[autoganjlogs] [2022-07-26 @ 01:48:36] :: [💬general :: [1mgañjā#9046[0m [[32mREACT ADD[0m]> estare

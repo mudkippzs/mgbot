@@ -1,0 +1,62 @@
+[autoganjlogs] [2022-08-04 @ 14:56:29] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Basedtask
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Boostcog
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Dispam
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: ExportRoles
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Jarvis
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Logger
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Quotatask
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: RaidDefense
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: RoleManagement
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: RolesPerms
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Rules
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Serverlogs
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Tripwire
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: Userinfo
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: ------------------
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Loaded: 14 cogs
+[autoganjlogs] [2022-08-04 @ 14:56:32] :: Connected to server: Middle Ground (Members: 116)...
+[autoganjlogs] [2022-08-04 @ 14:56:33] :: Connected to server: 🌳🌳The Old Forest🌳🌳 (Members: 5)...
+[autoganjlogs] [2022-08-04 @ 14:56:33] :: Connected to server: PillBox (Members: 6)...
+[autoganjlogs] [2022-08-04 @ 14:56:33] :: Loading views...
+[autoganjlogs] [2022-08-04 @ 14:56:33] :: Loaded 3 invites from 3 servers.
+[autoganjlogs] [2022-08-04 @ 14:56:37] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:37] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749706917843064 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:37] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749706917843064 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:37] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749706917843064 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:37] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:38] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:38] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:38] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:52] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749770050506853 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:52] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749770050506853 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:52] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749770050506853 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:52] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:52] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:53] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749772080554024 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:53] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749772080554024 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:53] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749772080554024 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:56:53] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:53] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:53] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:53] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:53] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:54] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:54] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:56:58] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:37] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749959431725126 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:57:37] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749959431725126 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:57:37] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749959431725126 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:57:37] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:38] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:38] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749961625346078 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:57:38] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749961625346078 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:57:38] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1004749961625346078 channel=<DMChannel id=1002643541257879662 recipient=None> type=<MessageType.reply: 19> author=<User id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True> flags=<MessageFlags value=64>>" ""
+[autoganjlogs] [2022-08-04 @ 14:57:38] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:38] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:38] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:41] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:42] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:43] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:57:44] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 

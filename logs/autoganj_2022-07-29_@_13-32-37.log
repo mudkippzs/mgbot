@@ -1,0 +1,41 @@
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.tripwire
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.jarvis
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.boostcog
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.export_roles
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.basedtask
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.userdata
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.help
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.emgee
+[autoganjlogs] [2022-07-29 @ 13:32:37] :: Cog loaded: cogs.logging
+[autoganjlogs] [2022-07-29 @ 13:32:40] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-29 @ 13:32:41] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &ajsklfjsdgl;kjsdjfg
+[autoganjlogs] [2022-07-29 @ 13:32:41] :: Error: Command not found: Command "ajsklfjsdgl;kjsdjfg" is not found
+[autoganjlogs] [2022-07-29 @ 13:33:22] ::  🤖staff-bot-commands :: [[95mSTARTED TYPING[0m]> [1m          gañjā#9046[0m @ 2022-07-29 12:33:21+00:00
+[autoganjlogs] [2022-07-29 @ 13:33:25] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &export_roles
+[autoganjlogs] [2022-07-29 @ 13:33:25] :: Error in on_command_error
+[autoganjlogs] [2022-07-29 @ 13:33:25] :: (<discord.ext.commands.context.Context object at 0x7fc861edf7f0>, CommandInvokeError("Command raised an exception: NameError: name 'd' is not defined"))
+[autoganjlogs] [2022-07-29 @ 13:33:25] :: {}
+[autoganjlogs] [2022-07-29 @ 13:33:41] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-29 12:33:41+00:00
+[autoganjlogs] [2022-07-29 @ 13:33:52] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-29 12:33:52+00:00
+[autoganjlogs] [2022-07-29 @ 13:34:02] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1mIceBladeNetwork#0001[0m @ 2022-07-29 12:34:02+00:00
+[autoganjlogs] [2022-07-29 @ 13:34:04] ::       🦸anime-discuss :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1mIceBladeNetwork#0001[0m > Mfw dommy mommy has been a lie the whole time.
+[autoganjlogs] [2022-07-29 @ 13:34:38] ::               📖rules :: [1mIceBladeNetwork#0001[0m [[32mREACT ADD[0m]> pepethumbsup
+[autoganjlogs] [2022-07-29 @ 13:34:38] :: A user has already reacted to this message!
+[autoganjlogs] [2022-07-29 @ 13:34:38] ::               📖rules :: [1mIceBladeNetwork#0001[0m [[32mREACT ADD[0m]> 🥴
+[autoganjlogs] [2022-07-29 @ 13:34:39] :: A user has already reacted to this message!
+[autoganjlogs] [2022-07-29 @ 13:35:27] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:35:26+00:00
+[autoganjlogs] [2022-07-29 @ 13:35:28] ::       🦸anime-discuss :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          Liddy#6481[0m > Always has been.
+[autoganjlogs] [2022-07-29 @ 13:36:03] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &emgee
+[autoganjlogs] [2022-07-29 @ 13:36:03] :: Error: Command not found: Command "emgee" is not found
+[autoganjlogs] [2022-07-29 @ 13:36:21] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:36:21+00:00
+[autoganjlogs] [2022-07-29 @ 13:36:29] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:36:29+00:00
+[autoganjlogs] [2022-07-29 @ 13:36:39] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:36:38+00:00
+[autoganjlogs] [2022-07-29 @ 13:36:46] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:36:46+00:00
+[autoganjlogs] [2022-07-29 @ 13:36:56] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:36:56+00:00
+[autoganjlogs] [2022-07-29 @ 13:37:07] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:37:06+00:00
+[autoganjlogs] [2022-07-29 @ 13:37:17] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:37:17+00:00
+[autoganjlogs] [2022-07-29 @ 13:37:25] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:37:25+00:00
+[autoganjlogs] [2022-07-29 @ 13:37:35] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:37:35+00:00
+[autoganjlogs] [2022-07-29 @ 13:37:43] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:37:43+00:00
+[autoganjlogs] [2022-07-29 @ 13:37:52] ::       🦸anime-discuss :: [[95mSTARTED TYPING[0m]> [1m          Liddy#6481[0m @ 2022-07-29 12:37:51+00:00
+[autoganjlogs] [2022-07-29 @ 13:37:58] ::       🦸anime-discuss :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          Liddy#6481[0m > Might have the body for it, but the brain chemistry is generally the deciding factor, and the vast majority of women are submissive, consciously or unconsciously.

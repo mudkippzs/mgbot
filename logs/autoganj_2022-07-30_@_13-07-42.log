@@ -1,0 +1,50 @@
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Tripwire
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Jarvis
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Serverlogs
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Rules
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Boostcog
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: ButtonRoleCog
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: ExportRoles
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Basedtask
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Userinfo
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Loaded: Logger
+[autoganjlogs] [2022-07-30 @ 13:07:46] :: Error handling "on_ready" with "" ""
+[autoganjlogs] [2022-07-30 @ 13:07:46] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:07:47] ::  🤖staff-bot-commands ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-07-30 12:07:47+00:00
+[autoganjlogs] [2022-07-30 @ 13:07:48] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &roles
+[autoganjlogs] [2022-07-30 @ 13:07:48] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f69c0562c10>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: NameError: free variable 'role' referenced before assignment in enclosing scope" ""
+[autoganjlogs] [2022-07-30 @ 13:07:48] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:08:10] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &roles
+[autoganjlogs] [2022-07-30 @ 13:08:10] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f69c0e39eb0>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: AttributeError: 'Context' object has no attribute 'respond'" ""
+[autoganjlogs] [2022-07-30 @ 13:08:11] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:08:21] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &roles
+[autoganjlogs] [2022-07-30 @ 13:08:21] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Click a button to assign yourself a role
+[autoganjlogs] [2022-07-30 @ 13:09:24] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1mIceBladeNetwork#0001[0m @ 2022-07-30 12:09:23+00:00
+[autoganjlogs] [2022-07-30 @ 13:09:34] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1mIceBladeNetwork#0001[0m @ 2022-07-30 12:09:34+00:00
+[autoganjlogs] [2022-07-30 @ 13:09:44] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1mIceBladeNetwork#0001[0m @ 2022-07-30 12:09:44+00:00
+[autoganjlogs] [2022-07-30 @ 13:09:54] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1mIceBladeNetwork#0001[0m @ 2022-07-30 12:09:54+00:00
+[autoganjlogs] [2022-07-30 @ 13:10:04] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1mIceBladeNetwork#0001[0m @ 2022-07-30 12:10:04+00:00
+[autoganjlogs] [2022-07-30 @ 13:10:26] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1mIceBladeNetwork#0001[0m @ 2022-07-30 12:10:26+00:00
+[autoganjlogs] [2022-07-30 @ 13:10:27] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002911049844006983 channel=<TextChannel id=820097812506869780 name='💬general' position=19 nsfw=True category_id=820095883454185483 news=False> type=<MessageType.default: 0> author=<Member id=90967046837239808 name='IceBladeNetwork' discriminator='0001' bot=False nick='IceTransNetwork' guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 13:10:27] ::             💬general :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1mIceBladeNetwork#0001[0m > My CEL, oil and batter lights were on and it freaked me out for a sec until I realized it's because I haven't turned the car on all the way yet. <:trolled:825791083556372480>
+[autoganjlogs] [2022-07-30 @ 13:10:27] :: Error handling "on_message" with "<class 'discord.message.Message'>: <Message id=1002911051332984974 channel=<TextChannel id=1002884287261065287 name='📜bot-log' position=101 nsfw=False category_id=822863122310103081 news=False> type=<MessageType.default: 0> author=<Member id=1001059281057107999 name='AutoGanj' discriminator='4302' bot=True nick=None guild=<Guild id=820077049036406805 name='Middle Ground' shard_id=0 chunked=True member_count=94>> flags=<MessageFlags value=0>>" ""
+[autoganjlogs] [2022-07-30 @ 13:10:27] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:10:28] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:10:32] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1mIceBladeNetwork#0001[0m @ 2022-07-30 12:10:32+00:00
+[autoganjlogs] [2022-07-30 @ 13:10:40] ::             💬general :: [1mIceBladeNetwork#0001[0m [[33mEDITED[0m]> My CE, oil and battery lights were on and it freaked me out for a sec until I realized it's because I haven't turned the car on all the way yet. <:trolled:825791083556372480>
+[autoganjlogs] [2022-07-30 @ 13:10:40] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:10:40] ::         📜message-log :: [1m             Unknown[0m [[33mEDITED[0m]> Message ID: 1002911104743243816
+[autoganjlogs] [2022-07-30 @ 13:10:43] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 13:11:19] :: Error handling "on_member_join" with "<class 'discord.member.Member'>: de1ux#6261" ""
+[autoganjlogs] [2022-07-30 @ 13:11:20] ::      📜join-leave-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 13:11:20] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:11:20] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:11:20] ::     📜server-activity :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          de1ux#6261[0m > 
+[autoganjlogs] [2022-07-30 @ 13:11:20] ::          📜member-log :: [1m             Unknown[0m [[33mEDITED[0m]> Message ID: 1002911270732841040
+[autoganjlogs] [2022-07-30 @ 13:12:11] ::               📖rules :: [1m          de1ux#6261[0m [[32mREACT ADD[0m]> ✅
+[autoganjlogs] [2022-07-30 @ 13:12:12] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m           Dyno#0000[0m > 
+[autoganjlogs] [2022-07-30 @ 13:12:12] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-07-30 @ 13:12:38] ::  🤖staff-bot-commands :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &roles
+[autoganjlogs] [2022-07-30 @ 13:12:38] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f69c04e8820>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: AttributeError: 'Context' object has no attribute 'respond'" ""
+[autoganjlogs] [2022-07-30 @ 13:12:38] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 

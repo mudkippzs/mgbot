@@ -1,0 +1,38 @@
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Basedtask
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Boostcog
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Dispam
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: ExportRoles
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Jarvis
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Logger
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Quotatask
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: RaidDefense
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: RoleManagement
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Rules
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Serverlogs
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Tripwire
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: Userinfo
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: ------------------
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded: 13 cogs
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Connected to server: Middle Ground (Members: 114)...
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Connected to server: 🌳🌳The Old Forest🌳🌳 (Members: 5)...
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Connected to server: PillBox (Members: 6)...
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loading views...
+[autoganjlogs] [2022-08-04 @ 21:15:40] :: Loaded 3 invites from 3 servers.
+[autoganjlogs] [2022-08-04 @ 21:15:43] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 20:15:43+00:00
+[autoganjlogs] [2022-08-04 @ 21:15:43] ::             💬general :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > jarvis are you there?
+[autoganjlogs] [2022-08-04 @ 21:15:53] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 20:15:53+00:00
+[autoganjlogs] [2022-08-04 @ 21:15:53] ::             💬general :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &jarvis
+[autoganjlogs] [2022-08-04 @ 21:15:53] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7febff0b44c0>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: AttributeError: 'str' object has no attribute 'id'" ""
+[autoganjlogs] [2022-08-04 @ 21:15:53] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 21:16:17] :: Middle Ground
+[autoganjlogs] [2022-08-04 @ 21:16:17] :: 🌳🌳The Old Forest🌳🌳
+[autoganjlogs] [2022-08-04 @ 21:16:17] :: PillBox
+[autoganjlogs] [2022-08-04 @ 21:16:20] :: 820077049036406805
+[autoganjlogs] [2022-08-04 @ 21:16:20] ::             💬general :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &jarvis
+[autoganjlogs] [2022-08-04 @ 21:16:20] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7fec0020b730>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: AttributeError: 'str' object has no attribute 'id'" ""
+[autoganjlogs] [2022-08-04 @ 21:16:21] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 21:16:54] ::             💬general ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 20:16:54+00:00
+[autoganjlogs] [2022-08-04 @ 21:16:55] ::             💬general :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &jarvis
+[autoganjlogs] [2022-08-04 @ 21:16:55] :: Error: Command not found: Command "jarvis" is not found
+[autoganjlogs] [2022-08-04 @ 21:16:55] :: None

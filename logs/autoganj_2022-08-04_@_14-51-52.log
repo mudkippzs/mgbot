@@ -1,0 +1,25 @@
+[autoganjlogs] [2022-08-04 @ 14:51:52] :: + Quota reset running
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Basedtask
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Boostcog
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Dispam
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: ExportRoles
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Jarvis
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Logger
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Quotatask
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: RaidDefense
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: RoleManagement
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: RolesPerms
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Rules
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Serverlogs
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Tripwire
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: Userinfo
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: ------------------
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loaded: 14 cogs
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Connected to server: Middle Ground (Members: 116)...
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Loading views...
+[autoganjlogs] [2022-08-04 @ 14:51:55] :: Error handling "on_ready" with "" ""
+[autoganjlogs] [2022-08-04 @ 14:51:55] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 14:52:02] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Location!
+[autoganjlogs] [2022-08-04 @ 14:52:02] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Server Alerts!
+[autoganjlogs] [2022-08-04 @ 14:52:02] ::        🃏choose-roles :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Choose your Favorite Pets!

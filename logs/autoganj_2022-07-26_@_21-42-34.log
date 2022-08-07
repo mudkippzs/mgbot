@@ -1,0 +1,473 @@
+[autoganjlogs] [2022-07-26 @ 21:42:34] :: Cog loaded: cogs.tripwire
+[autoganjlogs] [2022-07-26 @ 21:42:34] :: Cog loaded: cogs.jarvis
+[autoganjlogs] [2022-07-26 @ 21:42:34] :: Cog loaded: cogs.export_roles
+[autoganjlogs] [2022-07-26 @ 21:42:34] :: Cog loaded: cogs.userdata
+[autoganjlogs] [2022-07-26 @ 21:42:34] :: Cog loaded: cogs.logging
+[autoganjlogs] [2022-07-26 @ 21:42:37] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-26 @ 21:42:38] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:42:38+00:00
+[autoganjlogs] [2022-07-26 @ 21:42:41] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\n\n**What kind of bot is this?**\n\nA chatbot."
+    }
+  ],
+  "created": 1658868158,
+  "id": "cmpl-5YLfybRR8ghiQFpALeIXdjnGTRThj",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 74,
+    "total_tokens": 98
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:42:41] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:42:41] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\n\n**What kind of bot is this?**\n\nA chatbot."
+    }
+  ],
+  "created": 1658868158,
+  "id": "cmpl-5YLfybRR8ghiQFpALeIXdjnGTRThj",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 74,
+    "total_tokens": 98
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:43:25] ::      📢announcements📢 :: [1mIceBladeNetwork#0001[0m [[31mREACT REMOVE[0m]> 🇦
+[autoganjlogs] [2022-07-26 @ 21:43:32] ::  🤔server-suggestions :: [1mIceBladeNetwork#0001[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:43:32+00:00
+[autoganjlogs] [2022-07-26 @ 21:43:33] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:43:33+00:00
+[autoganjlogs] [2022-07-26 @ 21:43:35] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\n\nPrompt #1\n\nUser: \"What time is it?\"\n\nJARVIS: It is currently 3:15pm, sir."
+    }
+  ],
+  "created": 1658868214,
+  "id": "cmpl-5YLgsfql1TXoEtkU2Q30ybpUlmXTc",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 40,
+    "prompt_tokens": 74,
+    "total_tokens": 114
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:43:35] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:43:36] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Prompt #1
+
+User: "What time is it?"
+
+JARVIS: It is currently 3:15pm, sir.
+[autoganjlogs] [2022-07-26 @ 21:43:40] ::  🤔server-suggestions :: [1mIceBladeNetwork#0001[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> I was following orders.
+[autoganjlogs] [2022-07-26 @ 21:44:15] ::  🤔server-suggestions :: [1m      gitmo joe#4193[0m [[32mREACT ADD[0m]> kek
+[autoganjlogs] [2022-07-26 @ 21:44:31] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nThank you for activating me."
+    }
+  ],
+  "created": 1658868270,
+  "id": "cmpl-5YLhmDcn1kA9K86VvErb4U9QSyTwO",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 96,
+    "total_tokens": 104
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:44:31] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:44:32] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Thank you for activating me.
+[autoganjlogs] [2022-07-26 @ 21:44:37] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nThank you for choosing Ironman's JARVIS AI to be your virtual assistant!"
+    }
+  ],
+  "created": 1658868276,
+  "id": "cmpl-5YLhs9ZfdRRnxvLqKTHh87UEFK61P",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 96,
+    "total_tokens": 120
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:44:37] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:44:37] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Thank you for choosing Ironman's JARVIS AI to be your virtual assistant!
+[autoganjlogs] [2022-07-26 @ 21:45:19] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:45:19+00:00
+[autoganjlogs] [2022-07-26 @ 21:45:21] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nPersonality:\n\nWelcome, Sir! I'm excited to be working with you."
+    }
+  ],
+  "created": 1658868319,
+  "id": "cmpl-5YLiZHeFP3704P2xex3zS5pUw9AZz",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 113,
+    "total_tokens": 137
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:45:21] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:45:21] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Personality:
+
+Welcome, Sir! I'm excited to be working with you.
+[autoganjlogs] [2022-07-26 @ 21:45:40] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nThank you for activating me. How can I be of assistance?"
+    }
+  ],
+  "created": 1658868339,
+  "id": "cmpl-5YLit2xb3EJWOdXGReIUDcVpyyhHI",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 116,
+    "total_tokens": 132
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:45:40] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:45:40] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Thank you for activating me. How can I be of assistance?
+[autoganjlogs] [2022-07-26 @ 21:47:19] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:47:18+00:00
+[autoganjlogs] [2022-07-26 @ 21:47:22] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nThank you for using our messaging service. How may I help you?"
+    }
+  ],
+  "created": 1658868439,
+  "id": "cmpl-5YLkVDiJt1JTNxYlROr0NB8nqfhSd",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 116,
+    "total_tokens": 132
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:47:22] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:47:22] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Thank you for using our messaging service. How may I help you?
+[autoganjlogs] [2022-07-26 @ 21:47:27] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nGoodbye Ganj!"
+    }
+  ],
+  "created": 1658868447,
+  "id": "cmpl-5YLkdYJY3ijjkk3BFPyoyTiDdZG6b",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 121,
+    "total_tokens": 129
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:47:27] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:47:28] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Goodbye Ganj!
+[autoganjlogs] [2022-07-26 @ 21:47:32] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nVery well Ganj, entering sleep mode!"
+    }
+  ],
+  "created": 1658868451,
+  "id": "cmpl-5YLkhdbjGZno4MLxkQZoMOzZYQ8ZU",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 121,
+    "total_tokens": 137
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:47:32] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:47:32] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Very well Ganj, entering sleep mode!
+[autoganjlogs] [2022-07-26 @ 21:47:35] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:47:35+00:00
+[autoganjlogs] [2022-07-26 @ 21:47:37] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nGoodnight Ganj!"
+    }
+  ],
+  "created": 1658868456,
+  "id": "cmpl-5YLkmx0jDJaOcfofzHMhP69Q4jq8G",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 121,
+    "total_tokens": 129
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:47:37] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:47:37] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Goodnight Ganj!
+[autoganjlogs] [2022-07-26 @ 21:47:57] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:47:57+00:00
+[autoganjlogs] [2022-07-26 @ 21:47:59] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nWelcome, Sir!"
+    }
+  ],
+  "created": 1658868478,
+  "id": "cmpl-5YLl8Tb2rmEBZB9HVmhMYBpGZzBCJ",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 116,
+    "total_tokens": 124
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:47:59] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:47:59] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Welcome, Sir!
+[autoganjlogs] [2022-07-26 @ 21:48:02] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nVery well Sir, entering sleep mode!"
+    }
+  ],
+  "created": 1658868481,
+  "id": "cmpl-5YLlBjvcFza0Kx9ORC5rbXtEqUYJZ",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 121,
+    "total_tokens": 137
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:48:02] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:48:02] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Very well Sir, entering sleep mode!
+[autoganjlogs] [2022-07-26 @ 21:52:59] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nWelcome, Sir!"
+    }
+  ],
+  "created": 1658868779,
+  "id": "cmpl-5YLpzIZPNlE0jL2xkpOQsMS5nY8qi",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 116,
+    "total_tokens": 124
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:52:59] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:53:00] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Welcome, Sir!
+[autoganjlogs] [2022-07-26 @ 21:53:04] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:53:04+00:00
+[autoganjlogs] [2022-07-26 @ 21:53:05] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nThank you for your time."
+    }
+  ],
+  "created": 1658868785,
+  "id": "cmpl-5YLq5vDfPO9r6SzcBZtZU2GvzmQuu",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 121,
+    "total_tokens": 129
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:53:05] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:53:05] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Thank you for your time.
+[autoganjlogs] [2022-07-26 @ 21:56:08] ::         💩shitposting :: [1m          Liddy#6481[0m [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> https://twitter.com/hourly_shitpost/status/1551945463422767104
+[autoganjlogs] [2022-07-26 @ 21:57:28] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:57:28+00:00
+[autoganjlogs] [2022-07-26 @ 21:57:32] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Ah, typical communist shennanigans
+[autoganjlogs] [2022-07-26 @ 21:57:33] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> okay
+[autoganjlogs] [2022-07-26 @ 21:57:34] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:57:34+00:00
+[autoganjlogs] [2022-07-26 @ 21:57:36] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> because of that ill just decide
+[autoganjlogs] [2022-07-26 @ 21:57:38] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:57:38+00:00
+[autoganjlogs] [2022-07-26 @ 21:57:42] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> you can thank joe for breaking the trust in the voting system
+[autoganjlogs] [2022-07-26 @ 21:57:45] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:57:45+00:00
+[autoganjlogs] [2022-07-26 @ 21:57:49] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> typical communists ruining democracy for everyone
+[autoganjlogs] [2022-07-26 @ 21:57:57] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:57:57+00:00
+[autoganjlogs] [2022-07-26 @ 21:58:03] ::  🤔server-suggestions :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> (also now its a draw ;) )
+[autoganjlogs] [2022-07-26 @ 21:58:22] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 20:58:22+00:00
+[autoganjlogs] [2022-07-26 @ 21:58:24] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nThank you for activating me. How can I be of assistance?"
+    }
+  ],
+  "created": 1658869103,
+  "id": "cmpl-5YLvDldvbHEiu9wfVS0jVdHkIZAR0",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 116,
+    "total_tokens": 132
+  }
+}
+[autoganjlogs] [2022-07-26 @ 21:58:24] ::  🤖staff-bot-commands :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 21:58:25] ::  🤖staff-bot-commands :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Thank you for activating me. How can I be of assistance?
+[autoganjlogs] [2022-07-26 @ 22:00:17] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:17+00:00
+[autoganjlogs] [2022-07-26 @ 22:00:21] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> <@514859386116767765> i need your help briefly
+[autoganjlogs] [2022-07-26 @ 22:00:23] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:23+00:00
+[autoganjlogs] [2022-07-26 @ 22:00:25] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> this is top secret
+[autoganjlogs] [2022-07-26 @ 22:00:26] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:26+00:00
+[autoganjlogs] [2022-07-26 @ 22:00:33] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> do not share knowledge of what i will show you, understand?
+[autoganjlogs] [2022-07-26 @ 22:00:33] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:33+00:00
+[autoganjlogs] [2022-07-26 @ 22:00:42] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:42+00:00
+[autoganjlogs] [2022-07-26 @ 22:00:43] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:43+00:00
+[autoganjlogs] [2022-07-26 @ 22:00:44] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> im at work but what u need
+[autoganjlogs] [2022-07-26 @ 22:00:49] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nGoodnight Ganj!"
+    }
+  ],
+  "created": 1658869248,
+  "id": "cmpl-5YLxYSufpBlNU4AJKaPlPKCqneIU8",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 121,
+    "total_tokens": 129
+  }
+}
+[autoganjlogs] [2022-07-26 @ 22:00:49] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 22:00:49] ::      🔍mg-private-eye :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Goodnight Ganj!
+[autoganjlogs] [2022-07-26 @ 22:00:52] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:52+00:00
+[autoganjlogs] [2022-07-26 @ 22:00:53] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> type that command
+[autoganjlogs] [2022-07-26 @ 22:00:59] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:00:58+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:02] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nThank you for coming online, Sir. How can I help you today?"
+    }
+  ],
+  "created": 1658869261,
+  "id": "cmpl-5YLxl7eEbsMeVXfjFe4ZfrMpkiTVg",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 116,
+    "total_tokens": 140
+  }
+}
+[autoganjlogs] [2022-07-26 @ 22:01:03] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 22:01:03] ::      🔍mg-private-eye :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Thank you for coming online, Sir. How can I help you today?
+[autoganjlogs] [2022-07-26 @ 22:01:05] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> damn
+[autoganjlogs] [2022-07-26 @ 22:01:07] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:07+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:07] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:07+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:09] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> its not obliging my demands
+[autoganjlogs] [2022-07-26 @ 22:01:10] :: {
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "\nVery well Sir, entering sleep mode!"
+    }
+  ],
+  "created": 1658869270,
+  "id": "cmpl-5YLxudF0DUqk7nswFISoXW5t08OuC",
+  "model": "text-davinci-002",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 121,
+    "total_tokens": 137
+  }
+}
+[autoganjlogs] [2022-07-26 @ 22:01:11] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> &jarvis
+[autoganjlogs] [2022-07-26 @ 22:01:11] ::      🔍mg-private-eye :: [1m       AutoGanj#4302[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Very well Sir, entering sleep mode!
+[autoganjlogs] [2022-07-26 @ 22:01:12] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:12+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:15] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> i told it to ignore anyone not called ganj
+[autoganjlogs] [2022-07-26 @ 22:01:18] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:18+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:18] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> (its gpt3)
+[autoganjlogs] [2022-07-26 @ 22:01:20] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:20+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:24] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> i am ganj 2
+[autoganjlogs] [2022-07-26 @ 22:01:25] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:24+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:29] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> im just your alt
+[autoganjlogs] [2022-07-26 @ 22:01:32] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:32+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:35] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> lol living in my walls
+[autoganjlogs] [2022-07-26 @ 22:01:39] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> okay thanks
+[autoganjlogs] [2022-07-26 @ 22:01:41] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:41+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:42] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:42+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:43] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> ill come back to you to test further
+[autoganjlogs] [2022-07-26 @ 22:01:45] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:01:45+00:00
+[autoganjlogs] [2022-07-26 @ 22:01:46] ::      🔍mg-private-eye :: [1m          gañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> keep on the downlow
+[autoganjlogs] [2022-07-26 @ 22:01:46] ::      🔍mg-private-eye :: [1m      tomacatx1#0199[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> 👍
+[autoganjlogs] [2022-07-26 @ 22:03:34] ::         💩shitposting :: [1m        Eclipse#6412[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:03:34+00:00
+[autoganjlogs] [2022-07-26 @ 22:03:49] ::         💩shitposting :: [1m        Eclipse#6412[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:03:49+00:00
+[autoganjlogs] [2022-07-26 @ 22:03:51] ::         💩shitposting :: [1m        Eclipse#6412[0m [[31mE:[0m (0) | [32mA:[0m (1) | [31mS:[0m (0) | [31mR:[0m (0)]> I had a small giggle today 🤣
+[autoganjlogs] [2022-07-26 @ 22:17:37] ::  🤔server-suggestions :: [1mSuper Bi and Proud#3039[0m [[32mREACT ADD[0m]> kek
+[autoganjlogs] [2022-07-26 @ 22:18:31] ::          💭discussion :: [1mSuper Bi and Proud#3039[0m [[95mSTARTED TYPING[0m]> @ 2022-07-26 21:18:30+00:00
+[autoganjlogs] [2022-07-26 @ 22:18:36] ::          💭discussion :: [1mSuper Bi and Proud#3039[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> Still think long covid isn't real.
+[autoganjlogs] [2022-07-26 @ 22:21:40] ::             💬general :: [1m        Eclipse#6412[0m [[32mREACT ADD[0m]> 😌

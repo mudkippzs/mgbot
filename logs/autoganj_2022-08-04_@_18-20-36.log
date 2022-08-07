@@ -1,0 +1,36 @@
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Basedtask
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Boostcog
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Dispam
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: ExportRoles
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Jarvis
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Logger
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Quotatask
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: RaidDefense
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: RoleManagement
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Rules
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Serverlogs
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Tripwire
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: Userinfo
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: ------------------
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Loaded: 13 cogs
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Connected to server: Middle Ground (Members: 116)...
+[autoganjlogs] [2022-08-04 @ 18:20:39] :: Connected to server: 🌳🌳The Old Forest🌳🌳 (Members: 5)...
+[autoganjlogs] [2022-08-04 @ 18:20:40] :: Connected to server: PillBox (Members: 6)...
+[autoganjlogs] [2022-08-04 @ 18:20:40] :: Loading views...
+[autoganjlogs] [2022-08-04 @ 18:20:40] :: Loaded 3 invites from 3 servers.
+[autoganjlogs] [2022-08-04 @ 18:20:42] ::      🔍mg-private-eye ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 17:20:42+00:00
+[autoganjlogs] [2022-08-04 @ 18:20:48] ::      🔍mg-private-eye :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &target tomacatx1, imnotsteve
+[autoganjlogs] [2022-08-04 @ 18:20:48] ::             📜mod-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 18:20:48] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f5f34672700>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: NameError: name 'ifinstance' is not defined" ""
+[autoganjlogs] [2022-08-04 @ 18:20:48] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 18:20:48] ::      🔍mg-private-eye ::                  [[95mSTARTED TYPING[0m]> [34m[1m      tomacatx1#0199[0m @ 2022-08-04 17:20:48+00:00
+[autoganjlogs] [2022-08-04 @ 18:20:53] ::      🔍mg-private-eye ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 17:20:53+00:00
+[autoganjlogs] [2022-08-04 @ 18:21:00] ::      🔍mg-private-eye ::                  [[95mSTARTED TYPING[0m]> [34m[1m      tomacatx1#0199[0m @ 2022-08-04 17:21:00+00:00
+[autoganjlogs] [2022-08-04 @ 18:21:09] ::      🔍mg-private-eye ::                  [[95mSTARTED TYPING[0m]> [34m[1m      tomacatx1#0199[0m @ 2022-08-04 17:21:09+00:00
+[autoganjlogs] [2022-08-04 @ 18:21:11] ::      🔍mg-private-eye ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 17:21:11+00:00
+[autoganjlogs] [2022-08-04 @ 18:21:12] ::      🔍mg-private-eye :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &target tomacatx1, imnotsteve
+[autoganjlogs] [2022-08-04 @ 18:21:12] ::             📜mod-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 18:21:12] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f5f34607640>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: NameError: name 'ifinstance' is not defined" ""
+[autoganjlogs] [2022-08-04 @ 18:21:13] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 18:21:17] ::      🔍mg-private-eye ::                  [[95mSTARTED TYPING[0m]> [34m[1m      tomacatx1#0199[0m @ 2022-08-04 17:21:17+00:00

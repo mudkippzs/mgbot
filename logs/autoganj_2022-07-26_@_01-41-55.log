@@ -1,0 +1,7 @@
+[autoganjlogs] [2022-07-26 @ 01:41:55] :: Cog loaded: cogs.tripwire
+[autoganjlogs] [2022-07-26 @ 01:41:55] :: Cog loaded: cogs.logging
+[autoganjlogs] [2022-07-26 @ 01:41:58] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-07-26 @ 01:42:20] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
+[autoganjlogs] [2022-07-26 @ 01:42:32] :: [💬 general :: [1mgañjā#9046[0m [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)]> test
+[autoganjlogs] [2022-07-26 @ 01:42:36] :: [💬general :: [1mgañjā#9046[0m [[32mREACT ADD[0m]> <RawReactionActionEvent message_id=1001288380031709255 user_id=218521566412013568 channel_id=832999632610656290 guild_id=832999632028041226 emoji=<PartialEmoji animated=False name='pepehands' id=824315506604638228> event_type='REACTION_ADD' member=<Member id=218521566412013568 name='gañjā' discriminator='9046' bot=False nick=None guild=<Guild id=832999632028041226 name='🌳🌳The Old Forest🌳🌳' shard_id=0 chunked=True member_count=5>>>
+[autoganjlogs] [2022-07-26 @ 01:42:42] :: [💬general :: [1mgañjā#9046[0m [[31mREACT REMOVE[0m]> <RawReactionActionEvent message_id=1001288380031709255 user_id=218521566412013568 channel_id=832999632610656290 guild_id=832999632028041226 emoji=<PartialEmoji animated=False name='pepehands' id=824315506604638228> event_type='REACTION_REMOVE' member=None>

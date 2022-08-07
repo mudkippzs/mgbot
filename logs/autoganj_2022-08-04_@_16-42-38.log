@@ -1,0 +1,62 @@
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: AutoGanj#4302 is online!
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Basedtask
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Boostcog
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Dispam
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: ExportRoles
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Jarvis
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Logger
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Quotatask
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: RaidDefense
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: RoleManagement
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: RolesPerms
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Rules
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Serverlogs
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Tripwire
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: Userinfo
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: ------------------
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Loaded: 14 cogs
+[autoganjlogs] [2022-08-04 @ 16:42:41] :: Connected to server: Middle Ground (Members: 116)...
+[autoganjlogs] [2022-08-04 @ 16:42:42] :: Connected to server: 🌳🌳The Old Forest🌳🌳 (Members: 5)...
+[autoganjlogs] [2022-08-04 @ 16:42:42] :: Connected to server: PillBox (Members: 6)...
+[autoganjlogs] [2022-08-04 @ 16:42:42] ::             📜bot-log ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:42:42+00:00
+[autoganjlogs] [2022-08-04 @ 16:42:42] :: Loading views...
+[autoganjlogs] [2022-08-04 @ 16:42:42] :: Loaded 3 invites from 3 servers.
+[autoganjlogs] [2022-08-04 @ 16:42:43] ::             📜bot-log :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &importperms
+[autoganjlogs] [2022-08-04 @ 16:42:43] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f461fed2550>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: NameError: name 'role_perms' is not defined" ""
+[autoganjlogs] [2022-08-04 @ 16:42:43] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:45:53] ::         📺media-links ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:45:53+00:00
+[autoganjlogs] [2022-08-04 @ 16:45:56] ::         📺media-links :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > this one goes out to all our Zoomers
+[autoganjlogs] [2022-08-04 @ 16:45:57] ::         📺media-links :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > https://open.spotify.com/track/4KxSVz2ckytVobzXNsEeHG?si=619521b82e7440df
+[autoganjlogs] [2022-08-04 @ 16:45:58] ::         📺media-links :: [1m             Unknown[0m [[33mEDITED[0m]> Message ID: 1004777220927148062
+[autoganjlogs] [2022-08-04 @ 16:45:59] ::         📜message-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:46:41] ::                 🔆irl :: [1m          gañjā#9046[0m [[32mREACT ADD[0m]> based
+[autoganjlogs] [2022-08-04 @ 16:46:42] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:46:42] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:46:45] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > congrats!
+[autoganjlogs] [2022-08-04 @ 16:46:51] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:46:51+00:00
+[autoganjlogs] [2022-08-04 @ 16:46:52] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > are you gonna take it?
+[autoganjlogs] [2022-08-04 @ 16:46:52] ::                 🔆irl :: [1m      gitmo joe#4193[0m [[32mREACT ADD[0m]> based
+[autoganjlogs] [2022-08-04 @ 16:46:54] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [34m[1m      gitmo joe#4193[0m @ 2022-08-04 15:46:54+00:00
+[autoganjlogs] [2022-08-04 @ 16:46:56] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      gitmo joe#4193[0m > Gay because masks
+[autoganjlogs] [2022-08-04 @ 16:46:57] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [34m[1m      gitmo joe#4193[0m @ 2022-08-04 15:46:57+00:00
+[autoganjlogs] [2022-08-04 @ 16:46:59] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m      gitmo joe#4193[0m > Not bc job offer
+[autoganjlogs] [2022-08-04 @ 16:47:03] ::             📜bot-log ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:47:03+00:00
+[autoganjlogs] [2022-08-04 @ 16:47:04] ::             📜bot-log :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &importperms
+[autoganjlogs] [2022-08-04 @ 16:47:04] :: Error handling "on_command_error" with "<class 'discord.ext.commands.context.Context'>: <discord.ext.commands.context.Context object at 0x7f461ed79430>, <class 'discord.ext.commands.errors.CommandInvokeError'>: Command raised an exception: NameError: name 'read_json_config' is not defined" ""
+[autoganjlogs] [2022-08-04 @ 16:47:05] ::             📜bot-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:47:30] ::             📜bot-log ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:47:29+00:00
+[autoganjlogs] [2022-08-04 @ 16:47:31] ::             📜bot-log :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &importroles
+[autoganjlogs] [2022-08-04 @ 16:47:31] :: Error: Command not found: Command "importroles" is not found
+[autoganjlogs] [2022-08-04 @ 16:47:31] :: None
+[autoganjlogs] [2022-08-04 @ 16:47:34] ::             📜bot-log ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:47:34+00:00
+[autoganjlogs] [2022-08-04 @ 16:47:35] ::             📜bot-log :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > &importperms
+[autoganjlogs] [2022-08-04 @ 16:47:36] ::             📜bot-log :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > Roles perms imported
+[autoganjlogs] [2022-08-04 @ 16:47:50] ::                 🔆irl ::                  [[95mSTARTED TYPING[0m]> [34m[1m          gañjā#9046[0m @ 2022-08-04 15:47:50+00:00
+[autoganjlogs] [2022-08-04 @ 16:47:51] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > oh ya i figured
+[autoganjlogs] [2022-08-04 @ 16:47:54] ::                 🔆irl :: [[31mE:[0m (0) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m          gañjā#9046[0m > it read that way
+[autoganjlogs] [2022-08-04 @ 16:48:53] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:48:54] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:48:54] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:48:54] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:48:54] ::          📜member-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
+[autoganjlogs] [2022-08-04 @ 16:48:55] ::            📜role-log :: [[32mE:[0m (1) | [31mA:[0m (0) | [31mS:[0m (0) | [31mR:[0m (0)][1m       AutoGanj#4302[0m > 
