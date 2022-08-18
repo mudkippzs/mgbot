@@ -18,6 +18,7 @@ QUOTA_LIMIT = 50
 class Jarvis(commands.Cog):
     def __init__(self, client):
         config = load_json_config("config.json")
+        clogger("Jarvis Reloaded...")
         self.api_key = config["jarvis_key"]    
         self.client = client
         self.prompt_history = {}
@@ -26,6 +27,7 @@ class Jarvis(commands.Cog):
         self.thinking = False
         self.primer = """Respond in the voice of JARVIS the AI from Ironman; don't use @'s or label your responses, respond directly. Avoid over use of symbols and emojis."""
         self.whitelist = load_json_config("roles.json")
+        self.whitelist["1001932664548376617"] = "Old Fag"
         
     
     @commands.Cog.listener()
@@ -59,11 +61,11 @@ class Jarvis(commands.Cog):
         return openai.Completion.create(
             model="text-davinci-002",
             prompt=payload,
-            temperature=0.15,
+            temperature=0.92,
             max_tokens=500,
             top_p=1,
-            frequency_penalty=0.25,
-            presence_penalty=0.35
+            frequency_penalty=0.01,
+            presence_penalty=0.6
         )
 
     @commands.command(name='forget', help='Clear the prompt history. Do this if you get weird/no/repeating results.')

@@ -30,7 +30,7 @@ class Quotatask(commands.Cog):
     async def quotas_task(self):
         #clogger("+ Quota reset running")
         now = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
-        if now.hour == 0 and now.minute >= 0 and now.minute <= 4:
+        if now.hour == 0 and now.minute >= 0 and now.minute <= 3:
             clogger(f"AI Bot Quota Reset to: {QUOTA_LIMIT}")
             for guild in self.client.guilds:
                 quotas = load_json_config("quotas.json")

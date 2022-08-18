@@ -11,6 +11,7 @@ import pytz
 import timeago
 
 from jarvis import QUOTA_LIMIT
+from pprint import pprint
 
 sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), '.')))
@@ -138,6 +139,9 @@ class Userinfo(commands.Cog):
 
         sorted_user_xp = sorted(user_xp_dict.items(),
                                 key=lambda x: x[1]['xp'], reverse=True)
+
+        pprint(sorted_user_xp)
+
         embed = discord.Embed(title="Leaderboard", color=0x00ff00)
 
         embed.add_field(
