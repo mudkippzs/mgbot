@@ -31,19 +31,21 @@ class Quotatask(commands.Cog):
         #clogger("+ Quota reset running")
         now = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
         if now.hour == 0 and now.minute >= 0 and now.minute <= 3:
+            
+            try:
+                await self.client.get_command("cleanup").callback(self.client, None)
+            except Exception as e:
+                clogger("Automated quota cleanup failed")
+                pass
+
+            try:
+                await self.client.get_command("cleanup").callback(self.client, None)
+            except Exception as e:
+                clogger("Automated quota cleanup failed")
+                pass
+
             clogger(f"AI Bot Quota Reset to: {QUOTA_LIMIT}")
-            for guild in self.client.guilds:
-                quotas = load_json_config("quotas.json")
-                for q in quotas:
-                    for member in guild.members:
-                        # False if member has left the server or has not had any reaction logged yet
-                        if member == None:
-                            continue
-
-                        quotas[q][str(member.id)] = QUOTA_LIMIT
-
-            write_json_config("quotas.json", quotas)
-
+            
 
 def setup(client):
     client.add_cog(Quotatask(client))

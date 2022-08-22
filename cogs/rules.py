@@ -43,7 +43,7 @@ class Rules(commands.Cog):
                     return user == member and str(reaction.emoji) == "\U0001f44d"
 
                 try:
-                    reaction, user = await self.bot.wait_for('reaction_add', timeout=60.0, check=check)
+                    reaction, user = await self.bot.wait_for('reaction_add', timeout=180.0, check=check)
                 except asyncio.TimeoutError:
                     try:
                         await msg.delete()

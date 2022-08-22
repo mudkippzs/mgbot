@@ -6,20 +6,26 @@ import sys
 import os
 import pytz
 
+import copy
+
 sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), '.')))
 
 from clogger import clogger
+from jarvis import QUOTA_LIMIT
 from utils import *
+
 
 class QuotaManager(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.command(name="quota", help="Check your BOT quota.")
-    async def quota(self, ctx):
+    async def botquota(self, ctx, user: discord.Member = None):
         """Get info about a user"""
-        user = ctx.author
+        if user == None:
+            user = ctx.author
+
         quotas = load_json_config("quotas.json")
 
         for q in quota:
@@ -43,43 +49,68 @@ class QuotaManager(commands.Cog):
         await ctx.send(embed=embed, delete_after=30)
 
     @commands.command(name='addquota', help='Check your bot quota.')
-    async def addquota(self, ctx, value=0, bot=None):
+    async def setquota(self, ctx, user: discord.Member = None, value=0, bot=None):
+
+        def add_quota(member_id, value, quota_list):
+            quota_list[str(member_id)] += value
+            return quota_list
+
         quotas = load_json_config("quotas.json")
+
+        if user == None:
+            user == ctx.author
+
         if bot == None:
-            for q in quotas:
-                for member in ctx.guild.members:
-                    # False if member has left the server or has not had any reaction logged yet
-                    if member == None:
-                        continue
-                quotas[q][str(member.id)] += value
+            bot = ["jarvis", "emgee"]
         else:
-            for member in ctx.guild.members:
-                # False if member has left the server or has not had any reaction logged yet
-                if member == None:
-                    continue
-                quotas[bot][str(member.id)] += value
+            bot = [bot, ]
+
+        for b in bot:
+            quotas[b][str(user.id)] += value
 
         write_json_config("quotas.json", quotas)
 
     @commands.command(name='resetquotas', help='Reset AI bot quotas for all members. Optional: specify bot.')
     @commands.has_role('Admin')
-    async def resetquotas(self, ctx, bot=None):
+    async def resetquotas(self, ctx, user: discord.Member = None, bot=None):
+
         quotas = load_json_config("quotas.json")
+
         if bot == None:
-            for q in quotas:
-                for member in ctx.guild.members:
-                    # False if member has left the server or has not had any reaction logged yet
-                    if member == None:
-                        continue
-                quotas[q][str(member.id)] = QUOTA_LIMIT
+            bot = ["jarvis", "emgee"]
         else:
-            for member in ctx.guild.members:
-                # False if member has left the server or has not had any reaction logged yet
-                if member == None:
-                    continue
-                quotas[bot][str(member.id)] = QUOTA_LIMIT
+            bot = [bot, ]
+
+        if user == None:
+            for b in bot:
+                for member in ctx.message.guild.members:
+                    user = member
+                    quotas[b][str(user.id)] = QUOTA_LIMIT
+        else:
+            for b in bot:
+                quotas[b][str(user.id)] = QUOTA_LIMIT
 
         write_json_config("quotas.json", quotas)
+
+
+    @commands.command(name='cleanupquotas', help='Clean up AI bot quotas list by removing ex-members.')
+    @commands.has_role('Admin')
+    async def cleanupquotas(self, ctx):
+
+        quotas = load_json_config("quotas.json")
+        bots = [bot for bot in quotas.keys()]
+        current_members = [str(member.id) for member in ctx.message.guild.members]
+        del_count = 0
+        quota_copy = copy.deepcopy(quotas)
+        for bot in bots:
+            for member in quotas[bot]:
+                if member not in current_members:
+                    del_count += 1
+                    clogger(f"Clearing {member} from {bot} quotas list as they are no longer a server member...")
+                    del quota_copy[bot][member]
+
+        clogger(f"Current member count: {len(current_members)}, removed {del_count} dead members from the quota list.")
+        write_json_config("quotas.json", quota_copy)
 
 
 def setup(bot):
