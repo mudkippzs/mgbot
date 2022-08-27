@@ -33,13 +33,13 @@ class Quotatask(commands.Cog):
         if now.hour == 0 and now.minute >= 0 and now.minute <= 3:
             
             try:
-                await self.client.get_command("cleanup").callback(self.client, None)
+                await ctx.invoke(self.client.get_command('cleanupquotas'))
             except Exception as e:
                 clogger("Automated quota cleanup failed")
                 pass
 
             try:
-                await self.client.get_command("cleanup").callback(self.client, None)
+                await ctx.invoke(self.client.get_command('resetquotas'))
             except Exception as e:
                 clogger("Automated quota cleanup failed")
                 pass
