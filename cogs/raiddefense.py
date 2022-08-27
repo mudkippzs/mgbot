@@ -6,7 +6,7 @@ import os
 from typing import Union, List
 
 import pytz
-
+import time
 from server_logs import CHANNELS
 
 sys.path.insert(0, os.path.abspath(
@@ -55,6 +55,7 @@ async def log_mod_powers(bot, command, channel, user, targets=[]):
 
     embed = discord.Embed(title=f"{user.display_name} used {command} in {channel}.",
                           description=f"{target_list}", color=0x00ffff)
+
     if len(targets):
         for target in targets:
             embed.add_field(name="Target:", value=f"{str(target)}")
@@ -66,7 +67,12 @@ async def log_mod_powers(bot, command, channel, user, targets=[]):
 
     embed.set_footer(text=f"ID: {user.id}")
 
-    await bot.client.get_channel(CHANNELS["mod"]).send(embed=embed)
+    try:
+        await bot.client.get_channel(CHANNELS["mod"]).send(embed=embed)
+    except Exception as e:
+        embed = discord.Embed(title=f"{user.display_name} used {command} in {channel}.",
+                              description=f"{target_list}", color=0x00ffff)
+        await bot.client.get_channel(CHANNELS["mod"]).send(embed=embed)
 
 
 class RaidDefense(commands.Cog):
@@ -115,8 +121,13 @@ class RaidDefense(commands.Cog):
         await log_mod_powers(self, "analyze", ctx.channel, ctx.author)
         for member in ctx.guild.members:
             if ctx.guild.get_role(1004167279338061844) in member.roles:
-                await ctx.send(f"```Scanning bogey: {str(member)}```")
-                await ctx.invoke(self.client.get_command('userinfo'), member)
+                await ctx.send(f"```Scanning bogey: {str(member)}```", delete_after=5)
+                try:
+                    await ctx.invoke(self.client.get_command('userinfo'), member)
+                except Exception as e:
+                    clogger(f"Error: {e}")
+                    pass
+                time.sleep(1)
         await ctx.message.delete()
 
     @commands.command(hidden=True)
@@ -127,9 +138,9 @@ class RaidDefense(commands.Cog):
         for member in ctx.guild.members:
             if ctx.guild.get_role(1004167279338061844) in member.roles:
                 targets += 1
+                #await ctx.guild.ban(member, reason="Banned by Raid Defense", delete_message_days = 1)
                 await ctx.send(f"```Target {targets} neutralized...tracking next target...```", delete_after=10)
-                await ctx.guild.ban(member)
-            await ctx.send(f"```{targets} targets neutralized...standing by...```", delete_after=10)
+        await ctx.send(f"```{targets} targets neutralized...standing by...```", delete_after=10)
 
         self.target_list = []
         await ctx.message.delete()
@@ -277,7 +288,7 @@ class RaidDefense(commands.Cog):
     async def target(self, ctx):
         await log_mod_powers(self, "target", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
         for member in ctx.message.mentions:
-            clogger(f"Targeted Member: {member}: {type(member)}")
+            clogger(f"Targeted Member: {str(member)}: {type(member)}")
             await member.add_roles(ctx.guild.get_role(1004167279338061844))
             await ctx.send(f"```Target: {str(member)} scanned and locked.```", delete_after=10)
             await ctx.send(f"```Preparing countermeasures...```", delete_after=10)

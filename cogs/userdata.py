@@ -128,8 +128,13 @@ class Userinfo(commands.Cog):
             text=f"Requested by {ctx.author}", icon_url=ctx.author.display_avatar.url)
 
         write_json_config("user_xp.json", user_xp)
-        await ctx.message.delete(reason="Command usage cleanup.")
+        try:
+            await ctx.message.delete(reason="Command usage cleanup.")
+        except Exception as e:
+            pass
+            
         await ctx.send(embed=embed, delete_after=30)
+        
 
     @commands.command()
     async def leaderboard(self, ctx):

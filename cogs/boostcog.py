@@ -17,6 +17,8 @@ from utils import *
 async def post_to_cringe_gallery(payload, client):
     """Get the original message content, embeds and attachments and post and Embed with the message author's details in the cringe gallery channel."""
     clogger(f"Cringe was posted...")
+    cringelog = load_json_config("cringelog.json")
+
     cringe_gallery_channel_id = 1011283927924744212
     message_content = ""
     message_embeds = []
@@ -24,26 +26,35 @@ async def post_to_cringe_gallery(payload, client):
 
     # Get the original message content, embeds and attachments
     guild = client.get_guild(payload.guild_id)
+    if str(guild.id) not in cringelog.keys():
+        cringelog[str(guild.id)] = []
+
     message = await guild.get_channel(payload.channel_id).fetch_message(payload.message_id)
+    if message.id in cringelog[str(guild.id)]:
+        return
+
     author = message.author
     message_content = message.content
     message_embeds = message.embeds
     message_attachments = message.attachments
 
     # Create a new embed with the original message content, embeds and attachments
-    cringe_gallery_embed = discord.Embed(title=f"{author.display_name} just posted cringe in {message.channel.name}...", description=f"{author.mention}", color=0xffc0cb)
-    cringe_gallery_embed.add_field(name="Cringe:", value=message_content, inline=False)
+    cringe_gallery_embed = discord.Embed(title=f"{author.display_name} just posted cringe in {message.channel.name}...", description=f"{author.mention}", color=0xffc0cb, url=message.jump_url)
+    cringe_gallery_embed.add_field(name="Cringe Post:", value=message_content, inline=False)
+    cringe_gallery_embed.set_thumbnail(url=author.avatar.url)
 
     if len(message_embeds) > 0:
         for e in message_embeds:
-            cringe_gallery_embed.add_field(name="Cringe Embeds", value=e, inline=False)
+            cringe_gallery_embed.set_image(url=e.url)
     
     if len(message_attachments) > 0:
         for a in message_attachments:
-            cringe_gallery_embed.add_field(name="Cringe Attachments", value=a, inline=False)
+            cringe_gallery_embed.set_image(url=a.url)
 
     # Post the new embed to the cringe gallery channel
     await client.get_channel(cringe_gallery_channel_id).send(embed=cringe_gallery_embed)
+    cringelog[str(guild.id)].append(message.id)
+    write_json_config("cringelog.json", cringelog)
 
 class Boostcog(commands.Cog):
     def __init__(self, client):
@@ -270,7 +281,7 @@ class Boostcog(commands.Cog):
     @commands.command(hidden = True)
     async def bcount(self, ctx):
 
-        await ctx.channel.send("Counting...")
+        await ctx.channel.send("Counting...", delete_after=15)
 
         self.basedlog = load_json_config("basedlog.json")
 
@@ -292,12 +303,13 @@ class Boostcog(commands.Cog):
         #clogger("Counting based level for user.")
 
         await ctx.channel.send("```Based rating: " + str(self.basedlog[str(ctx.author.id)]["based_count"]) + "```", delete_after=15)
+        await ctx.message.delete()
 
     # Display cringe count of user to the channel (message author)
     @commands.command(hidden = True)
     async def ccount(self, ctx):
 
-        await ctx.channel.send("Counting...")
+        await ctx.channel.send("Counting...", delete_after=15)
 
         self.basedlog = load_json_config("basedlog.json")
 
@@ -319,6 +331,6 @@ class Boostcog(commands.Cog):
         #clogger("Counting cringe level for user.")
 
         await ctx.channel.send("```Cringe rating is: " + str(self.basedlog[str(ctx.author.id)]["cringe_count"]) + "```", delete_after=15)
-
+        await ctx.message.delete()
 def setup(client):  # Add cog to bot when loaded with extension command (e.g !load cogName). See https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
     client.add_cog(Boostcog(client))
