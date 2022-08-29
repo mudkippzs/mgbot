@@ -65,7 +65,7 @@ class QuotaManager(commands.Cog):
             bot = [bot, ]
 
         for b in bot:
-            quotas[b][str(user.id)] += value
+            quotas[b][str(user.id)] += int(value)
 
         write_json_config("quotas.json", quotas)
         await ctx.respond(f"```Added {value} to {str(user)}'s quota.```", delete_after=15)
@@ -81,11 +81,11 @@ class QuotaManager(commands.Cog):
         else:
             bot = [bot, ]
 
-        member_count = len(ctx.message.guild.members)
+        member_count = ctx.guild.member_count
 
         if user == None:
             for b in bot:
-                for member in ctx.message.guild.members:
+                for member in ctx.guild.members:
                     user = member
                     quotas[b][str(user.id)] = QUOTA_LIMIT
         else:
