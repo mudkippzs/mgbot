@@ -26,7 +26,7 @@ class ManagementModule(commands.Cog):
 
         await ctx.guild.me.edit(nick=new_nickname)
 
-        await ctx.send(f"{ctx.author.mention} Nickname updated")
+        await ctx.send_response(f"{ctx.author.mention} Nickname updated")
 
     @commands.slash_command()
     @commands.has_role('Admin')
@@ -50,7 +50,7 @@ class ManagementModule(commands.Cog):
                 data = f.read()
                 await self.client.user.edit(avatar=data)
 
-        await ctx.send(f"{ctx.author.mention} Avatar updated")
+        await ctx.send_response(f"{ctx.author.mention} Avatar updated")
         
 def setup(client):
     client.add_cog(ManagementModule(client))

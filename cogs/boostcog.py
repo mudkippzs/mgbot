@@ -278,10 +278,10 @@ class Boostcog(commands.Cog):
 
     # Display based count of user to the channel (message author)
 
-    @commands.command(hidden = True)
+    @commands.slash_command(name='bcount', description='Check your raw based score.')
     async def bcount(self, ctx):
 
-        await ctx.channel.send("Counting...", delete_after=15)
+        await ctx.channel.send_followup("Counting...", delete_after=5)
 
         self.basedlog = load_json_config("basedlog.json")
 
@@ -302,14 +302,14 @@ class Boostcog(commands.Cog):
 
         #clogger("Counting based level for user.")
 
-        await ctx.channel.send("```Based rating: " + str(self.basedlog[str(ctx.author.id)]["based_count"]) + "```", delete_after=15)
+        await ctx.channel.send_response("```Based rating: " + str(self.basedlog[str(ctx.author.id)]["based_count"]) + "```", delete_after=15)
         await ctx.message.delete()
 
     # Display cringe count of user to the channel (message author)
-    @commands.command(hidden = True)
+    @commands.slash_command(name='ccount', description='Check your raw cringe score.')
     async def ccount(self, ctx):
 
-        await ctx.channel.send("Counting...", delete_after=15)
+        await ctx.channel.send_followup("Counting...", delete_after=5)
 
         self.basedlog = load_json_config("basedlog.json")
 
@@ -330,7 +330,8 @@ class Boostcog(commands.Cog):
 
         #clogger("Counting cringe level for user.")
 
-        await ctx.channel.send("```Cringe rating is: " + str(self.basedlog[str(ctx.author.id)]["cringe_count"]) + "```", delete_after=15)
+        await ctx.channel.send_response("```Cringe rating is: " + str(self.basedlog[str(ctx.author.id)]["cringe_count"]) + "```", delete_after=15)
         await ctx.message.delete()
+
 def setup(client):  # Add cog to bot when loaded with extension command (e.g !load cogName). See https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
     client.add_cog(Boostcog(client))

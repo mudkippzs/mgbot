@@ -36,16 +36,37 @@ class Userinfo(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command()
+    @discord.commands.slash_command(name='userinfo')
     async def userinfo(self, ctx, user: discord.Member = None):
         """Get info about a user"""
-        if not user:
-            user = ctx.author
-
 
         user_xp = load_json_config("user_xp.json")
         emoji_tracker = load_json_config("emoji_tracker.json")
         quotas = load_json_config("quotas.json")
+        basedlog = load_json_config("basedlog.json")
+
+        if not user:
+            user = ctx.author
+
+        if not str(ctx.author.id) in basedlog:
+            self.basedlog[str(ctx.author.id)] = {
+                "based_count": 0,
+                "based_expires": None,
+                "cringe_count": 0,
+                "cringe_expires": None,
+                "last_reacted_user_id": None,
+                "last_reacted_timestamp": None,
+                "based_react_log": [],
+                "cringe_react_log": []
+            }
+
+        if str(ctx.author.id) not in basedlog:
+            return
+
+        #clogger("Counting cringe level for user.")
+        based = int(basedlog[str(ctx.author.id)]["cringe_count"])
+        cringe = int(basedlog[str(ctx.author.id)]["cringe_count"])
+        true_based_rating = based - cringe
 
         if not str(user.id) in user_xp:
             user_xp[str(user.id)] = {
@@ -108,6 +129,9 @@ class Userinfo(commands.Cog):
         embed.add_field(name="XP to next level",
                         value=f"```{round(user_xp[str(user.id)]['xp_to_next_level'])}```")
 
+        embed.add_field(name="Based Rating",
+                        value=f"```{round(true_based_rating)}```")
+
         embed.add_field(name="Top 3 Emojis",
                         value=f"{top_emojis[0]} {top_emojis[1]} {top_emojis[2]}")
 
@@ -133,10 +157,10 @@ class Userinfo(commands.Cog):
         except Exception as e:
             pass
             
-        await ctx.send(embed=embed, delete_after=30)
+        await ctx.send_response(embed=embed, delete_after=30)
         
 
-    @commands.command()
+    @discord.commands.slash_command(name='leaderboard')
     async def leaderboard(self, ctx):
         """Lists the top 10 users along with their current role and current XP"""
 
@@ -144,8 +168,6 @@ class Userinfo(commands.Cog):
 
         sorted_user_xp = sorted(user_xp_dict.items(),
                                 key=lambda x: x[1]['xp'], reverse=True)
-
-        pprint(sorted_user_xp)
 
         embed = discord.Embed(title="Leaderboard", color=0x00ff00)
 
@@ -172,7 +194,7 @@ class Userinfo(commands.Cog):
                 embed.add_field(
                     name=f"\u200b", value=f"```{emoji} {i+1:<2} {user.display_name:<20}{round(data['xp']):>5}```", inline=False)
 
-        await ctx.send(embed=embed)
+        await ctx.send_response(embed=embed)
 
     @commands.Cog.listener()
     async def on_message(self, message):

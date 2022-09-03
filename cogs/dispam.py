@@ -77,25 +77,26 @@ class Dispam(commands.Cog):
             
             write_json_config("spamlogs.json", self.spam_log_data)
 
-    @commands.command(name='spam', help='Check the spam count of a user.')
+    
+    @commands.slash_command(name='spam', description='Check the spam count of a user.')
     @commands.has_role('Wielder of the flame of Anor')
     async def spam(self, ctx, user: discord.Member):
         if user.id not in self.spam_log_data:
-            await ctx.send(f"{user.mention} has not been flagged for spam.", delete_after=10)
+            await ctx.send_response(f"{user.mention} has not been flagged for spam.", delete_after=10)
         else:
-            await ctx.send(f"{user.mention} has been warned ```{self.spam_log_data[str(user.id)]['spam_count']} times.``` for spam.", delete_after=10)
+            await ctx.send_response(f"{user.mention} has been warned ```{self.spam_log_data[str(user.id)]['spam_count']} times.``` for spam.", delete_after=10)
 
-    @commands.command(name='spam_reset', help='Recent a users spam violations.')
+    @commands.slash_command(name='resetspam', description='Recent a users spam violations.')
     @commands.has_role('Wielder of the flame of Anor')
     async def spam_reset(self, ctx, user: discord.Member):
         self.spam_log_data = load_json_config("spamlogs.json")
 
         if user.id not in self.spam_log_data:
-            await ctx.send(f"{user.mention} has not been flagged for spam.", delete_after=10)
+            await ctx.send_response(f"{user.mention} has not been flagged for spam.", delete_after=10)
         else:
             self.spam_log_data[str(user.id)]['spam_count'] = 0
             write_json_config("spamlogs.json", self.spam_log_data)
-            await ctx.send(f"{user.mention} has been reset.", delete_after=10)
+            await ctx.send_response(f"{user.mention} has been reset.", delete_after=10)
 
 def setup(client):
     client.add_cog(Dispam(client))

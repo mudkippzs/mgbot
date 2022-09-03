@@ -6,7 +6,8 @@ class ExportRoles(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(hidden = True)
+    @commands.slash_command(name='exportroles', description='Export the current set of roles to a dictionary.')
+    @commands.has_role('Admin')
     async def export_roles(self, ctx):
         """Exports all roles to a JSON file called roles.json."""
         
@@ -23,7 +24,7 @@ class ExportRoles(commands.Cog):
 
 
         # Send a message to the channel to let the user know that it is done.
-        await ctx.send("Done.")
+        await ctx.send_response("Done.")
 
     # @commands.Cog.listener()
     # async def on_ready(self):

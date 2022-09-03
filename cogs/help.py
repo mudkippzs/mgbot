@@ -4,7 +4,7 @@ class Help(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(name="help", aliases=["h"])
+    @commands.slash_command(name='help', description='View a list of all server commands.')
     async def help(self, ctx):
         """
         Displays a list of commands and their descriptions.
@@ -18,7 +18,7 @@ class Help(commands.Cog):
                 continue
             embed.add_field(name=f"{command.name}", value=f"{command.help}", inline=False)
         
-        await ctx.send(embed=embed)
+        await ctx.send_response(embed=embed)
 
     # @commands.Cog.listener()
     # async def on_ready(self):

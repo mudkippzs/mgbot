@@ -45,7 +45,7 @@ class QuotaManager(commands.Cog):
         embed.set_footer(
             text=f"Requested by {ctx.author}", icon_url=ctx.author.display_avatar.url)
 
-        await ctx.respond(embed=embed, delete_after=15)
+        await ctx.send_response(embed=embed, delete_after=15)
 
     @commands.slash_command(name='addquota', description='Set a user\'s bot quota.')
     async def setquota(self, ctx, user: discord.Member = None, value=0, bot=None):
@@ -68,7 +68,7 @@ class QuotaManager(commands.Cog):
             quotas[b][str(user.id)] += int(value)
 
         write_json_config("quotas.json", quotas)
-        await ctx.respond(f"```Added {value} to {str(user)}'s quota.```", delete_after=15)
+        await ctx.send_response(f"```Added {value} to {str(user)}'s quota.```", delete_after=15)
 
     @commands.slash_command(name='resetquotas', description='Reset AI bot quotas for all members. Optional: specify bot.')
     @commands.has_role('Admin')
@@ -93,7 +93,7 @@ class QuotaManager(commands.Cog):
                 quotas[b][str(user.id)] = QUOTA_LIMIT
 
         write_json_config("quotas.json", quotas)
-        await ctx.respond(f"```Reset ({member_count}) member's bot quotas.```", delete_after=15)
+        await ctx.send_response(f"```Reset ({member_count}) member's bot quotas.```", delete_after=15)
 
 
     @commands.slash_command(name='cleanupquotas', description='Clean up AI bot quotas list by removing ex-members.')
@@ -114,7 +114,7 @@ class QuotaManager(commands.Cog):
 
         clogger(f"Current member count: {len(current_members)}, removed {del_count} dead members from the quota list.")
         write_json_config("quotas.json", quota_copy)
-        await ctx.respond(f"```Cleaned up ({del_count}) ex-members from internal cache.```", delete_after=15)
+        await ctx.send_response(f"```Cleaned up ({del_count}) ex-members from internal cache.```", delete_after=15)
 
 
 def setup(bot):

@@ -6,7 +6,7 @@ from discord.ext import commands, tasks
 import os
 import sys
 import pytz
-
+import copy
 from jarvis import QUOTA_LIMIT
 
 sys.path.insert(0, os.path.abspath(
@@ -31,20 +31,46 @@ class Quotatask(commands.Cog):
         #clogger("+ Quota reset running")
         now = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
         if now.hour == 0 and now.minute >= 0 and now.minute <= 3:
-            
             try:
-                await ctx.invoke(self.client.get_command('cleanupquotas'))
+                quotas = load_json_config("quotas.json")
+                bots = [bot for bot in quotas.keys()]
+                current_members = [str(member.id) for member in self.client.guilds[0].members]
+                del_count = 0
+                quota_copy = copy.deepcopy(quotas)
+                for bot in bots:
+                    for member in quotas[bot]:
+                        if member not in current_members:
+                            del_count += 1
+                            clogger(f"Clearing {member} from {bot} quotas list as they are no longer a server member...")
+                            del quota_copy[bot][member]
+
+                clogger(f"Current member count: {len(current_members)}, removed {del_count} dead members from the quota list.")
+                write_json_config("quotas.json", quota_copy)
+
             except Exception as e:
                 clogger("Automated quota cleanup failed")
+                clogger(f"Error: {e}")
                 pass
 
-            try:
-                await ctx.invoke(self.client.get_command('resetquotas'))
+            try:                
+                quotas = load_json_config("quotas.json")
+
+                bots = ["jarvis", "emgee"]
+
+                member_count = self.client.guilds[0].member_count
+
+                for b in bots:
+                    for member in self.client.guilds[0].members:
+                        user = member
+                        quotas[b][str(user.id)] = QUOTA_LIMIT
+
+                write_json_config("quotas.json", quotas)
             except Exception as e:
-                clogger("Automated quota cleanup failed")
+                clogger("Automated quota reset failed")
+                clogger(f"Error: {e}")
                 pass
-
-            clogger(f"AI Bot Quota Reset to: {QUOTA_LIMIT}")
+            else:
+                clogger(f"AI Bot Quota Reset to: {QUOTA_LIMIT}")
             
 
 def setup(client):

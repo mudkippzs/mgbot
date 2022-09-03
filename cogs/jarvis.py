@@ -36,12 +36,12 @@ class Jarvis(commands.Cog):
         for guild in self.client.guilds:
             self.toggle_jarvis(state=True, guild=str(guild.id))
 
-    @commands.command(name='jstatus', help='Check if JARVIS online.')
+    @discord.commands.slash_command(name='jstatus', description='Check if JARVIS online.')
     async def jstatus(self, ctx):
         if self.active:
-            await ctx.send(f"```JARVIS is online```")
+            await ctx.send_response(f"```JARVIS is online```")
         else:
-            await ctx.send(f"```JARVIS is offline```")
+            await ctx.send_response(f"```JARVIS is offline```")
 
     def toggle_jarvis(self, state=None, guild = None):
         config = load_json_config("config.json")
@@ -61,50 +61,52 @@ class Jarvis(commands.Cog):
         return openai.Completion.create(
             model="text-davinci-002",
             prompt=payload,
-            temperature=0.92,
+            temperature=0.90,
             max_tokens=500,
             top_p=1,
-            frequency_penalty=0.01,
-            presence_penalty=0.6
+            frequency_penalty=0.02,
+            presence_penalty=0.65
         )
 
-    @commands.command(name='forget', help='Clear the prompt history. Do this if you get weird/no/repeating results.')
+    @discord.commands.slash_command(name='forget', description='Clear the prompt history. Do this if you get weird/no/repeating results.')
     async def forget(self, ctx):
         self.prompt_history[str(ctx.author.id)] = []
+        await ctx.send_response(f"```Prompt history cleared!```", delete_after=5)
 
-    @commands.command(name='prompthistory', help='See your prompt history to better understand odd outputs (mainly useful to debug).')
+    @discord.commands.slash_command(name='prompthistory', description='See your prompt history to better understand odd outputs (mainly useful to debug).')
     async def prompthistory(self, ctx):
-        if str(ctx.message.author.id) not in self.prompt_history:
-            self.prompt_history[str(ctx.message.author.id)] = []
+        if str(ctx.author.id) not in self.prompt_history:
+            self.prompt_history[str(ctx.author.id)] = []
 
-        await ctx.send(self.prompt_history[str(ctx.message.author.id)])
+        prompt_history = "\n".join(self.prompt_history[str(ctx.author.id)])
+        await ctx.send_response(f"```Prompt History for {ctx.author.display_name} \n\n{prompt_history}```")
 
-    @commands.command(hidden = True)
+    @discord.commands.slash_command(name='jarvis', description='Toggle JARVIS online/offline.')
     @commands.has_role('Staff')
     async def jarvis(self, ctx):
         self.prompt_history = {}
 
-        if str(ctx.message.author.id) not in self.prompt_history:
-            self.prompt_history[str(ctx.message.author.id)] = []
+        if str(ctx.author.id) not in self.prompt_history:
+            self.prompt_history[str(ctx.author.id)] = []
 
         if self.active == False:
             self.toggle_jarvis(state=True, guild = str(ctx.guild.id))
-            if ctx.message.author == self.client.user:
+            if ctx.author == self.client.user:
                 return
 
-            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.message.author.display_name}, with their nickname, this Initial activation Prompt with some basic, courteous response: Start-up, Jarvis!\n\n."""
+            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.author.display_name}, with their nickname, this Initial activation Prompt with some basic, courteous response: Start-up, Jarvis!\n\n."""
         else:            
             self.toggle_jarvis(state=False, guild = str(ctx.guild.id))
 
-            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.message.author.display_name}, with their nickname, Initial deactivation Prompt with a basic, courteous response: JARVIS, shut down.!\n\n"""
+            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.author.display_name}, with their nickname, Initial deactivation Prompt with a basic, courteous response: JARVIS, shut down.!\n\n"""
 
         response = self.post_to_gpt3([initial_payload,])
 
         # If the request was successful, send a message containing the response from the API to the channel that we received our !gpt3 message from.
 
-        self.prompt_history[str(ctx.message.author.id)].append(response["choices"][0]["text"])
+        self.prompt_history[str(ctx.author.id)].append(response["choices"][0]["text"])
         jarvis_reply = response["choices"][0]["text"]
-        await ctx.send(f"```{jarvis_reply}```")
+        await ctx.send_response(f"```{jarvis_reply}```")
 
     @commands.Cog.listener()
     async def on_message(self, message):
