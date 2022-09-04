@@ -1,3 +1,4 @@
+import csv
 import json
 
 
@@ -12,6 +13,13 @@ def write_json_config(file, config):
     with open(file, 'w') as f:
         json.dump(config, f, indent=4)
 
+def write_csv_file(file, data):
+    with open(file, 'w+') as f:
+        writer = csv.writer(f)
+        writer.writerows(data)    
+
+def get_highest_dict_key(dictionary):
+    return max(dictionary, key=lambda k: dictionary[k])
 
 FORMATTING_CHARS = {
     "COLOURS": {

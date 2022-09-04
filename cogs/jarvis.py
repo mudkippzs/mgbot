@@ -61,10 +61,10 @@ class Jarvis(commands.Cog):
         return openai.Completion.create(
             model="text-davinci-002",
             prompt=payload,
-            temperature=0.90,
+            temperature=0.43,
             max_tokens=500,
             top_p=1,
-            frequency_penalty=0.02,
+            frequency_penalty=0.32,
             presence_penalty=0.65
         )
 

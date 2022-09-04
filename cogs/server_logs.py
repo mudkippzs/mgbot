@@ -237,6 +237,8 @@ class Serverlogs(commands.Cog):
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
+        #await role.guild.create_template(name='MG Template', description='Created by MG Bot')
+
         await self.client.get_channel(CHANNELS["role"]).send(embed=embed)
 
     @commands.Cog.listener()
@@ -247,6 +249,8 @@ class Serverlogs(commands.Cog):
         embed.add_field(name="Role Name", value=f"{role}")
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
+
+        #await role.guild.create_template(name='MG Template', description='Created by MG Bot')
 
         await self.client.get_channel(CHANNELS["role"]).send(embed=embed)
 
@@ -259,6 +263,8 @@ class Serverlogs(commands.Cog):
         embed.add_field(name="After", value=f"Name: {after}\nPermissions: {after}\nPosition: {after}\nHoist: {after}\nMentionable: {after}")
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
+
+        #await role.guild.create_template(name='MG Template', description='Created by MG Bot')
 
         await self.client.get_channel(CHANNELS["role"]).send(embed=embed)
 
@@ -293,6 +299,9 @@ class Serverlogs(commands.Cog):
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
+
+        await channel.guild.create_template(name='MG Template', description='Created by MG Bot')
+
         await self.client.get_channel(CHANNELS["channel"]).send(embed=embed)
 
     @commands.Cog.listener()
@@ -303,6 +312,8 @@ class Serverlogs(commands.Cog):
         embed.add_field(name="Channel Name", value=f"{channel}")
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
+
+        await channel.guild.create_template(name='MG Template', description='Created by MG Bot')
 
         await self.client.get_channel(CHANNELS["channel"]).send(embed=embed)
 
@@ -315,6 +326,7 @@ class Serverlogs(commands.Cog):
         try:
             before_topic = "None" if before.topic == None else before.topic
             after_topic = "None" if after.topic == None else after.topic
+            await after.guild.create_template(name='MG Template', description='Created by MG Bot')
 
             embed.add_field(name="Before", value=f"```markdown\n**Name:** {before.name}\n**Position:** {before.position}\n**Category:** {before.category}\n**Topic:** {before_topic}\n**NSFW:** {before.nsfw}```")
             embed.add_field(name="After", value=f"```markdown\n**Name:** {after.name}\n**Position:** {after.position}\n**Category:** {after.category}\n**Topic:** {after_topic}\n**NSFW:** {after.nsfw}```")

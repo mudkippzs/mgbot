@@ -213,3 +213,42 @@ class RolesPetsView(discord.ui.View):
     async def select_callback(self, select, interaction):
         if len(select.values) > 0:
             r = await role_manager(select, interaction, self.bot)
+
+class RolesVirtueView(discord.ui.View):
+    def __init__(self, bot):
+        super().__init__(timeout=None)
+        self.bot = bot
+
+    @discord.ui.select(  # the decorator that lets you specify the properties of the select menu
+        # the placeholder text that will be displayed if nothing is selected
+        placeholder="Choose your Virtues!",
+        custom_id="virtue-select",
+        min_values=0,  # the minimum number of values that must be selected by the users
+        max_values=3,  # the maxmimum number of values that can be selected by the users
+        options=[  # the list of options from which users can choose, a required field
+            discord.SelectOption(
+                label="No Fags",
+                description="I've quit smoking!",
+                emoji="🚭"
+            ),
+            discord.SelectOption(
+                label="Born-Again Teetotaller",
+                description=":relieved:! I've quit (regular) drinking!",
+                emoji="🚱"
+            ),
+            discord.SelectOption(
+                label="Keeping Fit",
+                description="Biking, Climbing, Trail Mix - Its all good!",
+                emoji="🧗"
+            ),
+            discord.SelectOption(
+                label="Volunteer",
+                description="Wana inspire others to volunteer? They're certainly going to ask if you have this!",
+                emoji="🦧"
+            )
+        ]
+    )
+    # the function called when the user is done selecting options
+    async def select_callback(self, select, interaction):
+        if len(select.values) > 0:
+            r = await role_manager(select, interaction, self.bot)
