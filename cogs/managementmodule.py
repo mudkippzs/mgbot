@@ -63,12 +63,16 @@ class ManagementModule(commands.Cog):
         """
         This command will allow the Admin to purge messages from a channel.
         """
+        if user is None:
+            await ctx.send_response(f"```Purging {count} messages in {channel.name}...```", delete_after=5)
+        else:
+            await ctx.send_response(f"```Purging {count} messages in {channel.name} belonging to {user.display_name}...```", delete_after=5)
 
         if channel is None:
             channel = ctx.channel
 
         if count < 1:
-            await ctx.send_response(f"{ctx.author.mention} Count must be greater than 0")
+            await ctx.send_followup(f"{ctx.author.mention} Count must be greater than 0")
             return
 
         async for message in channel.history(limit=count):
@@ -92,10 +96,10 @@ class ManagementModule(commands.Cog):
                 await message.delete()
 
             except discord.errors.Forbidden:
-                await ctx.send_response(f"{ctx.author.mention} I don't have permission to delete messages in {channel.mention}")
+                await ctx.send_followup(f"{ctx.author.mention} I don't have permission to delete messages in {channel.mention}")
                 return
 
-        await ctx.send_response(f"{ctx.author.mention} {count} messages deleted")
+        await ctx.send_followup(f"{ctx.author.mention} {count} messages deleted", delete_after=10)
 
 
 def setup(client):

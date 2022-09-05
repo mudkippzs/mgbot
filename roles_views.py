@@ -224,7 +224,7 @@ class RolesVirtueView(discord.ui.View):
         placeholder="Choose your Virtues!",
         custom_id="virtue-select",
         min_values=0,  # the minimum number of values that must be selected by the users
-        max_values=3,  # the maxmimum number of values that can be selected by the users
+        max_values=4,  # the maxmimum number of values that can be selected by the users
         options=[  # the list of options from which users can choose, a required field
             discord.SelectOption(
                 label="No Fags",

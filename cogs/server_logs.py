@@ -26,6 +26,17 @@ CHANNELS = {
 }
 
 
+async def sync_templates(guild: discord.Guild):
+    """
+    Sync templates for a guild.
+    """
+    # Get the guilds templates
+    templates = await guild.templates()
+
+    # Iterate through the templates and sync them
+    for template in templates:
+        await template.sync()
+
 class Serverlogs(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -38,6 +49,11 @@ class Serverlogs(commands.Cog):
     @commands.slash_command()
     async def testinvites(self, ctx):
         clogger(self.client.invites)
+
+    @commands.slash_command(name="synctemplate", description="Sync Server Template.")
+    async def sync_template(self, ctx):
+        await sync_templates(ctx.guild)
+        await ctx.send_response("```Server Synced```", delete_after=5)
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
@@ -237,7 +253,7 @@ class Serverlogs(commands.Cog):
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
-        #await role.guild.create_template(name='MG Template', description='Created by MG Bot')
+        
 
         await self.client.get_channel(CHANNELS["role"]).send(embed=embed)
 
@@ -250,7 +266,7 @@ class Serverlogs(commands.Cog):
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
-        #await role.guild.create_template(name='MG Template', description='Created by MG Bot')
+        
 
         await self.client.get_channel(CHANNELS["role"]).send(embed=embed)
 
@@ -264,7 +280,7 @@ class Serverlogs(commands.Cog):
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
-        #await role.guild.create_template(name='MG Template', description='Created by MG Bot')
+        
 
         await self.client.get_channel(CHANNELS["role"]).send(embed=embed)
 
@@ -299,10 +315,8 @@ class Serverlogs(commands.Cog):
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
-
-        await channel.guild.create_template(name='MG Template', description='Created by MG Bot')
-
         await self.client.get_channel(CHANNELS["channel"]).send(embed=embed)
+        await sync_templates(channel.guild)
 
     @commands.Cog.listener()
     async def on_guild_channel_delete(self, channel):
@@ -313,9 +327,8 @@ class Serverlogs(commands.Cog):
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
-        await channel.guild.create_template(name='MG Template', description='Created by MG Bot')
-
         await self.client.get_channel(CHANNELS["channel"]).send(embed=embed)
+        await sync_templates(channel.guild)
 
     @commands.Cog.listener()
     async def on_guild_channel_update(self, before, after):
@@ -326,7 +339,6 @@ class Serverlogs(commands.Cog):
         try:
             before_topic = "None" if before.topic == None else before.topic
             after_topic = "None" if after.topic == None else after.topic
-            await after.guild.create_template(name='MG Template', description='Created by MG Bot')
 
             embed.add_field(name="Before", value=f"```markdown\n**Name:** {before.name}\n**Position:** {before.position}\n**Category:** {before.category}\n**Topic:** {before_topic}\n**NSFW:** {before.nsfw}```")
             embed.add_field(name="After", value=f"```markdown\n**Name:** {after.name}\n**Position:** {after.position}\n**Category:** {after.category}\n**Topic:** {after_topic}\n**NSFW:** {after.nsfw}```")
@@ -337,6 +349,7 @@ class Serverlogs(commands.Cog):
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
         await self.client.get_channel(CHANNELS["channel"]).send(embed=embed)
+        await sync_templates(after.guild)
 
     @commands.Cog.listener()
     async def on_guild_emojis_update(self, guild, before, after):
