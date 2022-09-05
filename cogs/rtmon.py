@@ -130,12 +130,12 @@ class RTMon(commands.Cog):
         self.url = None
         self.channel = None
 
-    @tasks.loop(minutes=20)
+    @tasks.loop(minutes=5)
     async def monitor_rt(self):
         if self.active:
             if self.channel:
                 if self.url:
-                    self.get_rt_reviews()
+                    await self.get_rt_reviews()
                 else:
                     clogger("```Please set a target URL.```")
             else:

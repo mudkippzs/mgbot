@@ -94,10 +94,10 @@ class Emgee(commands.Cog):
     async def emgee_emotional_decay_task(self):
         for guild in self.client.guilds:
             #clogger(f"eMGee Emototional decay for {guild.name}")
-            #clogger(f"B -> {self.es_init[str(guild.id)]}")
+            clogger(f"B -> {self.es_init[str(guild.id)]}")
             self.es_init[str(guild.id)] = self.es_init[str(
                 guild.id)].decay()
-            #clogger(f"A -> {self.es_init[str(guild.id)]}")
+            clogger(f"A -> {self.es_init[str(guild.id)]}")
 
     @tasks.loop(minutes=10)
     async def update_emgee_category_status_task(self):
