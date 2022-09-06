@@ -8,7 +8,6 @@ import datetime
 import pytz
 import time
 import random
-import math
 
 from discord.ext import tasks
 
@@ -29,21 +28,42 @@ QUOTA_LIMIT = 50
 def get_emoji(emotion):
     if emotion == "neutral":
         return random.choice([
-            "😐"
+            "😌"
         ])
 
-    elif emotion == "joy":
-        return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌"])
-    elif emotion == 'fear':
-        return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧"])
-    elif emotion == 'disgust':
-        return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒"])
-    elif emotion == 'sadness':
-        return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞"])
-    elif emotion == 'anger':
-        return random.choice(["👿", "😡", "🤬", "😤", "😠", "💢"])
-    elif emotion == 'surprise':
-        return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯"])
+    if emotion == "joy":
+        return random.choice(["😀",
+                              "😁",
+                              "😂",
+                              "🤣",
+                              "😏",
+                              "😄",
+                              "🤪"])
+    if emotion == 'fear':
+        return random.choice(["😨",
+                              "😧",
+                              "😰",
+                              "😦",
+                              "😳",
+                              "😱"])
+    if emotion == 'disgust':
+        return random.choice(["🤢",
+                              "🤮",
+                              "😖",
+                              "😫",
+                              "😩"])
+    if emotion == 'sadness':
+        return random.choice(["😔",
+                              "😥",
+                              "😢",
+                              "😭",
+                              "🤧"])
+
+    if emotion == 'anger':
+        return random.choice(["👿", "😡", "🤬"])
+
+    if emotion == 'surprise':
+        return random.choice(["🤯", "😲", "🙀", "😵", "🥴", ""])
 
 
 class Emgee(commands.Cog):
@@ -70,18 +90,16 @@ class Emgee(commands.Cog):
         self.update_emgee_category_status_task.cancel()
         self.emgee_emotional_decay_task.cancel()
 
-    @tasks.loop(seconds=10)
+    @tasks.loop(minutes=1)
     async def emgee_emotional_decay_task(self):
         for guild in self.client.guilds:
-            # clogger(f"eMGee Emototional decay for {guild.name}")
-            if 'Middle Ground' in guild.name:
-                clogger(f"{str(guild.name)} - B -> {self.es_init[str(guild.id)]}")
+            #clogger(f"eMGee Emototional decay for {guild.name}")
+            #clogger(f"B -> {self.es_init[str(guild.id)]}")
             self.es_init[str(guild.id)] = self.es_init[str(
-                guild.id)].decay(0.85)
-            if 'Middle Ground' in guild.name:
-                clogger(f"{str(guild.name)} - A -> {self.es_init[str(guild.id)]}")
+                guild.id)].decay()
+            #clogger(f"A -> {self.es_init[str(guild.id)]}")
 
-    @tasks.loop(minutes=5)
+    @tasks.loop(minutes=10)
     async def update_emgee_category_status_task(self):
         for guild in self.client.guilds:
             time.sleep(2)
@@ -96,11 +114,9 @@ class Emgee(commands.Cog):
             es_dict = json.loads(self.es_init[str(guild.id)].to_json())
             for k in es_dict:
                 if es_dict[k] == 0.0:
-                    emotion = "neutral"
+                    emoji = get_emoji("neutral")
                 else:
-                    emotion = get_highest_dict_key(es_dict)
-
-                emoji = get_emoji(emotion)
+                    emoji = get_emoji(get_highest_dict_key(es_dict))
 
             try:
                 ch = guild.get_channel(category_id)
@@ -108,7 +124,7 @@ class Emgee(commands.Cog):
                 if ch.name != new_name:
                     await ch.edit(name=f"{emoji} eMGee")
                     clogger(f"Updating eMGee status in {guild.name}")
-                    clogger(f"Updating eMGee category with emoji: {emoji} ({emotion})")
+                    clogger(f"Updating eMGee category with emoji: {emoji}")
                 else:
                     clogger(
                         f"No Update for eMGee status ({guild.name}) - it's the same: {new_name}")
@@ -134,8 +150,7 @@ class Emgee(commands.Cog):
                 # clogger(state)
                 emotional_state = EmotionalState(
                     state[0], state[1], state[2], state[3], state[4], state[5])
-            except IndexError as e:
-                #clogger(f"```Error with prep_emotions(): {e}```")
+            except IndexError:
                 # No messages exist and there is no previous emotional state.
                 emotional_state = EmotionalState(
                     0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
@@ -218,7 +233,7 @@ class Emgee(commands.Cog):
         reply = response["choices"][0]["text"]
         csv_line = [f"{temps[0]}", str(self.es_init[str(ctx.guild.id)])]
         await ctx.send_followup(f"```{reply}```", delete_after=60)
-        await ctx.send_followup(f"```{str(self.es_init[str(ctx.guild.id)])}```")
+        await ctx.send_followup(f"```{str(self.es_init[str(ctx.guild.id)])}```", delete_after=60)
         await self.update_emgee_category_status(ctx.guild, 1015905030760575026)
         await ctx.send_followup(f"```Finished Emotional State Assessment```", delete_after=10)
 
@@ -286,13 +301,11 @@ class Emgee(commands.Cog):
                     if len(self.bot_arena_history) < 1:
                         primer = f"Produce a variation of the following sentence and make it fun, interesting and knowledgable about the topic. Elaborate on your position and put forward a premise: 'Great I'd like to debate you about: {topic}. My position is: {position}. Lets do this?'"
                         primer_response = self.post_to_gpt3(primer, args)
-                        primer_reply = primer_response["choices"][0]["text"].strip(
-                        )
+                        primer_reply = primer_response["choices"][0]["text"].strip()
                         while len(primer_reply) < 5:
                             primer_response = self.post_to_gpt3(primer, args)
-                            primer_reply = primer_response["choices"][0]["text"].strip(
-                            )
-
+                            primer_reply = primer_response["choices"][0]["text"].strip()
+                        
                         await message.reply(f"```[eMGee]: {primer_reply}```")
                         self.bot_arena_history[now] = primer_reply
                     else:
@@ -303,10 +316,11 @@ class Emgee(commands.Cog):
                     prompt = "\n\n".join(prompt_history[-3:])
                     final_prompt = prompt + "\n\nRebuttal:"
 
+
                     response = self.post_to_gpt3(prompt, args)
                     reply = response["choices"][0]["text"].strip()
 
-                    while reply.count("[") > 1:
+                    while reply.count("[") > 1:                            
                         response = self.post_to_gpt3(prompt, args)
                         reply = response["choices"][0]["text"].strip()
 
@@ -340,12 +354,9 @@ class Emgee(commands.Cog):
                         if message.content.lower().startswith("emgee analyze chat") == False:
                             if message.content.lower().startswith("jarvis") == False:
                                 if message.channel.id not in [823656840701149194, 938444879682478121]:
-                                    state_temp = get_sentiment_score(
+                                    state = get_sentiment_score(
                                         message.clean_content)
-                                    clogger(f"State: {state_temp}")
-                                    if state_temp != None:
-                                        state = [0.0 if math.isnan(
-                                            float(s)) else s for s in state_temp]
+                                    if state != None:
                                         es_frame = EmotionalState(float(state[0]), float(state[1]), float(
                                             state[2]), float(state[3]), float(state[4]), float(state[5]))
                                         self.emotional_state_continuum.append(
