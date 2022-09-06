@@ -22,7 +22,7 @@ class Jarvis(commands.Cog):
     def __init__(self, client):
         config = load_json_config("config.json")
         clogger("Jarvis Reloaded...")
-        self.api_key = config["jarvis_key"]    
+        self.api_key = config["ai_key"]    
         self.client = client
         self.prompt_history = {}
         self.bot_arena_history = {}

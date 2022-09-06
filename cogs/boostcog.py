@@ -60,6 +60,7 @@ class Boostcog(commands.Cog):
     def __init__(self, client):
         config = load_json_config("config.json")
         self.client = client
+        self.blacklist_channels = [938444879682478121]
 
         self.basedlog = load_json_config("basedlog.json")
         self.based_role = None
@@ -72,6 +73,8 @@ class Boostcog(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
         """Update basedlog when a reaction is added."""
+        if payload.channel_id in self.blacklist_channels:
+            return
         self.basedlog = load_json_config("basedlog.json")
         message_id = payload.message_id
         guild = self.client.get_guild(payload.guild_id)
@@ -179,7 +182,7 @@ class Boostcog(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
         """Update basedlog when a reaction is removed."""
-
+        
         self.basedlog = load_json_config("basedlog.json")
         # Get message from payload (raw event format)
         guild = self.client.get_guild(payload.guild_id)

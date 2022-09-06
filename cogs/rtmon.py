@@ -187,24 +187,29 @@ class RTMon(commands.Cog):
             else:
                 audience_delta = str(audience_delta)
 
+        if int(critic_delta) > 0 or int(audience_delta) > 0:
+            colour = 0x00ff00
+        elif int(critic_delta) < 0 or int(audience_delta) < 0:
+            colour = 0xff0000
+
         if int(critic_delta) != 0 or int(audience_delta) != 0:
             embed = discord.Embed(title="RT Cheater Monitor - Watching for deleted reviews...",
-                                  description=f'{movie_title}', color=0xff0000)
+                                  description=f'{movie_title}', color=colour)
             embed.add_field(name='Critic Score',
                             value=f'**{critic_score}%** `({critic_reviews})`\t`Δ: {critic_delta}`', inline=False)
             embed.add_field(name='Audience Score',
                             value=f'**{audience_score}%** `({audience_reviews})`\t`Δ: {audience_delta}`', inline=False)
-        else:
-            embed = discord.Embed(title="RT Cheater Monitor - Watching for deleted reviews...",
-                                  description=f'{movie_title}', color=0x00ff00)
-            embed.add_field(name='Critic Score',
-                            value=f'**{critic_score}%** `({critic_reviews})`\t`Δ: --`', inline=False)
-            embed.add_field(name='Audience Score',
-                            value=f'**{audience_score}%** `({audience_reviews})`\t`Δ: --`', inline=False)
-        embed.set_thumbnail(url=movie_image)
+        # else:
+        #     embed = discord.Embed(title="RT Cheater Monitor - Watching for deleted reviews...",
+        #                           description=f'{movie_title}', color=0x00ff00)
+        #     embed.add_field(name='Critic Score',
+        #                     value=f'**{critic_score}%** `({critic_reviews})`\t`Δ: --`', inline=False)
+        #     embed.add_field(name='Audience Score',
+        #                     value=f'**{audience_score}%** `({audience_reviews})`\t`Δ: --`', inline=False)
+            embed.set_thumbnail(url=movie_image)
 
-        channel = self.channel
-        await channel.send(embed=embed)
+            channel = self.channel
+            await channel.send(embed=embed)
 
 
 def setup(client):

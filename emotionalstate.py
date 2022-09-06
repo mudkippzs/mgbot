@@ -10,6 +10,21 @@ import json
 import numpy as np
 
 
+def normalize(func):
+    def inner(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return EmotionalState(
+            (result.emotions[EmotionalDomain.JOY] + 1) / 2,
+            (result.emotions[EmotionalDomain.FEAR] + 1) / 2,
+            (result.emotions[EmotionalDomain.DISGUST] + 1) / 2,
+            (result.emotions[EmotionalDomain.SADNESS] + 1) / 2,
+            (result.emotions[EmotionalDomain.ANGER] + 1) / 2,
+            (result.emotions[EmotionalDomain.SURPRISE] + 1) / 2
+        )
+
+    return inner
+
+
 class EmotionalDomain(Enum):
     """Emotional domain"""
 
@@ -30,18 +45,17 @@ class EmotionalState:
         self._emotions = {EmotionalDomain.JOY: joy, EmotionalDomain.FEAR: fear, EmotionalDomain.DISGUST: disgust,
                           EmotionalDomain.SADNESS: sadness, EmotionalDomain.ANGER: anger, EmotionalDomain.SURPRISE: surprise}
 
-    def decay(self):
+    def decay(self, decay_rate=0.25):
         """Decay emotional state"""
-        decay_rate = 0.85
         return EmotionalState(round(self.emotions[EmotionalDomain.JOY] * decay_rate, 2),
                               round(self.emotions[EmotionalDomain.FEAR] *
-                              decay_rate, 2),
+                                    decay_rate, 2),
                               round(self.emotions[EmotionalDomain.DISGUST] *
-                              decay_rate, 2),
+                                    decay_rate, 2),
                               round(self.emotions[EmotionalDomain.SADNESS] *
-                              decay_rate, 2),
+                                    decay_rate, 2),
                               round(self.emotions[EmotionalDomain.ANGER] *
-                              decay_rate, 2),
+                                    decay_rate, 2),
                               round(self.emotions[EmotionalDomain.SURPRISE] * decay_rate, 2))
 
     @property
@@ -72,23 +86,29 @@ class EmotionalState:
                f'Disgust: {self._emotions[EmotionalDomain.DISGUST]}, Sadness: {self._emotions[EmotionalDomain.SADNESS]}, ' \
                f'Anger: {self._emotions[EmotionalDomain.ANGER]}, Surprise: {self._emotions[EmotionalDomain.SURPRISE]}'
 
+    @normalize
     def __add__(self, other: 'EmotionalState') -> 'EmotionalState':
         """Add two emotional states"""
 
         if not isinstance(other, EmotionalState):
             raise ValueError('The other value must be of type EmotionalState.')
 
-        return EmotionalState(self.emotions[EmotionalDomain.JOY] + other.emotions[EmotionalDomain.JOY],
-                              self.emotions[EmotionalDomain.FEAR] +
-                              other.emotions[EmotionalDomain.FEAR],
-                              self.emotions[EmotionalDomain.DISGUST] +
-                              other.emotions[EmotionalDomain.DISGUST],
-                              self.emotions[EmotionalDomain.SADNESS] +
-                              other.emotions[EmotionalDomain.SADNESS],
-                              self.emotions[EmotionalDomain.ANGER] +
-                              other.emotions[EmotionalDomain.ANGER],
-                              self.emotions[EmotionalDomain.SURPRISE] + other.emotions[EmotionalDomain.SURPRISE])
+        return EmotionalState(
+            self.emotions[EmotionalDomain.JOY] +
+            other.emotions[EmotionalDomain.JOY],
+            self.emotions[EmotionalDomain.FEAR] +
+            other.emotions[EmotionalDomain.FEAR],
+            self.emotions[EmotionalDomain.DISGUST] +
+            other.emotions[EmotionalDomain.DISGUST],
+            self.emotions[EmotionalDomain.SADNESS] +
+            other.emotions[EmotionalDomain.SADNESS],
+            self.emotions[EmotionalDomain.ANGER] +
+            other.emotions[EmotionalDomain.ANGER],
+            self.emotions[EmotionalDomain.SURPRISE] +
+            other.emotions[EmotionalDomain.SURPRISE]
+        )
 
+    @normalize
     def __sub__(self, other: 'EmotionalState') -> 'EmotionalState':
         """Subtract two emotional states"""
 
@@ -106,6 +126,7 @@ class EmotionalState:
                               other.emotions[EmotionalDomain.ANGER],
                               self.emotions[EmotionalDomain.SURPRISE] - other.emotions[EmotionalDomain.SURPRISE])
 
+    @normalize
     def __mul__(self, other: 'EmotionalState') -> 'EmotionalState':
         """Multiply two emotional states"""
 
@@ -124,6 +145,7 @@ class EmotionalState:
                               other.emotions[EmotionalDomain.ANGER],
                               self.emotions[EmotionalDomain.SURPRISE] * other.emotions[EmotionalDomain.SURPRISE])
 
+    @normalize
     def __rmul__(self, other: 'EmotionalState') -> 'EmotionalState':
         """Reverse multiply two emotional states"""
 
@@ -141,6 +163,7 @@ class EmotionalState:
                               other.emotions[EmotionalDomain.ANGER],
                               self.emotions[EmotionalDomain.SURPRISE] * other.emotions[EmotionalDomain.SURPRISE])
 
+    @normalize
     def __truediv__(self, other: 'EmotionalState') -> 'EmotionalState':
         """Divide two emotional states"""
 
@@ -158,6 +181,7 @@ class EmotionalState:
                               other.emotions[EmotionalDomain.ANGER],
                               self.emotions[EmotionalDomain.SURPRISE] / other.emotions[EmotionalDomain.SURPRISE])
 
+    @normalize
     def __rtruediv__(self, other: 'EmotionalState') -> 'EmotionalState':
         """Reverse divide two emotional states"""
 

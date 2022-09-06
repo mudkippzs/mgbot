@@ -63,10 +63,6 @@ class ManagementModule(commands.Cog):
         """
         This command will allow the Admin to purge messages from a channel.
         """
-        if user is None:
-            await ctx.send_response(f"```Purging {count} messages in {channel.name}...```", delete_after=5)
-        else:
-            await ctx.send_response(f"```Purging {count} messages in {channel.name} belonging to {user.display_name}...```", delete_after=5)
 
         if channel is None:
             channel = ctx.channel
@@ -74,6 +70,11 @@ class ManagementModule(commands.Cog):
         if count < 1:
             await ctx.send_followup(f"{ctx.author.mention} Count must be greater than 0")
             return
+
+        if user is None:
+            await ctx.send_response(f"```Purging {count} messages in {channel.name}...```", delete_after=5)
+        else:
+            await ctx.send_response(f"```Purging {count} messages in {channel.name} belonging to {user.display_name}...```", delete_after=5)
 
         async for message in channel.history(limit=count):
             time.sleep(1)
@@ -101,6 +102,16 @@ class ManagementModule(commands.Cog):
 
         await ctx.send_followup(f"{ctx.author.mention} {count} messages deleted", delete_after=10)
 
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        # check if the message mentions user with id 123123123
+        if len(message.mentions):
+            if message.mentions[0].id == 218521566412013568 and message.author.id not in [self.client.user.id, 218521566412013568]:
+                # create a string with the orangutan emoji and the mention
+                response = '🦧'
+                # send the response
+                await message.reply(response)
 
 def setup(client):
     client.add_cog(ManagementModule(client))
