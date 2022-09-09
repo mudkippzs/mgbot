@@ -158,11 +158,11 @@ class Jarvis(commands.Cog):
                     final_prompt = prompt + "\n\nRebuttal:"
 
                     args = {
-                        'temp': 0.89,
+                        'temp': 0.29,
                         'max_tokens': 1500,
                         'top_p': 1.0,
-                        'fp': 0.55,
-                        'pp': 0.35,
+                        'fp': 0.15,
+                        'pp': 0.15,
                     }
 
 

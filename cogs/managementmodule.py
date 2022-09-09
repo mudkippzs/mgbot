@@ -107,11 +107,13 @@ class ManagementModule(commands.Cog):
     async def on_message(self, message):
         # check if the message mentions user with id 123123123
         if len(message.mentions):
-            if message.mentions[0].id == 218521566412013568 and message.author.id not in [self.client.user.id, 218521566412013568]:
-                # create a string with the orangutan emoji and the mention
-                response = '🦧'
-                # send the response
-                await message.reply(response)
+            if message.mentions[0].id == 218521566412013568 and message.author.id not in [self.client.user.id]:
+                ganj = message.mentions[0]
+                if str(ganj.status) in ['idle', 'offline', 'dnd']:
+                    # create a string with the orangutan emoji and the mention
+                    response = '🦧'
+                    # send the response
+                    await message.reply(response)
 
 def setup(client):
     client.add_cog(ManagementModule(client))

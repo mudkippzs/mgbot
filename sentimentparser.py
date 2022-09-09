@@ -14,7 +14,7 @@ import random
 from utils import *
 
 config = load_json_config("config.json")
-openai.api_key = config["jarvis_key"]
+openai.api_key = config["ai_key"]
 
 
 def get_sentiment(text):

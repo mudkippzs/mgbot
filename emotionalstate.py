@@ -14,12 +14,12 @@ def normalize(func):
     def inner(*args, **kwargs):
         result = func(*args, **kwargs)
         return EmotionalState(
-            (result.emotions[EmotionalDomain.JOY] + 1) / 2,
-            (result.emotions[EmotionalDomain.FEAR] + 1) / 2,
-            (result.emotions[EmotionalDomain.DISGUST] + 1) / 2,
-            (result.emotions[EmotionalDomain.SADNESS] + 1) / 2,
-            (result.emotions[EmotionalDomain.ANGER] + 1) / 2,
-            (result.emotions[EmotionalDomain.SURPRISE] + 1) / 2
+            (result.emotions[EmotionalDomain.JOY]) / 2,
+            (result.emotions[EmotionalDomain.FEAR]) / 2,
+            (result.emotions[EmotionalDomain.DISGUST]) / 2,
+            (result.emotions[EmotionalDomain.SADNESS]) / 2,
+            (result.emotions[EmotionalDomain.ANGER]) / 2,
+            (result.emotions[EmotionalDomain.SURPRISE]) / 2
         )
 
     return inner

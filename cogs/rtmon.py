@@ -97,6 +97,11 @@ class RTMon(commands.Cog):
         self.channel = channel
         await ctx.send_response(f"```RT Monitor Channel updated: {channel}```", delete_after=10)
 
+    @commands.slash_command(name="rtstatus", description="Check the status of RT Monitor.")
+    @commands.has_role('Admin')
+    async def rtstatus(self, ctx, url: str = None):
+        await ctx.send_response(f"```RT Mon Status: {self.active} | URL: {self.url} | Channel: {self.channel}```", delete_after=5)
+
     @commands.slash_command(name="rttoggle", description="Toggle the updater ON or OFF, for the RT monitor")
     @commands.has_role('Admin')
     async def rttoggle(self, ctx, url: str = None):
@@ -108,6 +113,21 @@ class RTMon(commands.Cog):
             state = "OFF"
 
         await ctx.send_response(f"```RT Monitor: {state}```", delete_after=15)
+
+    @commands.slash_command(name="palantir", description="RT Mon for Rings of Power")
+    @commands.has_role('Admin')
+    async def palantir(self, ctx, url: str = None):
+        if self.active == False:
+            self.url = "https://www.rottentomatoes.com/tv/the_lord_of_the_rings_the_rings_of_power/s01"
+            self.channel = self.client.get_channel(822886050359148556)
+            self.active = True
+            await ctx.send_response("```Palantir is active.```", delete_after=5)
+        else:
+            self.url = None
+            self.channel = None
+            self.active = False
+
+            await ctx.send_response("```Palantir deactivated.```", delete_after=5)
 
     @commands.slash_command(name="rttest", description="Test the RT monitor")
     @commands.has_role('Admin')
@@ -130,12 +150,12 @@ class RTMon(commands.Cog):
         self.url = None
         self.channel = None
 
-    @tasks.loop(minutes=20)
+    @tasks.loop(minutes=1)
     async def monitor_rt(self):
         if self.active:
             if self.channel:
                 if self.url:
-                    self.get_rt_reviews()
+                    await self.get_rt_reviews()
                 else:
                     clogger("```Please set a target URL.```")
             else:

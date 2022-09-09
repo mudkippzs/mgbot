@@ -16,7 +16,7 @@ from clogger import clogger
 from cogwatch import watch
 import discord
 from discord.ext import commands
-from roles_views import RolesLocationView, RolesInterestsView, RolesPetsView
+from roles_views import RolesLocationView, RolesInterestsView, RolesPetsView, RolesVirtueView
 from utils import *
 
 config = load_json_config("config.json")
@@ -85,6 +85,7 @@ class AutoGanj(commands.Bot):
         self.add_view(RolesLocationView(bot=self)) # Registers a View for persistent listening
         self.add_view(RolesInterestsView(bot=self)) # Registers a View for persistent listening
         self.add_view(RolesPetsView(bot=self)) # Registers a View for persistent listening
+        self.add_view(RolesVirtueView(bot=self)) # Registers a View for persistent listening
 
         clogger(
             f"Loaded {len(self.invites)} invites from {len(self.guilds)} servers.")

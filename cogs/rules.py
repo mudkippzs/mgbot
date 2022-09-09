@@ -18,10 +18,10 @@ class Rules(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
-        if payload.message_id == 1002591595792699412:
-            guild = self.bot.get_guild(payload.guild_id)
-            role = discord.utils.get(guild.roles, name='Member')
+        if payload.message_id in [1002591595792699412, 1017754446358401044]:
             if payload.emoji.name == '✅':
+                guild = self.bot.get_guild(payload.guild_id)
+                role = discord.utils.get(guild.roles, name='Member')
                 member = discord.utils.get(guild.members, id=payload.user_id)
                 await member.add_roles(role)
                 #clogger(f'{member} has accepted the rules.')
@@ -51,6 +51,18 @@ class Rules(commands.Cog):
                         pass # User deleted the message or it timed out.
                 else:
                     await msg.delete()
+            else:
+                #remove react from the message
+                channel = self.bot.get_channel(payload.channel_id)
+                message = await channel.fetch_message(payload.message_id)
+                clogger(f"Channel {channel.name} - Message: {message.id}")
+                # iterate through the message's reacts and remove them if they're not ✅
+                for react in message.reactions:
+                    if react.emoji.name != '✅':
+                        clogger(react)
+                        await react.clear()
+
+
 
     @commands.Cog.listener()
     async def on_raw_reaction_remove(self, payload):
