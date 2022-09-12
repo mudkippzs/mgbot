@@ -3,18 +3,19 @@ import discord
 from discord.ext import commands
 import sys
 import os
-from typing import Union, List
+from typing import List
 
 import pytz
 import time
 from server_logs import CHANNELS
 
+
 sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), '.')))
 
-
 from clogger import clogger
 from utils import *
+
 
 FILTERED_ROLES = [
     1003025751886549134,
@@ -81,7 +82,7 @@ class RaidDefense(commands.Cog):
         self.lockdown = False
         self.target_list = []
 
-    @discord.commands.slash_command(name='houseparty')
+    @commands.slash_command(name='houseparty')
     @commands.has_role('Admin')
     async def houseparty(self, ctx):
         await log_mod_powers(self, "houseparty", ctx.channel, ctx.author)
@@ -91,9 +92,9 @@ class RaidDefense(commands.Cog):
                 await ctx.guild.ban(member, delete_message_days=7)
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='deputize')
+    @commands.slash_command(name='deputize')
     @commands.has_role('Admin')
-    async def deputize(self, ctx, *, members: Union[discord.Member, List[discord.Member]]):
+    async def deputize(self, ctx, *, members: discord.Member):
         await log_mod_powers(self, "deputize", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
         if isinstance(members, list):
             for member in members:
@@ -105,7 +106,7 @@ class RaidDefense(commands.Cog):
             await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='abrogate')
+    @commands.slash_command(name='abrogate')
     @commands.has_role('Admin')
     async def abrogate(self, ctx):
         await log_mod_powers(self, "abrogate", ctx.channel, ctx.author)
@@ -115,7 +116,7 @@ class RaidDefense(commands.Cog):
                 await member.send("Thank you for your service as an MG Deputy!")
         await ctx.message.delete()
     
-    @discord.commands.slash_command(name='analyze')
+    @commands.slash_command(name='analyze')
     @commands.has_role('Wielder of the flame of Anor')
     async def analyze(self, ctx):
         await log_mod_powers(self, "analyze", ctx.channel, ctx.author)
@@ -130,7 +131,7 @@ class RaidDefense(commands.Cog):
                 time.sleep(1)
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='execute')
+    @commands.slash_command(name='execute')
     @commands.has_role('Admin')
     async def execute(self, ctx):
         await log_mod_powers(self, "execute", ctx.channel, ctx.author)
@@ -145,9 +146,9 @@ class RaidDefense(commands.Cog):
         self.target_list = []
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='turnloose')
+    @commands.slash_command(name='turnloose')
     @commands.has_role('Admin')
-    async def turnloose(self, ctx, *, members: Union[discord.Member, List[discord.Member]]):
+    async def turnloose(self, ctx, *, members: discord.Member):
         await log_mod_powers(self, "deputize", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
         if isinstance(members, list):
             for member in ctx.guild.members:
@@ -177,7 +178,7 @@ class RaidDefense(commands.Cog):
             await member.add_roles(1004167279338061844)
             await member.send(f"```Hi {member.display_name}, this is Middle Ground Security system. \n\nMG Lockdown has been Triggered: You have joined the server during a security event and have been moved to a secure/restricted role until the security concern has been resolved. Please reach out to gañjā#9046 if you have any concerns - this shouldn't take very long.\n\nThis happens when the server is under threat from bad actors and we need to stop inbound members from flooding.\n\nI appreciate your patience while we resolve this, the quarantine is for your protection and to prevent them harvesting our member's list or harassing members.```")
 
-    @discord.commands.slash_command(name='lockdown')
+    @commands.slash_command(name='lockdown')
     @commands.has_role('Wielder of the flame of Anor')
     async def lockdown(self, ctx):
         """
@@ -242,7 +243,7 @@ class RaidDefense(commands.Cog):
         await ctx.send_response('```Lockdown protocol engaged...all channels locked and members notified...```', delete_after=5)
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='unlock')
+    @commands.slash_command(name='unlock')
     @commands.has_role('Wielder of the flame of Anor')
     async def unlock(self, ctx):
         """
@@ -269,7 +270,7 @@ class RaidDefense(commands.Cog):
         await ctx.send_response('```Lockdown lifted...```', delete_after=5)
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='lockstatus')
+    @commands.slash_command(name='lockstatus')
     @commands.has_role('Admin')
     async def lockstatus(self, ctx):
         """
@@ -283,7 +284,7 @@ class RaidDefense(commands.Cog):
             await ctx.send_response('```MG is not in lockdown.```', delete_after=10)
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='target')
+    @commands.slash_command(name='target')
     @commands.has_role('Wielder of the flame of Anor')
     async def target(self, ctx):
         await log_mod_powers(self, "target", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
@@ -297,7 +298,7 @@ class RaidDefense(commands.Cog):
 
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='arrest')
+    @commands.slash_command(name='arrest')
     @commands.has_role('Wielder of the flame of Anor')
     async def arrest(self, ctx):
         await log_mod_powers(self, "arrest", ctx.channel, ctx.author)
@@ -309,7 +310,7 @@ class RaidDefense(commands.Cog):
                 self.target_list = []
         await ctx.message.delete()
 
-    @discord.commands.slash_command(name='targetlist')
+    @commands.slash_command(name='targetlist')
     @commands.has_role('Wielder of the flame of Anor')
     async def targetlist(self, ctx):
         targets = []
