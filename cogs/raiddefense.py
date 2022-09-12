@@ -82,7 +82,19 @@ class RaidDefense(commands.Cog):
         self.lockdown = False
         self.target_list = []
 
-    @commands.slash_command(name='houseparty')
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        config = load_json_config("config.json")
+        if self.lockdown == True:
+            await member.add_roles(1004168808916861001)
+            await member.add_roles(1004167279338061844)
+            await member.send(f"```Hi {member.display_name}, this is Middle Ground Security system. \n\nMG Lockdown has been Triggered: You have joined the server during a security event and have been moved to a secure/restricted role until the security concern has been resolved. Please reach out to gañjā#9046 if you have any concerns - this shouldn't take very long.\n\nThis happens when the server is under threat from bad actors and we need to stop inbound members from flooding.\n\nI appreciate your patience while we resolve this, the quarantine is for your protection and to prevent them harvesting our member's list or harassing members.```")
+
+    """
+        Admin Commands.
+    """
+    @commands.slash_command(name='houseparty', description="Say, J.A.R.V.I.S., is it that time?")
     @commands.has_role('Admin')
     async def houseparty(self, ctx):
         await log_mod_powers(self, "houseparty", ctx.channel, ctx.author)
@@ -92,46 +104,7 @@ class RaidDefense(commands.Cog):
                 await ctx.guild.ban(member, delete_message_days=7)
         await ctx.message.delete()
 
-    @commands.slash_command(name='deputize')
-    @commands.has_role('Admin')
-    async def deputize(self, ctx, *, members: discord.Member):
-        await log_mod_powers(self, "deputize", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
-        if isinstance(members, list):
-            for member in members:
-                await member.add_roles(ctx.guild.get_role(853286399896453140))
-                await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
-        else:
-            member = members
-            await member.add_roles(ctx.guild.get_role(853286399896453140))
-            await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
-        await ctx.message.delete()
-
-    @commands.slash_command(name='abrogate')
-    @commands.has_role('Admin')
-    async def abrogate(self, ctx):
-        await log_mod_powers(self, "abrogate", ctx.channel, ctx.author)
-        for member in ctx.guild.members:
-            if ctx.guild.get_role(853286399896453140) in member.roles:
-                await member.remove_roles(ctx.guild.get_role(853286399896453140))
-                await member.send("Thank you for your service as an MG Deputy!")
-        await ctx.message.delete()
-    
-    @commands.slash_command(name='analyze')
-    @commands.has_role('Wielder of the flame of Anor')
-    async def analyze(self, ctx):
-        await log_mod_powers(self, "analyze", ctx.channel, ctx.author)
-        for member in ctx.guild.members:
-            if ctx.guild.get_role(1004167279338061844) in member.roles:
-                await ctx.send_response(f"```Scanning bogey: {str(member)}```", delete_after=5)
-                try:
-                    await ctx.invoke(self.client.get_command('userinfo'), member)
-                except Exception as e:
-                    clogger(f"Error: {e}")
-                    pass
-                time.sleep(1)
-        await ctx.message.delete()
-
-    @commands.slash_command(name='execute')
+    @commands.slash_command(name='execute', description="Ban the list of targeted users.")
     @commands.has_role('Admin')
     async def execute(self, ctx):
         await log_mod_powers(self, "execute", ctx.channel, ctx.author)
@@ -146,40 +119,50 @@ class RaidDefense(commands.Cog):
         self.target_list = []
         await ctx.message.delete()
 
-    @commands.slash_command(name='turnloose')
+    @commands.slash_command(name='deputize', description="Grant someone the role of Deputy.")
     @commands.has_role('Admin')
-    async def turnloose(self, ctx, *, members: discord.Member):
+    async def deputize(self, ctx, *, members: discord.Member):
         await log_mod_powers(self, "deputize", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
         if isinstance(members, list):
-            for member in ctx.guild.members:
-                if ctx.guild.get_role(1004167439879258192) in member.roles:
-                    await member.remove_roles(ctx.guild.get_role(1004167439879258192))
-                    await ctx.send_response(f"```Target {str(member)} unjarred - standing by...```", delete_after=10)
-                if ctx.guild.get_role(1004167279338061844) in member.roles:
-                    await member.remove_roles(ctx.guild.get_role(1004167279338061844))
-                    self.target_list.remove(member)
-                    await ctx.send_response(f"```Target {str(member)} unlocked - standing by...```", delete_after=10)
+            for member in members:
+                await member.add_roles(ctx.guild.get_role(853286399896453140))
+                await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
         else:
             member = members
-            if ctx.guild.get_role(1004167439879258192) in member.roles:
-                await member.remove_roles(ctx.guild.get_role(1004167439879258192))
-            if ctx.guild.get_role(1004167279338061844) in member.roles:
-                await member.remove_roles(ctx.guild.get_role(1004167279338061844))
-                self.target_list.remove(member)
-
-            await ctx.send_response(f"```Target {str(member)} cleared - standing by...```", delete_after=10)
+            await member.add_roles(ctx.guild.get_role(853286399896453140))
+            await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
         await ctx.message.delete()
 
-    @commands.Cog.listener()
-    async def on_member_join(self, member):
-        config = load_json_config("config.json")
-        if self.lockdown == True:
-            await member.add_roles(1004168808916861001)
-            await member.add_roles(1004167279338061844)
-            await member.send(f"```Hi {member.display_name}, this is Middle Ground Security system. \n\nMG Lockdown has been Triggered: You have joined the server during a security event and have been moved to a secure/restricted role until the security concern has been resolved. Please reach out to gañjā#9046 if you have any concerns - this shouldn't take very long.\n\nThis happens when the server is under threat from bad actors and we need to stop inbound members from flooding.\n\nI appreciate your patience while we resolve this, the quarantine is for your protection and to prevent them harvesting our member's list or harassing members.```")
-
-    @commands.slash_command(name='lockdown')
+    @commands.slash_command(name='abrogate', description="Revoke someone the role of Wielder of the flame of Anor!")
+    @commands.has_role('Admin')
+    async def abrogate(self, ctx):
+        await log_mod_powers(self, "abrogate", ctx.channel, ctx.author)
+        for member in ctx.guild.members:
+            if ctx.guild.get_role(853286399896453140) in member.roles:
+                await member.remove_roles(ctx.guild.get_role(853286399896453140))
+                await member.send("Thank you for your service as an MG Wielder of the flame of Anor!")
+        await ctx.message.delete()
+        
+    """
+        `Wielder of the flame of Anor` commands.
+    """
+    @commands.slash_command(name='analyze', description="Run /userinfo for each targeted user.")
     @commands.has_role('Wielder of the flame of Anor')
+    async def analyze(self, ctx):
+        await log_mod_powers(self, "analyze", ctx.channel, ctx.author)
+        for member in ctx.guild.members:
+            if ctx.guild.get_role(1004167279338061844) in member.roles:
+                await ctx.send_response(f"```Scanning bogey: {str(member)}```", delete_after=5)
+                try:
+                    await ctx.invoke(self.client.get_command('userinfo'), member)
+                except Exception as e:
+                    clogger(f"Error: {e}")
+                    pass
+                time.sleep(1)
+        await ctx.message.delete()
+
+    @commands.slash_command(name='lockdown', description="Extreme measure! Lock the server down to prevent any posting or activity to permit cleanup.")
+    @commands.has_role('Admin')
     async def lockdown(self, ctx):
         """
         Lockdown the server for a set amount of time.
@@ -243,8 +226,8 @@ class RaidDefense(commands.Cog):
         await ctx.send_response('```Lockdown protocol engaged...all channels locked and members notified...```', delete_after=5)
         await ctx.message.delete()
 
-    @commands.slash_command(name='unlock')
-    @commands.has_role('Wielder of the flame of Anor')
+    @commands.slash_command(name='unlock', description="Unlock the server and release all locked down users.")
+    @commands.has_role('Admin')
     async def unlock(self, ctx):
         """
         Unlock the server by setting the lockdown flag to false and setting the lockdown time to None
@@ -270,8 +253,8 @@ class RaidDefense(commands.Cog):
         await ctx.send_response('```Lockdown lifted...```', delete_after=5)
         await ctx.message.delete()
 
-    @commands.slash_command(name='lockstatus')
-    @commands.has_role('Admin')
+    @commands.slash_command(name='lockstatus', description="Check the lockdown status of the server.")
+    @commands.has_role('Wielder of the flame of Anor')
     async def lockstatus(self, ctx):
         """
         Check the status of the lockdown and send a message to the channel with the status.
@@ -284,7 +267,7 @@ class RaidDefense(commands.Cog):
             await ctx.send_response('```MG is not in lockdown.```', delete_after=10)
         await ctx.message.delete()
 
-    @commands.slash_command(name='target')
+    @commands.slash_command(name='target', description="Target the specified user(s). Select users by @mentioning them.")
     @commands.has_role('Wielder of the flame of Anor')
     async def target(self, ctx):
         await log_mod_powers(self, "target", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
@@ -298,7 +281,7 @@ class RaidDefense(commands.Cog):
 
         await ctx.message.delete()
 
-    @commands.slash_command(name='arrest')
+    @commands.slash_command(name='arrest', description="Jar the targets, removing them from gen-pop.")
     @commands.has_role('Wielder of the flame of Anor')
     async def arrest(self, ctx):
         await log_mod_powers(self, "arrest", ctx.channel, ctx.author)
@@ -310,7 +293,31 @@ class RaidDefense(commands.Cog):
                 self.target_list = []
         await ctx.message.delete()
 
-    @commands.slash_command(name='targetlist')
+    @commands.slash_command(name='turnloose', description="Release user from the jar and/or untarget them. Intentionally single user only.")
+    @commands.has_role('Wielder of the flame of Anor')
+    async def turnloose(self, ctx, *, user: discord.Member):
+        await log_mod_powers(self, "deputize", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
+        if isinstance(members, list):
+            for member in ctx.guild.members:
+                if ctx.guild.get_role(1004167439879258192) in member.roles:
+                    await member.remove_roles(ctx.guild.get_role(1004167439879258192))
+                    await ctx.send_response(f"```Target {str(member)} unjarred - standing by...```", delete_after=10)
+                if ctx.guild.get_role(1004167279338061844) in member.roles:
+                    await member.remove_roles(ctx.guild.get_role(1004167279338061844))
+                    self.target_list.remove(member)
+                    await ctx.send_response(f"```Target {str(member)} unlocked - standing by...```", delete_after=10)
+        else:
+            member = members
+            if ctx.guild.get_role(1004167439879258192) in member.roles:
+                await member.remove_roles(ctx.guild.get_role(1004167439879258192))
+            if ctx.guild.get_role(1004167279338061844) in member.roles:
+                await member.remove_roles(ctx.guild.get_role(1004167279338061844))
+                self.target_list.remove(member)
+
+            await ctx.send_response(f"```Target {str(member)} cleared - standing by...```", delete_after=10)
+        await ctx.message.delete()
+
+    @commands.slash_command(name='targetlist', description="Show a list of bogeys on the wire.")
     @commands.has_role('Wielder of the flame of Anor')
     async def targetlist(self, ctx):
         targets = []
