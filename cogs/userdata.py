@@ -48,6 +48,8 @@ class Userinfo(commands.Cog):
         if not user:
             user = ctx.author
 
+        await ctx.send_response(f'```User Profile for {user.display_name} requested by {ctx.author.display_name}.```', delete_after=5)
+        
         if not str(ctx.author.id) in basedlog:
             self.basedlog[str(ctx.author.id)] = {
                 "based_count": 0,
@@ -157,12 +159,13 @@ class Userinfo(commands.Cog):
         except Exception as e:
             pass
             
-        await ctx.send_response(embed=embed, delete_after=30)
+        await ctx.send_followup(embed=embed, delete_after=30)
         
 
     @discord.commands.slash_command(name='leaderboard')
     async def leaderboard(self, ctx):
         """Lists the top 10 users along with their current role and current XP"""
+        await ctx.send_response('```Generating leaderboard...```', delete_after=5)
 
         user_xp_dict = load_json_config("user_xp.json")
 
@@ -178,7 +181,7 @@ class Userinfo(commands.Cog):
         for i, (key, data) in enumerate(sorted_user_xp[0:10]):
             user = self.client.get_user(int(key))
             current_role = discord.utils.get(
-                ctx.message.guild.roles, id=data['current_role'])
+                ctx.guild.roles, id=data['current_role'])
             if current_role != None:
                 current_role = current_role.mention
 
@@ -194,7 +197,7 @@ class Userinfo(commands.Cog):
                 embed.add_field(
                     name=f"\u200b", value=f"```{emoji} {i+1:<2} {user.display_name:<20}{round(data['xp']):>5}```", inline=False)
 
-        await ctx.send_response(embed=embed)
+        await ctx.send_followup(embed=embed)
 
     @commands.Cog.listener()
     async def on_message(self, message):
