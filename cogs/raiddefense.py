@@ -121,26 +121,30 @@ class RaidDefense(commands.Cog):
 
     @commands.slash_command(name='deputize', description="Grant someone the role of Deputy.")
     @commands.has_role('Admin')
-    async def deputize(self, ctx, *, members: discord.Member):
-        await log_mod_powers(self, "deputize", ctx.channel, ctx.author, ','.join([u.display_name for u in ctx.message.mentions]))
-        if isinstance(members, list):
-            for member in members:
-                await member.add_roles(ctx.guild.get_role(853286399896453140))
-                await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
-        else:
-            member = members
-            await member.add_roles(ctx.guild.get_role(853286399896453140))
-            await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
+    async def deputize(self, ctx, *, member: discord.Member):
+        await log_mod_powers(self, "deputize", ctx.channel, ctx.author, str(member))
+        await ctx.send_response(f"```Deputizing {member.display_name}...```")
+        await member.add_roles(ctx.guild.get_role(853286399896453140))
+        await member.send("You have been Deputized as an MG Mod to deal with varmints! Please delete spam, and use the RaidDefense system to defend the motherland!")
         await ctx.message.delete()
 
-    @commands.slash_command(name='abrogate', description="Revoke someone the role of Wielder of the flame of Anor!")
+    @commands.slash_command(name='abrogate', description="Revoke from all deputys: the role of Wielder of the flame of Anor!")
     @commands.has_role('Admin')
-    async def abrogate(self, ctx):
+    async def abrogate(self, ctx, member: discord.Member = None):
         await log_mod_powers(self, "abrogate", ctx.channel, ctx.author)
-        for member in ctx.guild.members:
+        if member is None:
+            await ctx.send_response("```Abrogating deputies now...```")
+            for member in ctx.guild.members:
+                if ctx.guild.get_role(853286399896453140) in member.roles:
+                    await ctx.send_followup(f"```{member.display_name} abrogated...```")
+                    await member.remove_roles(ctx.guild.get_role(853286399896453140))
+                    await member.send("Thank you for your service as an MG Wielder of the flame of Anor! The threats have abated for now and if your services are needed in future you will be called on to serve the community.")
+        else:
             if ctx.guild.get_role(853286399896453140) in member.roles:
+                await ctx.send_followup(f"```{member.display_name} abrogated...```")
                 await member.remove_roles(ctx.guild.get_role(853286399896453140))
-                await member.send("Thank you for your service as an MG Wielder of the flame of Anor!")
+                await member.send("Thank you for your service as an MG Wielder of the flame of Anor! The threats have abated for now and if your services are needed in future you will be called on to serve the community.")
+
         await ctx.message.delete()
         
     """
