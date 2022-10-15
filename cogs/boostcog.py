@@ -40,7 +40,7 @@ async def post_to_cringe_gallery(payload, client):
 
     # Create a new embed with the original message content, embeds and attachments
     cringe_gallery_embed = discord.Embed(title=f"{author.display_name} just posted cringe in {message.channel.name}...", description=f"{author.mention}", color=0xffc0cb, url=message.jump_url)
-    cringe_gallery_embed.add_field(name="Cringe Post:", value=message_content, inline=False)
+    cringe_gallery_embed.add_field(name="Cringe Post:", value=message_content if len(message_content) > 0 else "None", inline=False)
     cringe_gallery_embed.set_thumbnail(url=author.avatar.url)
 
     if len(message_embeds) > 0:

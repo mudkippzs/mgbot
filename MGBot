@@ -1,0 +1,38 @@
+2022-10-11T17:12:43.723576+0100 ERROR {'cogs.tripwire': True}
+NoneType: None
+2022-10-11T17:12:43.926222+0100 ERROR {'cogs.jarvis': True}
+NoneType: None
+2022-10-11T17:12:43.928043+0100 ERROR {'cogs.server_logs': True}
+NoneType: None
+2022-10-11T17:12:43.929033+0100 ERROR {'cogs.rules': True}
+NoneType: None
+2022-10-11T17:12:43.931044+0100 ERROR {'cogs.bakerbot': True}
+NoneType: None
+2022-10-11T17:12:43.932972+0100 ERROR {'cogs.boostcog': True}
+NoneType: None
+2022-10-11T17:12:43.934384+0100 ERROR {'cogs.roles': True}
+NoneType: None
+2022-10-11T17:12:43.938362+0100 ERROR {'cogs.raiddefense': True}
+NoneType: None
+2022-10-11T17:12:43.939690+0100 ERROR {'cogs.export_roles': True}
+NoneType: None
+2022-10-11T17:12:43.940798+0100 ERROR {'cogs.basedtask': True}
+NoneType: None
+2022-10-11T17:12:43.957260+0100 ERROR {'cogs.managementmodule': True}
+NoneType: None
+2022-10-11T17:12:43.962061+0100 ERROR {'cogs.userdata': True}
+NoneType: None
+2022-10-11T17:12:43.963330+0100 ERROR {'cogs.help': True}
+NoneType: None
+2022-10-11T17:12:43.964196+0100 ERROR {'cogs.quotatask': True}
+NoneType: None
+2022-10-11T17:12:43.966109+0100 ERROR {'cogs.dispam': ExtensionFailed("Extension 'cogs.dispam' raised an error: TypeError: 'function' object is not subscriptable")}
+NoneType: None
+2022-10-11T17:12:43.967527+0100 ERROR {'cogs.logger': True}
+NoneType: None
+2022-10-11T17:12:43.972134+0100 ERROR {'cogs.quotamanager': True}
+NoneType: None
+2022-10-11T17:12:44.048102+0100 ERROR {'cogs.emgee': ExtensionFailed("Extension 'cogs.emgee' raised an error: JSONDecodeError: Expecting value: line 205820 column 13 (char 4984388)")}
+NoneType: None
+2022-10-11T17:12:44.154518+0100 ERROR {'cogs.rtmon': True}
+NoneType: None

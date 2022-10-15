@@ -94,12 +94,16 @@ class Emgee(commands.Cog):
 
         if self.client.is_ws_ratelimited() == False:
             clogger(f"Rate-limit check passed - updating: {guild.name}.")
-            es_dict = json.loads(self.es_init[str(guild.id)].to_json())
-            for k in es_dict:
-                if es_dict[k] == 0.0:
-                    emoji = get_emoji("neutral")
-                else:
-                    emoji = get_emoji(get_highest_dict_key(es_dict))
+            try:
+                es_dict = json.loads(self.es_init[str(guild.id)].to_json())
+                for k in es_dict:
+                    if es_dict[k] == 0.0:
+                        emoji = get_emoji("neutral")
+                    else:
+                        emoji = get_emoji(get_highest_dict_key(es_dict))
+
+            except Exception as e:
+                emoji = get_emoji("neutral")
 
             try:
                 ch = guild.get_channel(category_id)

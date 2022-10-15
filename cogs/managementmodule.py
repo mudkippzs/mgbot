@@ -6,6 +6,7 @@ import re
 import sys
 import os
 import time
+import random
 import requests
 from typing import List, Union
 from io import BytesIO
@@ -111,9 +112,11 @@ class ManagementModule(commands.Cog):
                 ganj = message.mentions[0]
                 if str(ganj.status) in ['idle', 'offline', 'dnd']:
                     # create a string with the orangutan emoji and the mention
-                    response = '🦧'
-                    # send the response
-                    await message.reply(response)
+                    if random.rand(0,3) == 1:
+                        response = '🦧'
+                        # send the response
+                        await message.reply(response)
+                    # do nothing
 
 def setup(client):
     client.add_cog(ManagementModule(client))

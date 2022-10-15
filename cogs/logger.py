@@ -88,14 +88,14 @@ class Logger(commands.Cog):
     async def on_typing(self, channel, author, when):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
+        if isinstance(channel, discord.TextChannel):
+            if config["guilds"][str(channel.guild.id)]["modules"]["realtime_logging"] == False:
+                return
 
-        if config["guilds"][str(channel.guild.id)]["modules"]["realtime_logging"] == False:
-            return
+            TYPING_STRING = f"[{MAGENTA}STARTED TYPING{RESET}]>"
+            formatted_log = f"{str(channel):>20} :: {TYPING_STRING:>43} {BLUE}{BOLD}{str(author):>20}{RESET} @ {when}"
 
-        TYPING_STRING = f"[{MAGENTA}STARTED TYPING{RESET}]>"
-        formatted_log = f"{str(channel):>20} :: {TYPING_STRING:>43} {BLUE}{BOLD}{str(author):>20}{RESET} @ {when}"
-
-        clogger(formatted_log)
+            clogger(formatted_log)
 
     @commands.Cog.listener()
     async def on_raw_message_edit(self, payload):

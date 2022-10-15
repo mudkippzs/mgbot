@@ -1,5 +1,6 @@
 import csv
 import json
+import requests
 
 
 def load_json_config(file):
@@ -20,6 +21,29 @@ def write_csv_file(file, data):
 
 def get_highest_dict_key(dictionary):
     return max(dictionary, key=lambda k: dictionary[k])
+
+def translate_string(string, language, api_key):    
+    target_language = "en"
+    source_language = language
+    resultFormat = "text"
+    url = "https://libretranslate.com/translate"
+    
+    headers = {
+        "accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded"
+    }
+    
+    data = {
+        "q": string,
+        "source": source_language,
+        "target": target_language,
+        "format": "text",
+        "api_key": "dcc0245d-bf43-4c82-b6d1-25d67b997678"
+    }
+    
+    response = requests.post(url, headers=headers, data=data)
+    
+    return response.json()["translatedText"]
 
 FORMATTING_CHARS = {
     "COLOURS": {

@@ -149,14 +149,14 @@ class Serverlogs(commands.Cog):
         
         if len(before.content):
             if len(before.content) > 2000:
-                embed.add_field(name="Before", value=f"{before.content[:1997]}...")
+                embed.add_field(name="Before", value=f"{before.content[:1000]}...")
             else:
-                embed.add_field(name="Before", value=f"{before.content}")
+                embed.add_field(name="Before", value=f"{before.content[:1000]}")
         if len(after.content):
             if len(after.content) > 2000:
-                embed.add_field(name="After", value=f"{after.content[:1997]}...")
+                embed.add_field(name="After", value=f"{after.content[:1000]}...")
             else:
-                embed.add_field(name="After", value=f"{after.content}")
+                embed.add_field(name="After", value=f"{after.content[:1000]}")
         
         embed.set_thumbnail(url=before.author.avatar.url)
         embed.set_footer(text=f"ID: {before.id}")
