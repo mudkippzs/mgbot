@@ -294,8 +294,14 @@ class Userinfo(commands.Cog):
             level_up_embed = discord.Embed(
                 title=f"{message.author.display_name} achieved the rank of: {new_role.name}", description="", color=0x00ff00)
 
+
+            if '🚪the-backroom' in message.channel.name:
+                leveled_channel = '🙊An Undisclosed Location'
+            else:
+                leveled_channel = message.channel.name
+            
             level_up_embed.add_field(
-                name="Aquired in", value=message.channel.name, inline=True)
+                name="Aquired in", value=leveled_channel, inline=True)
             level_up_embed.add_field(
                 name="XP", value=f"{round(user_xp[str(message.author.id)]['xp'])}")
             level_up_embed.add_field(name="XP to next level",
