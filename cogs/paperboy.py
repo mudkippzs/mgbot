@@ -1,9 +1,3 @@
-"""
-1. Check if each guild has a channel called 'newswire'.
-2. If it does, iterate through the news items in 'news' and post them as embeds to that 'newswire' channel.
-3. Include the article title, article url, set the image to the article image url, take the first paragraph from the extracted article, the language, the publish date, the news source, the authors if they're not empty.
-4. The last embed should be a summary of the update listing the headlines + publish date + urls grouped by news source with the server banner as the image.
-"""
 import discord
 import json
 import asyncio
@@ -48,6 +42,7 @@ class Paperboy(commands.Cog):
     async def paperrun_task(self):        
         #clogger("+ Quota reset running")
         now = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
+        translate = False
         DEBUG = False
         if str(now.minute) in ["1"] or DEBUG is True:
             clogger("Paperboy running")
@@ -55,14 +50,16 @@ class Paperboy(commands.Cog):
             clogger(f"Got {len(top_trending_news)} articles")
             for guild in self.client.guilds:
                 # Get the newswire channel
-                newswire_channel = discord.utils.get(guild.channels, name='🌐newswire')
+                if DEBUG is True:
+                    newswire_channel = discord.utils.get(guild.channels, name='📜bot-log')
+                else:
+                    newswire_channel = discord.utils.get(guild.channels, name='🌐newswire')
                 # If it exists
                 if newswire_channel:
                     # Create a list of embeds to send
                     embeds = []
                     embed_links = {}
                     articles_by_country = {}
-                    
                     for item in top_trending_news:
                         if len(item[11].split('\n')[0]) > 50:
                             # Create an embed object
@@ -70,15 +67,20 @@ class Paperboy(commands.Cog):
                         
                             # Set the title and url of the article
                             try:
-                                embed.title = item[15] # Gets translated title
+                                embed.title = item[15].title() # Gets translated title
                             except:
                                 clogger(item)
 
-                            if item[8].lower() != 'en':
-                                description = translate_string(item[11].split('\n')[0], item[8], self.translate_api_key)
+                            if translate == True:
+                                if item[8].lower() != 'en':
+                                    description = translate_string(item[11].split('\n')[0], item[8], self.translate_api_key)
+                                else:
+                                    description = item[11].split('\n')[0]
                             else:
                                 description = item[11].split('\n')[0]
 
+                            if item[8].lower() != 'en':
+                                continue
                             embed.url = item[12]
                             # Set the image to the article image url
                             embed.set_image(url=item[13])

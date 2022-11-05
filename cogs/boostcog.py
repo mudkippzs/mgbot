@@ -76,6 +76,8 @@ class Boostcog(commands.Cog):
         if payload.channel_id in self.blacklist_channels:
             return
         self.basedlog = load_json_config("basedlog.json")
+
+        # Extract metadata objects
         message_id = payload.message_id
         guild = self.client.get_guild(payload.guild_id)
         roles = guild.roles
@@ -95,23 +97,6 @@ class Boostcog(commands.Cog):
         
         if self.cringe_role == None:
             self.cringe_role = [r for r in roles if r.name == "Afflicted with Cringe"][0]
-
-        if not str(author.id) in self.basedlog:
-            self.basedlog[str(author.id)] = {
-                "based_count": 0,
-                "based_expires": None,
-                "cringe_count": 0,
-                "cringe_expires": None,
-                "last_reacted_user_id": None,
-                "last_reacted_timestamp": None,
-                "based_react_log": [],
-                "cringe_react_log": []
-            }
-
-        if author.id == payload.user_id:
-            write_json_config("basedlog.json", self.basedlog)
-            #clogger(f"{author.display_name} can't self-based or cringe")
-            return
 
         if str(self.based_emoji.name) == str(payload.emoji.name):
             if str(payload.message_id) not in [m[0] for m in self.basedlog[str(user_id)]["based_react_log"]] and str(payload.user_id) not in [m[1] for m in self.basedlog[str(user_id)]["based_react_log"]] or len(self.basedlog[str(user_id)]["based_react_log"]) < 1:
@@ -203,24 +188,6 @@ class Boostcog(commands.Cog):
         if self.cringe_role == None:
             self.cringe_role = [r for r in roles if r.name == "Afflicted with Cringe"][0]
 
-        if not str(author.id) in self.basedlog:
-            self.basedlog[str(author.id)] = {
-                "based_count": 0,
-                "based_expires": None,
-                "cringe_count": 0,
-                "cringe_expires": None,
-                "last_reacted_user_id": None,
-                "last_reacted_timestamp": None,
-                "based_react_log": [],
-                "cringe_react_log": []
-            }
-
-
-        if author.id == payload.user_id:
-            write_json_config("basedlog.json", self.basedlog)
-            #clogger(f"{author.display_name} removed a self-based or self-cringe")
-            return
-
         if str(self.based_emoji.name) == (payload.emoji.name):
             #clogger("Got a based emoji.")
             if str(message.id) in self.basedlog[str(author.id)]["based_react_log"]:
@@ -281,42 +248,38 @@ class Boostcog(commands.Cog):
 
     # Display based count of user to the channel (message author)
 
+
+    async def _count(self, ctx, ctype: str):
+        self.basedlog = load_json_config("basedlog.json")
+        return self.basedlog[str(ctx.author.id)][f"{ctype}_count"]
+
+    async def _based_or_cringe(self, ctx, based: bool= False):
+        #clogger("Counting based level for user.")
+        if based:
+            ctype = 'based'
+        else:
+            ctype = 'cringe'
+        await ctx.send_response(f"```Counting your {ctype}...```", delete_after=5)
+        count = await self._count(ctx, ctype = ctype)
+        await ctx.send_followup(f"```{ctype.title()} rating: " + str(count) + "```", delete_after=15)
+        try:
+            await ctx.message.delete()
+        except:
+            pass
+
     @commands.slash_command(name='bcount', description='Check your raw based score.')
     async def bcount(self, ctx):
-
-        await ctx.channel.send_followup("Counting...", delete_after=5)
-
-        self.basedlog = load_json_config("basedlog.json")
-
-        if not str(ctx.author.id) in self.basedlog:
-            self.basedlog[str(ctx.author.id)] = {
-                "based_count": 0,
-                "based_expires": None,
-                "cringe_count": 0,
-                "cringe_expires": None,
-                "last_reacted_user_id": None,
-                "last_reacted_timestamp": None,
-                "based_react_log": [],
-                "cringe_react_log": []
-            }
-
-        if str(ctx.author.id) not in self.basedlog:
-            return
-
-        #clogger("Counting based level for user.")
-
-        await ctx.channel.send_response("```Based rating: " + str(self.basedlog[str(ctx.author.id)]["based_count"]) + "```", delete_after=15)
-        await ctx.message.delete()
+        await self._based_or_cringe(ctx, based=True)
 
     # Display cringe count of user to the channel (message author)
     @commands.slash_command(name='ccount', description='Check your raw cringe score.')
     async def ccount(self, ctx):
+        await self._based_or_cringe(ctx, based=False)
 
-        await ctx.channel.send_followup("Counting...", delete_after=5)
-
+    @commands.Cog.listener()
+    async def on_member_join(self, member):        
         self.basedlog = load_json_config("basedlog.json")
-
-        if not str(ctx.author.id) in self.basedlog:
+        if not str(member.id) in self.basedlog:
             self.basedlog[str(ctx.author.id)] = {
                 "based_count": 0,
                 "based_expires": None,
@@ -327,14 +290,8 @@ class Boostcog(commands.Cog):
                 "based_react_log": [],
                 "cringe_react_log": []
             }
+        write_json_config("basedlog.json", self.basedlog)
 
-        if str(ctx.author.id) not in self.basedlog:
-            return
-
-        #clogger("Counting cringe level for user.")
-
-        await ctx.channel.send_response("```Cringe rating is: " + str(self.basedlog[str(ctx.author.id)]["cringe_count"]) + "```", delete_after=15)
-        await ctx.message.delete()
 
 def setup(client):  # Add cog to bot when loaded with extension command (e.g !load cogName). See https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html
     client.add_cog(Boostcog(client))

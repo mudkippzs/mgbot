@@ -14,32 +14,6 @@ logger.add(
     compression="zip",
 )
 
-COLOURS = {
-    'black': '\u001b[30m',
-    'red': '\u001b[31m',
-    'green': '\u001b[32m',
-    'yellow': '\u001b[33m',
-    'blue': '\u001b[34m',
-    'magenta': '\u001b[35m',
-    'cyan': '\u001b[36m',
-    'white': '\u001b[37m',
-    'bright_black': '\u001b[30;1m',
-    'bright_red': '\u001b[31;1m',
-    'bright_green': '\u001b[32;1m',
-    'bright_yellow': '\u001b[33;1m',
-    'bright_blue': '\u001b[34;1m',
-    'bright_magenta': '\u001b[35;1m',
-    'bright_cyan': '\u001b[36;1m',
-    'bright_white': '\u001b[37;1m',
-    'reset': '\u001b[0m',
-    'bold': '\u001b[1m',
-    'underline': '\u001b[4m',
-    'blink': '\u001b[5m',
-    'reverse': '\u001b[7m',
-    'conceal': '\u001b[8m',
-    'strikethrough': '\u001b[9m',
-}
-
 class DB:
 
     def __init__(self, config_file):
@@ -338,10 +312,11 @@ class DB:
             query = f"SELECT * FROM news_articles_{datetime.datetime.now().strftime('%d%m%Y')} WHERE date_downloaded > NOW() - INTERVAL '15 minutes' AND keywords && ARRAY[{','.join([str(x) for x in trending_keywords])}] LIMIT 20"
             self.cur.execute(query)
             result = self.cur.fetchall()
+            
 
         except Exception as e:
             logger.exception('Error getting top 10 trending keywords per hour over the last {} days: {}'.format(n_days, e))
-
+            
         return result
 
 if __name__ == "__main__":

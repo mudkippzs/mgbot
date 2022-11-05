@@ -112,7 +112,7 @@ class ManagementModule(commands.Cog):
                 ganj = message.mentions[0]
                 if str(ganj.status) in ['idle', 'offline', 'dnd']:
                     # create a string with the orangutan emoji and the mention
-                    if random.rand(0,3) == 1:
+                    if random.randint(0,3) == 1:
                         response = '🦧'
                         # send the response
                         await message.reply(response)

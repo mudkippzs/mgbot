@@ -111,7 +111,7 @@ class AutoGanj(commands.Bot):
         # we prepare an embed containing all this information and send it
         # to the .debug channel.
 
-        channel = self.get_channel(1002884287261065287)  # ID of #.debug
+        channel = self.get_channel(820095623553482763)  # ID of #.debug
         stacktrace = exc_tb
         exc_type_msg = f'**Exception Type:** {exc_type}'
         embed = discord.Embed(title=f'Exception in `{self.__class__.__name__}.{event_method}`',

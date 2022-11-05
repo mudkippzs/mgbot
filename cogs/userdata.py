@@ -36,6 +36,27 @@ class Userinfo(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        user_xp = load_json_config("user_xp.json")
+        emoji_tracker = load_json_config("emoji_tracker.json")
+
+        if not str(member.id) in user_xp:
+            user_xp[str(member.id)] = {
+                "current_role": "825644695472439306",
+                "next_role": "826116442822410261",
+                "xp": 0,
+                "xp_to_next_level": 100,
+            }
+
+        if str(member.id) not in emoji_tracker:
+            emoji_tracker[str(member.id)] = {}
+            top_emojis = ["--", "--", "--"]
+
+        write_json_config("user_xp.json", user_xp)
+        write_json_config("emoji_tracker.json", emoji_tracker)
+
+
     @discord.commands.slash_command(name='userinfo')
     async def userinfo(self, ctx, user: discord.Member = None):
         """Get info about a user"""
@@ -49,51 +70,24 @@ class Userinfo(commands.Cog):
             user = ctx.author
 
         await ctx.send_response(f'```User Profile for {user.display_name} requested by {ctx.author.display_name}.```', delete_after=5)
-        
-        if not str(ctx.author.id) in basedlog:
-            self.basedlog[str(ctx.author.id)] = {
-                "based_count": 0,
-                "based_expires": None,
-                "cringe_count": 0,
-                "cringe_expires": None,
-                "last_reacted_user_id": None,
-                "last_reacted_timestamp": None,
-                "based_react_log": [],
-                "cringe_react_log": []
-            }
-
-        if str(ctx.author.id) not in basedlog:
-            return
 
         #clogger("Counting cringe level for user.")
-        based = int(basedlog[str(ctx.author.id)]["cringe_count"])
+        based = int(basedlog[str(ctx.author.id)]["based_count"])
         cringe = int(basedlog[str(ctx.author.id)]["cringe_count"])
-        true_based_rating = based - cringe
+        true_based_rating = based - cringe        
+        
+        user_emojis = emoji_tracker[str(user.id)]
+        sorted_user_emojis = sorted(
+            user_emojis.items(), key=lambda x: x[1], reverse=True)
+        filtered_emojis_list = ["\u2b50", "<:based:1002002396605599784>",
+                                "<:cringe:1002002378691710986>", "<:storbaord:954547894533373972>"]
+        filtered_emojis = [
+            e for e in sorted_user_emojis if e[0] not in filtered_emojis_list]
 
-        if not str(user.id) in user_xp:
-            user_xp[str(user.id)] = {
-                "current_role": "825644695472439306",
-                "next_role": "826116442822410261",
-                "xp": 0,
-                "xp_to_next_level": 100,
-            }
+        for i in range(3-len(filtered_emojis)):
+            filtered_emojis.append("--")
 
-        if str(user.id) not in emoji_tracker:
-            emoji_tracker[str(user.id)] = {}
-            top_emojis = ["--", "--", "--"]
-        else:
-            user_emojis = emoji_tracker[str(user.id)]
-            sorted_user_emojis = sorted(
-                user_emojis.items(), key=lambda x: x[1], reverse=True)
-            filtered_emojis_list = ["\u2b50", "<:based:1002002396605599784>",
-                                    "<:cringe:1002002378691710986>", "<:storbaord:954547894533373972>"]
-            filtered_emojis = [
-                e for e in sorted_user_emojis if e[0] not in filtered_emojis_list]
-
-            for i in range(3-len(filtered_emojis)):
-                filtered_emojis.append("--")
-
-            top_emojis = [x[0] for x in filtered_emojis[:3]]
+        top_emojis = [x[0] for x in filtered_emojis[:3]]
 
         filtered_roles = ["Admin", "Bot", "Cool Kid", "Gamer", "RPG Nerd", "Artist", "Writer", "Coding",
                           "Mathologist", "History Buff", "Armchair Political Analyst", "Sports Fan", "Couch Potato"]
@@ -105,10 +99,12 @@ class Userinfo(commands.Cog):
                         value=f"```markdown\n#Membership Timestamps```", inline=False)
 
         created_at = user.created_at.strftime("%a, %#d %B %Y, %I:%M %p UTC")
+        
         embed.add_field(name="Account Timestamp", value=f"```{created_at}```")
 
         account_age = timeago.format(
             user.created_at, datetime.datetime.utcnow().replace(tzinfo=pytz.utc))
+        
         embed.add_field(name="Joined Discord", value=f"```{account_age}```", inline=True)
 
         joined_at = user.joined_at.strftime("%a, %#d %B %Y, %I:%M %p UTC")
@@ -116,6 +112,7 @@ class Userinfo(commands.Cog):
 
         joined_age = timeago.format(
             user.joined_at, datetime.datetime.utcnow().replace(tzinfo=pytz.utc))
+        
         embed.add_field(name="Joined",
                         value=f"```{joined_age}```", inline=True)
 
@@ -141,8 +138,6 @@ class Userinfo(commands.Cog):
                         value=f"```markdown\n#AI Bot Quotas```", inline=False)
 
         for q in quotas:
-            if str(user.id) not in quotas[q]:
-                quotas[q][str(user.id)] = QUOTA_LIMIT
             embed.add_field(name=f"{q}",
                             value=f"```{quotas[q][str(user.id)]}```", inline=True)
 
@@ -153,7 +148,6 @@ class Userinfo(commands.Cog):
         embed.set_footer(
             text=f"Requested by {ctx.author}", icon_url=ctx.author.display_avatar.url)
 
-        write_json_config("user_xp.json", user_xp)
         try:
             await ctx.message.delete(reason="Command usage cleanup.")
         except Exception as e:

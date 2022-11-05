@@ -20,24 +20,28 @@ class QuotaManager(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        quotas = load_json_config("quotas.json")
+
+        for q in quotas:
+            if str(member.id) not in quotas[q]:
+                quotas[q][str(member.id)] = QUOTA_LIMIT
+
+        write_json_config("quotas.json", quotas)
+
+
     @commands.slash_command(name="quota", description="Check your BOT quota.")
     async def quota(self, ctx, user: discord.Member = None):
         """Get info about a user"""
         if user == None:
             user = ctx.author
 
-        quotas = load_json_config("quotas.json")
-
-        for q in quotas:
-            if str(user.id) not in quotas[q]:
-                quotas[q][str(user.id)] = QUOTA_LIMIT
-
         embed = discord.Embed(title=f"{user.display_name}'s Bot usage quota remaining...",
                               description=f"Bot quota is currently {QUOTA_LIMIT} per day. It refreshes at 00:05 GMT+1.", color=0x00ff00)
 
         for q in quotas:
-            if str(user.id) not in quotas[q]:
-                quotas[q][str(user.id)] = QUOTA_LIMIT
             embed.add_field(name=f"{q}",
                             value=f"```{quotas[q][str(user.id)]}```", inline=True)
 

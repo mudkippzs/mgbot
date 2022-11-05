@@ -147,7 +147,7 @@ class Dispam(commands.Cog):
         if after.author.bot:
             return
 
-         message = after
+        message = after
 
         if message.clean_content.lower().startswith("jarvis"):
             return
