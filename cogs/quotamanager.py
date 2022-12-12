@@ -40,7 +40,8 @@ class QuotaManager(commands.Cog):
 
         embed = discord.Embed(title=f"{user.display_name}'s Bot usage quota remaining...",
                               description=f"Bot quota is currently {QUOTA_LIMIT} per day. It refreshes at 00:05 GMT+1.", color=0x00ff00)
-
+        
+        quotas = load_json_config("quotas.json")
         for q in quotas:
             embed.add_field(name=f"{q}",
                             value=f"```{quotas[q][str(user.id)]}```", inline=True)

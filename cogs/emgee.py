@@ -34,36 +34,59 @@ def get_emoji(emotion):
 
 # Halloween Emojis
 
-    if emotion == "joy":
-        return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌", "👾", "👾", "🧙", "🧙", "🎃"])
-    if emotion == 'fear':
-        return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧","👻", "👻", "🎃"])
-    if emotion == 'disgust':
-        return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒", "🧟", "🧟", "🎃"])
-    if emotion == 'sadness':
-        return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞", "🧚", "🧚", "🎃"])
-
-    if emotion == 'anger':
-        return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢", "🤖", "🤖", "🎃"])
-
-    if emotion == 'surprise':
-        return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯", "👽", "👽", "🧞", "🧞", "🎃"])
-
     # if emotion == "joy":
-    #     return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌"])
+    #     return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌", "👾", "👾", "🧙", "🧙", "🎃"])
     # if emotion == 'fear':
-    #     return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧"])
+    #     return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧","👻", "👻", "🎃"])
     # if emotion == 'disgust':
-    #     return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒"])
+    #     return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒", "🧟", "🧟", "🎃"])
     # if emotion == 'sadness':
-    #     return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞"])
+    #     return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞", "🧚", "🧚", "🎃"])
 
     # if emotion == 'anger':
-    #     return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢"])
+    #     return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢", "🤖", "🤖", "🎃"])
 
     # if emotion == 'surprise':
-    #     return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯"])
+    #     return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯", "👽", "👽", "🧞", "🧞", "🎃"])
 
+    if emotion == "joy":
+        return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌", "🎅"])
+    if emotion == 'fear':
+        return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧", "🎅"])
+    if emotion == 'disgust':
+        return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒", "🎅"])
+    if emotion == 'sadness':
+        return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞", "🎅"])
+
+    if emotion == 'anger':
+        return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢", "🎅"])
+
+    if emotion == 'surprise':
+        return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯", "🎅"])
+
+def tenor(search_term, api_key, lmt=5):
+        """Get a gif from Tenor based on a keyword string."""
+
+        # get the top 8 GIFs for the search term
+        r = requests.get(f"https://tenor.googleapis.com/v2/search?q={search_term}&key={api_key}&limit={lmt}")
+
+        if r.status_code == 200:
+            # load the GIFs using the urls for the smaller GIF sizes
+            top_8gifs = json.loads(r.content)
+
+            # get the top 8 results from the search results
+            top_8gifs = top_8gifs["results"]
+
+            random.shuffle(top_8gifs)
+
+            # get the preview version of the GIF using the random integer we generated earlier to select a random result from the top 8
+            preview_gif = top_8gifs[0]["media_formats"]["gif"]["url"]
+
+            # send the gif in chat as an embed with a local source and title of our choosing
+            embed = discord.Embed(title="eMGee responds...")
+            embed.set_image(url=preview_gif)
+            return embed
+        return
 
 class Emgee(commands.Cog):
     def __init__(self, client):
@@ -201,13 +224,13 @@ class Emgee(commands.Cog):
         if args == None:
             args = {
                 'temp': 0.85,
-                'max_tokens': 500,
+                'max_tokens': 800,
                 'top_p': 1.0,
-                'fp': 0.02,
-                'pp': 0.02,
+                'fp': 0.025,
+                'pp': 0.025,
             }
         return openai.Completion.create(
-            model="text-davinci-002",
+            model="text-davinci-003",
             prompt=payload,
             temperature=args['temp'],
             max_tokens=args['max_tokens'],
@@ -216,11 +239,8 @@ class Emgee(commands.Cog):
             presence_penalty=args['pp']
         )
 
-    @discord.commands.slash_command(name='emotionalframe', description='View eMGee\'s current emotional frame.')
-    async def emotionalframe(self, ctx):
-        clogger(self.es_init)
-        prompt = f"eMGee's Current Sentiment: {self.es_init[str(ctx.guild.id)].to_json()}\n\n1. For each emotion 1.0 is considered a strong intensity, -1.0 is a weak intensity and 0.0 is neutral. Articulate how eMGee is feeling overall considering the combination of emotional signals.\n2. Describe the mood."
-        await ctx.respond("```Abstracting and formatting current Emotional Frame...please wait.```", delete_after=10)
+    async def get_emotional_state(self, guild_id):
+        prompt = f"eMGee's Current Sentiment: {self.es_init[str(guild_id)].to_json()}\n\n1. For each emotion 1.0 is considered a strong intensity, -1.0 is a weak intensity and 0.0 is neutral. Articulate how eMGee is feeling overall considering the combination of emotional signals.\n2. Describe the mood."
         temps = [0.05, 0.1, 0.25, 0.30, 0.35, 0.40, 0.45,
                  0.50, 0.55, 0.60, 0.65, 0.75, 0.85, 0.9]
         random.shuffle(temps)
@@ -235,7 +255,14 @@ class Emgee(commands.Cog):
 
         response = self.post_to_gpt3(prompt, args)
         reply = response["choices"][0]["text"]
-        csv_line = [f"{temps[0]}", str(self.es_init[str(ctx.guild.id)])]
+        csv_line = [f"{temps[0]}", str(self.es_init[str(guild_id)])]
+        return csv_line
+
+    @discord.commands.slash_command(name='emotionalframe', description='View eMGee\'s current emotional frame.')
+    async def emotionalframe(self, ctx):
+        clogger(self.es_init)
+        await ctx.respond("```Abstracting and formatting current Emotional Frame...please wait.```", delete_after=10)
+        csv_line = await self.get_emotional_state(ctx.guild.id)
         await ctx.send_followup(f"```{reply}```", delete_after=60)
         await ctx.send_followup(f"```{str(self.es_init[str(ctx.guild.id)])}```", delete_after=60)
         await self.update_emgee_category_status(ctx.guild, 1015905030760575026)
@@ -284,17 +311,14 @@ class Emgee(commands.Cog):
 
     async def emgee_reply(self, message):
         # clogger("eMGee is replying.")
-        # clogger(self.message_history[str(message.guild.id)][str(message.channel.id)])
+        config = load_json_config("config.json")
+        api_key = config["gcp_key"]
         history = self.message_history[str(
             message.guild.id)][str(message.channel.id)]
-        # clogger("History:")
-        # clogger(history)
 
         # Get the last 10 messages and put them into a string to send to GPT3
-        history_string = ",".join([str(h[5]) for h in history]) + "\n"
-        clogger("History string:")
-        clogger(history_string)
-
+        history_string = "\n- ".join([str(h[5]) for h in history]) + "\n"
+        
         args = {
             'temp': 0.85,
             'max_tokens': 500,
@@ -303,19 +327,27 @@ class Emgee(commands.Cog):
             'pp': 0.25,
         }
 
-        prompt = f"1. Form a complete and proper response to the following chat history. Keep it on topic and be polite and helpful.\n\n {history} \n\n\nResponse:"
+        emotional_state = await self.get_emotional_state(message.guild.id)
+
+        prompt = f"I am creating an RPG NPC who is a vicious online troll who spews vitriol online. Your current emotional state is: {emotional_state}. 1. Choose a string of 5-10 comma seperated values of memes, keywords or topics that mock the user, based on the most recent message and consider the message history for context. Chat History for context: {history_string}.\nLast message from user {history[-1][1]}: {history[-1][5]}\nResponse:"
         # Send the string to GPT3 and get a response
-        response = self.post_to_gpt3(history_string, args)
-        # clogger("Response:")
-        # clogger(response)
+        response = self.post_to_gpt3(prompt, args)
         reply = response["choices"][0]["text"].strip()
+        while len(reply) < 3:
+            reply = response["choices"][0]["text"].strip()
+        history.append(f"{message.author.display_name}: {message.clean_content}.\neMGee: {reply}.")
+        tenor_embed = tenor(reply, api_key, 10)
         # Send the response to discord
         test_channel = self.client.get_channel(823656840701149194)
-        clogger(reply)
-        await test_channel.send(f"```{reply[0:1999]}```")
+        #await test_channel.send(f"Keywords: {reply}")
+        tenor_embed.set_footer(text=reply)
+        await message.reply(embed=tenor_embed)
+        await test_channel.send(embed=tenor_embed)
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        if message.author == self.client.user:
+            return
         if message.channel.id != 1002884287261065287:
             # Emgee free speech
             #clogger("eMGee could say something.")
@@ -336,10 +368,10 @@ class Emgee(commands.Cog):
 
                 # clogger(self.message_history)
                 # clogger(self.message_history[str(message.guild.id)][str(message.channel.id)])
-
-                if random.randint(1, 100) < 5:
-                    clogger("eMGee is going to say something.")
-                    # await self.emgee_reply(message)
+                if len(message.clean_content) >= 3:
+                    if random.randint(1, 100) <= 4:
+                        clogger("eMGee is going to say something.")
+                        await self.emgee_reply(message)
 
             if message.channel.id == 1016121939833659502:
                 if message.author.id == self.client.user.id:
@@ -391,7 +423,7 @@ class Emgee(commands.Cog):
 
                         if len(reply) < 3:
                             reply = "I have nothing in mind right now, why don't you pose a premise and we can argue it?"
-                        await message.channel.send(f"```[eMGee]: {reply}```")
+                        await message.reply(f"```[eMGee]: {reply}```")
 
             else:
                 # Normal Message Handling

@@ -16,7 +16,7 @@ from clogger import clogger
 from cogwatch import watch
 import discord
 from discord.ext import commands
-from roles_views import RolesLocationView, RolesInterestsView, RolesPetsView, RolesVirtueView
+from roles_views import RolesLocationView, RolesSexView, RolesInterestsView, RolesPetsView, RolesVirtueView
 from utils import *
 
 config = load_json_config("config.json")
@@ -83,6 +83,7 @@ class AutoGanj(commands.Bot):
         
         clogger("Loading views...")
         self.add_view(RolesLocationView(bot=self)) # Registers a View for persistent listening
+        self.add_view(RolesSexView(bot=self)) # Registers a View for persistent listening
         self.add_view(RolesInterestsView(bot=self)) # Registers a View for persistent listening
         self.add_view(RolesPetsView(bot=self)) # Registers a View for persistent listening
         self.add_view(RolesVirtueView(bot=self)) # Registers a View for persistent listening
@@ -111,7 +112,7 @@ class AutoGanj(commands.Bot):
         # we prepare an embed containing all this information and send it
         # to the .debug channel.
 
-        channel = self.get_channel(820095623553482763)  # ID of #.debug
+        channel = self.get_channel(1032057550201430087)  # ID of #.debug
         stacktrace = exc_tb
         exc_type_msg = f'**Exception Type:** {exc_type}'
         embed = discord.Embed(title=f'Exception in `{self.__class__.__name__}.{event_method}`',

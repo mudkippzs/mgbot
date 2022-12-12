@@ -26,10 +26,6 @@ class ExportRoles(commands.Cog):
         # Send a message to the channel to let the user know that it is done.
         await ctx.send_response("Done.")
 
-    # @commands.Cog.listener()
-    # async def on_ready(self):
-    # """Client Even - on_ready: triggers when Client is logged in and listening for events."""
-    #     clogger(f"Role Exporter loaded!")
 
 def setup(client):
     client.add_cog(ExportRoles(client))

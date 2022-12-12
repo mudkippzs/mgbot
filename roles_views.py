@@ -106,6 +106,35 @@ class RolesLocationView(discord.ui.View):
         r = await role_manager(select, interaction, self.bot)
 
 
+class RolesSexView(discord.ui.View):
+    def __init__(self, bot):
+        super().__init__(timeout=None)
+        self.bot = bot
+
+    @discord.ui.select(  # the decorator that lets you specify the properties of the select menu
+        # the placeholder text that will be displayed if nothing is selected
+        placeholder="Choose your Sex!",
+        custom_id="sex-select",
+        min_values=0,  # the minimum number of values that must be selected by the users
+        max_values=1,  # the maxmimum number of values that can be selected by the users
+        options=[  # the list of options from which users can choose, a required field
+            discord.SelectOption(
+                label="Male",
+                description="Adult Human Male.",
+                emoji="♂️"
+            ),
+            discord.SelectOption(
+                label="Female",
+                description="Adult Human Female",
+                emoji="♀️"
+            )
+        ]
+    )
+    # the function called when the user is done selecting options
+    async def select_callback(self, select, interaction):
+        r = await role_manager(select, interaction, self.bot)
+
+
 class RolesInterestsView(discord.ui.View):
     def __init__(self, bot):
         super().__init__(timeout=None)

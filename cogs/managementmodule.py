@@ -103,6 +103,35 @@ class ManagementModule(commands.Cog):
 
         await ctx.send_followup(f"{ctx.author.mention} {count} messages deleted", delete_after=10)
 
+    @commands.slash_command(name="lockrole", description="Restrict a role from postings or reacting in any channel.")
+    @commands.has_role('Admin')
+    async def lockrole(self, ctx, role: str = None):
+        role = discord.utils.get(ctx.guild.roles, name=role)
+        await ctx.send_response(f"```Locking out role: {role}```")
+
+        # Create a dictionary of permissions that will be applied to all channels
+        overwrite = discord.PermissionOverwrite()
+        overwrite.send_messages = False
+        overwrite.read_messages = False
+
+
+        for channel in ctx.guild.channels:
+            if "totw" not in channel.name:
+                await channel.set_permissions(role, overwrite=overwrite)
+
+        await ctx.send_followup("```Done!```")
+
+    @commands.slash_command(name="unlockrole", description="Restrict a role from postings or reacting in any channel.")
+    @commands.has_role('Admin')
+    async def unlockrole(self, ctx, role: str = None):
+        role = discord.utils.get(ctx.guild.roles, name=role)
+        await ctx.send_response(f"```Unlocking role: {role}```")
+
+        for channel in ctx.guild.channels:
+            if "totw" not in channel.name:
+                await channel.set_permissions(role, overwrite=None)
+
+        await ctx.send_followup("```Done!```")
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -113,7 +142,34 @@ class ManagementModule(commands.Cog):
                 if str(ganj.status) in ['idle', 'offline', 'dnd']:
                     # create a string with the orangutan emoji and the mention
                     if random.randint(0,3) == 1:
-                        response = '🦧'
+                        zoo = [
+                            '🦧',
+                            '🐵',
+                            '🙈',
+                            '🙉',
+                            '🙊',
+                            '🐱',
+                            '🦝',
+                            '🦊',
+                            '🐺',
+                            '🐶',
+                            '🦁',
+                            '🐯',
+                            '🐴',
+                            '🦄',
+                            '🦓',
+                            '🐮',
+                            '🐷',
+                            '🐭',
+                            '🐹',
+                            '🐰',
+                            '🐻',
+                            '🐼',
+                            '🐨',
+                            '🐸'
+                            ]
+                        random.shuffle(zoo)
+                        response = zoo[0]
                         # send the response
                         await message.reply(response)
                     # do nothing

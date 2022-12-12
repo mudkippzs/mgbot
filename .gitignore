@@ -155,3 +155,7 @@ cython_debug/
 config.json
 *.json
 logs/*
+*.csv
+
+# /** Backups **/
+*.zip

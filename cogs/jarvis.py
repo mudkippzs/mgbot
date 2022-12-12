@@ -83,7 +83,7 @@ class Jarvis(commands.Cog):
                 'pp': 0.02,
             }
         return openai.Completion.create(
-            model="text-davinci-002",
+            model="text-davinci-003",
             prompt=payload,
             temperature=args['temp'],
             max_tokens=args['max_tokens'],

@@ -75,6 +75,7 @@ class Boostcog(commands.Cog):
         """Update basedlog when a reaction is added."""
         if payload.channel_id in self.blacklist_channels:
             return
+
         self.basedlog = load_json_config("basedlog.json")
 
         # Extract metadata objects
@@ -84,82 +85,108 @@ class Boostcog(commands.Cog):
         emojis = guild.emojis
         message = await guild.get_channel(payload.channel_id).fetch_message(payload.message_id)
         author = message.author
-        user_id = author.id
+        user_id = author.id    
+        current_time =  datetime.datetime.now(pytz.timezone('Europe/Dublin'))
+
+        # if payload.author_id == user_id:
+        #     return
 
         if self.based_emoji == None:
             self.based_emoji = [e for e in emojis if e.name== "based"][0]
-        
+
         if self.cringe_emoji == None:
             self.cringe_emoji = [e for e in emojis if e.name == "cringe"][0]
 
         if self.based_role == None:
             self.based_role = [r for r in roles if r.name== "Based"][0]
-        
+
         if self.cringe_role == None:
             self.cringe_role = [r for r in roles if r.name == "Afflicted with Cringe"][0]
+            
+        based_react_log = self.basedlog[str(user_id)]["based_react_log"]
+        cringe_react_log = self.basedlog[str(user_id)]["cringe_react_log"]
 
+        based_expiry_log = self.basedlog[str(user_id)]["based_expires"]
+        cringe_expiry_log = self.basedlog[str(user_id)]["cringe_expires"]
+        localtz = pytz.timezone('Europe/Dublin')
+        
         if str(self.based_emoji.name) == str(payload.emoji.name):
-            if str(payload.message_id) not in [m[0] for m in self.basedlog[str(user_id)]["based_react_log"]] and str(payload.user_id) not in [m[1] for m in self.basedlog[str(user_id)]["based_react_log"]] or len(self.basedlog[str(user_id)]["based_react_log"]) < 1:
+
+            if str(payload.message_id) not in [m[0] for m in based_react_log] and str(payload.user_id) not in [m[1] for m in based_react_log] or len(based_react_log) < 1:
                 #clogger(
                 #    f"User {user_id} reacted with based on message {message_id}")
                 # increment based count and set new expiry time
                 self.basedlog[str(user_id)]["based_count"] += 1
                 # If the based expiry time has not expired, increase it by +1 minute. If it has expired, set it to now+5minutes.
-                if self.basedlog[str(user_id)]["based_expires"] != None:
-                    if datetime.datetime.fromtimestamp(int(self.basedlog[str(user_id)]["based_expires"])).timestamp() > datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp():
-                        d = datetime.datetime.fromtimestamp(int(self.basedlog[str(
-                            user_id)]["based_expires"])) + datetime.timedelta(minutes=1)
-                        self.basedlog[str(user_id)]["based_expires"] = int(
-                            d.timestamp())
+                if based_expiry_log != None:
+                    based_expiry = datetime.datetime.fromtimestamp(int(based_expiry_log))
+                    based_expiry = localtz.localize(based_expiry)
+                    based_expiry = based_expiry.replace(tzinfo=pytz.timezone('Europe/Dublin'))
+                    if based_expiry > current_time:
+                        d = based_expiry + datetime.timedelta(minutes=1)
+                        self.basedlog[str(user_id)]["based_expires"] = int(d.timestamp())
                 else:
-                    d = datetime.datetime.now(pytz.timezone('Europe/Dublin')) + datetime.timedelta(minutes=5)
-                    self.basedlog[str(user_id)]["based_expires"] = int(
-                        d.timestamp())
+                    based_expiry = None
+                    d = current_time + datetime.timedelta(minutes=5)
+                    self.basedlog[str(user_id)]["based_expires"] = int(d.timestamp())
 
-                self.basedlog[str(user_id)]["based_react_log"].append(
-                    (str(payload.message_id), str(user_id)))
+                self.basedlog[str(user_id)]["based_react_log"].append((str(payload.message_id), str(user_id)))
+            else:
+                based_expiry = datetime.datetime.fromtimestamp(int(based_expiry_log))
+                if based_expiry > current_time:
+                    d = based_expiry + datetime.timedelta(minutes=1)
+                    self.basedlog[str(user_id)]["based_expires"] = int(d.timestamp())
 
-                for role in author.roles:
-                    if role in [self.based_role, self.cringe_role]:
-                        return
+            for role in author.roles:
+                if role in [self.based_role, self.cringe_role]:
+                    return
 
-
-                self.basedlog[str(author.id)]["last_reacted_user_id"] = payload.user_id
-                self.basedlog[str(author.id)]["last_reacted_timestamp"] = datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp()
-                write_json_config("basedlog.json", self.basedlog)
-                await author.add_roles(self.based_role, reason="User is based.")
-
+            self.basedlog[str(author.id)]["last_reacted_user_id"] = payload.user_id
+            self.basedlog[str(author.id)]["last_reacted_timestamp"] = current_time.timestamp()
+            write_json_config("basedlog.json", self.basedlog)
+            await author.add_roles(self.based_role, reason="User is based.")
+            # Send message to channel with delete_after = 5, wrapped in ```formatting tilde``` with: old expiry, new expiry, additional time amount added and the based emoji.
+            clogger(f"```diff\n+ {author.mention}'s based expiry has been extended by 1 minute.\n- Old expiry: {based_expiry}\n+ New expiry: {d}\n- New expiry: {d}\n- {self.based_emoji}```")
 
         elif str(self.cringe_emoji.name) == str(payload.emoji.name):
             await post_to_cringe_gallery(payload, self.client)
-            if str(payload.message_id) not in [m[0] for m in self.basedlog[str(user_id)]["cringe_react_log"]] and str(payload.user_id) not in [m[1] for m in self.basedlog[str(user_id)]["cringe_react_log"]] or len(self.basedlog[str(user_id)]["cringe_react_log"]) < 1:
+            if str(payload.message_id) not in [m[0] for m in cringe_react_log] and str(payload.user_id) not in [m[1] for m in cringe_react_log] or len(cringe_react_log) < 1:
                 #clogger(
                 #    f"User {user_id} reacted with cringe on message {message_id}")
                 # increment based count and set new expiry time
                 self.basedlog[str(user_id)]["cringe_count"] += 1
                 # If the cringe expiry time has not expired, increase it by +30 seconds. If it has expired, set it to now+5minutes.
-                if self.basedlog[str(user_id)]["cringe_expires"] != None:
-                    if datetime.datetime.fromtimestamp(int(self.basedlog[str(user_id)]["cringe_expires"])).timestamp() > datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp():
-                        d = datetime.datetime.fromtimestamp(int(self.basedlog[str(user_id)]["cringe_expires"])) + datetime.timedelta(seconds=30)
-                        self.basedlog[str(user_id)]["cringe_expires"] = int(
-                            d.timestamp())
+                if cringe_expiry_log != None:
+                    cringe_expiry = datetime.datetime.fromtimestamp(int(cringe_expiry_log))
+                    cringe_expiry = localtz.localize(cringe_expiry)
+                    cringe_expiry = cringe_expiry.replace(tzinfo=pytz.timezone('Europe/Dublin'))
+                    if cringe_expiry > current_time:
+                        d = cringe_expiry + datetime.timedelta(seconds=30)
+                        self.basedlog[str(user_id)]["cringe_expires"] = int(d.timestamp())
                 else:
-                    d = datetime.datetime.now(pytz.timezone('Europe/Dublin')) + datetime.timedelta(minutes=5)
-                    self.basedlog[str(user_id)]["cringe_expires"] = int(
-                        d.timestamp())
+                    cringe_expiry = None
+                    d = current_time + datetime.timedelta(minutes=5)
+                    self.basedlog[str(user_id)]["cringe_expires"] = int(d.timestamp())
 
-                self.basedlog[str(user_id)]["cringe_react_log"].append(
-                    (str(payload.message_id), str(user_id)))
+                self.basedlog[str(user_id)]["cringe_react_log"].append((str(payload.message_id), str(user_id)))
+            else:
+                cringe_expiry = datetime.datetime.fromtimestamp(int(cringe_expiry_log))
+                if cringe_expiry > current_time:
+                    d = cringe_expiry + datetime.timedelta(seconds=30)
+                    self.basedlog[str(user_id)]["cringe_expires"] = int(d.timestamp())
 
-                for role in author.roles:
-                    if role in [self.based_role, self.cringe_role]:
-                        return
+            for role in author.roles:
+                if role in [self.based_role, self.cringe_role]:
+                    return
 
-                await author.add_roles(self.cringe_role, reason="User is afflicted with cringe.")
+            await author.add_roles(self.cringe_role, reason="User is afflicted with cringe.")
 
-                self.basedlog[str(author.id)]["last_reacted_user_id"] = payload.user_id
-                self.basedlog[str(author.id)]["last_reacted_timestamp"] = datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp()
-                write_json_config("basedlog.json", self.basedlog)
+            self.basedlog[str(author.id)]["last_reacted_user_id"] = payload.user_id
+            self.basedlog[str(author.id)]["last_reacted_timestamp"] = current_time.timestamp()
+            write_json_config("basedlog.json", self.basedlog)
+
+            # Send message to channel with delete after = 5, wrapped in ```formatting tilde``` with: old expiry, new expiry, additional time amount added and the based emoji.
+            clogger(f"```diff\n+ {author.mention}'s cringe expiry has been extended by 30 seconds\n- Old expiry: {cringe_expiry}\n+ New expiry: {d}\n- {self.cringe_emoji}```")
 
         else:
             return
@@ -280,7 +307,7 @@ class Boostcog(commands.Cog):
     async def on_member_join(self, member):        
         self.basedlog = load_json_config("basedlog.json")
         if not str(member.id) in self.basedlog:
-            self.basedlog[str(ctx.author.id)] = {
+            self.basedlog[str(member.id)] = {
                 "based_count": 0,
                 "based_expires": None,
                 "cringe_count": 0,

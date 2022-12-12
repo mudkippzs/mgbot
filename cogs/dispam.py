@@ -38,19 +38,24 @@ class Dispam(commands.Cog):
         if message.author.bot:
             return
 
+        if message.author.id in [218521566412013568]:
+            return
+
         if message.clean_content.lower().startswith("jarvis"):
             return
 
         if message.clean_content.lower().startswith("emgee"):
             return
 
-        if len(message.clean_content) > 8 and len(message.mentions) < 1:
-            if self.is_english(message.clean_content) is False:
-                #non_en_dm = await message.author.send("```English only - please refrain from  posting in non-English as it's considered spam. Ongoing spam will result in penalty.```")
-                #await self.handle_spam(message, "Non-english posting.", False)
-                clogger(f"Non-english text detected: {message.clean_content}")
-            else:
-                clogger(f"English text detected: {message.clean_content}")
+        if len(message.clean_content) < 8 and len(message.mentions) > 1:
+            return
+        
+        #if self.is_english(message.clean_content) is False:
+            #non_en_dm = await message.author.send("```English only - please refrain from  posting in non-English as it's considered spam. Ongoing spam will result in penalty.```")
+            #await self.handle_spam(message, "Non-english posting.", False)
+        #    clogger(f"Non-english text detected: {message.clean_content}")
+        #else:
+        #    clogger(f"English text detected: {message.clean_content}")
 
         if message.content.find("discord.gg") != -1:
             await self.handle_spam(message, "Discord invite link shared", True)
@@ -100,7 +105,7 @@ class Dispam(commands.Cog):
 
         try:
             response = requests.post(url, headers=headers, data=data, timeout=2).json()[0]
-        except requests.Timeout:        
+        except (requests.Timeout, KeyError):        
             language = None
 
         confidence = response["confidence"]
@@ -147,6 +152,9 @@ class Dispam(commands.Cog):
         if after.author.bot:
             return
 
+        if after.author.id in [218521566412013568]:
+            return
+
         message = after
 
         if message.clean_content.lower().startswith("jarvis"):
@@ -155,13 +163,13 @@ class Dispam(commands.Cog):
         if message.clean_content.lower().startswith("emgee"):
             return
 
-        if len(message.clean_content) > 8 and len(message.mentions) < 1:
-            if self.is_english(message.clean_content) is False:
-                #non_en_dm = await message.author.send("```English only - please refrain from  posting in non-English as it's considered spam. Ongoing spam will result in penalty.```")
-                #await self.handle_spam(message, "Non-english posting.", False)
-                clogger(f"Non-english text detected: {message.clean_content}")
-            else:
-                clogger(f"English text detected: {message.clean_content}")
+        # if len(message.clean_content) > 8 and len(message.mentions) < 1:
+        #     if self.is_english(message.clean_content) is False:
+        #         #non_en_dm = await message.author.send("```English only - please refrain from  posting in non-English as it's considered spam. Ongoing spam will result in penalty.```")
+        #         #await self.handle_spam(message, "Non-english posting.", False)
+        #         clogger(f"Non-english text detected: {message.clean_content}")
+        #     else:
+        #         clogger(f"English text detected: {message.clean_content}")
 
         if after.content.find("discord.gg") != -1:
             await message.delete()

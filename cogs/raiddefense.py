@@ -185,26 +185,14 @@ class RaidDefense(commands.Cog):
         channels = ctx.guild.channels
 
         # Create a dictionary of permissions that will be applied to all channels
-        permissions = {
-            'read_messages': False,
-            'send_messages': False,
-            'read_message_history': False,
-            'embed_links': False,
-            'attach_files': False,
-            'external_emojis': False,
-            'add_reactions': False,
-            'connect': False,
-            'speak': False,
-            'mute_members': False,
-            'deafen_members': False,
-            'move_members': False,
-            'use_voice_activation': False,
-            'change_nickname': False,
-            'manage_nicknames': False,
-            'manage_roles': False,
-            'manage_webhooks': False,
-            'manage_emojis': False
-        }
+        overwrite = discord.PermissionOverwrite()
+        overwrite.send_messages = False
+        overwrite.read_messages = False
+
+
+        for channel in ctx.guild.channels:
+            if "totw" not in channel.name:
+                await channel.set_permissions(role, overwrite=overwrite)
 
         for member in ctx.guild.members:
             if ctx.guild.get_role(1004167279338061844) in member.roles:
@@ -223,7 +211,7 @@ class RaidDefense(commands.Cog):
         for channel in channels:
             if "totw" not in channel.name:
                 if channel.type in [discord.ChannelType.category]:
-                    await channel.set_permissions(arrest_role, **permissions)
+                    await channel.set_permissions(arrest_role, overwrite=overwrite)
 
         for member in arrest_role.members:
             clogger(f"Member: {str(member)} locked down...")

@@ -1,65 +1,130 @@
-2022-10-28T21:01:21.826576+0100 ERROR Error getting top 10 trending keywords per hour over the last 3 days: relation "news_articles_28102022" does not exist
-LINE 1: SELECT * FROM news_articles_28102022 WHERE date_downloaded >...
+2022-12-12T20:01:10.816186+0000 ERROR Error getting top 10 trending keywords per hour over the last 3 days: relation "news_articles_12122022" does not exist
+LINE 1: SELECT * FROM news_articles_12122022 WHERE date_downloaded >...
                       ^
 
 Traceback (most recent call last):
 
-  File "main.py", line 147, in <module>
+  File "main.py", line 148, in <module>
     asyncio.run(main())
-    │       │   └ <function main at 0x7f5cb29d2c10>
-    │       └ <function run at 0x7f5cb29ea3a0>
+    │       │   └ <function main at 0x7f76249bac10>
+    │       └ <function run at 0x7f76249d03a0>
     └ <module 'asyncio' from '/usr/lib/python3.8/asyncio/__init__.py'>
 
   File "/usr/lib/python3.8/asyncio/runners.py", line 44, in run
     return loop.run_until_complete(main)
-           │    │                  └ <coroutine object main at 0x7f5cb0ad5940>
-           │    └ <function BaseEventLoop.run_until_complete at 0x7f5cb23810d0>
+           │    │                  └ <coroutine object main at 0x7f7622abd4c0>
+           │    └ <function BaseEventLoop.run_until_complete at 0x7f762436a0d0>
            └ <_UnixSelectorEventLoop running=True closed=False debug=False>
   File "/usr/lib/python3.8/asyncio/base_events.py", line 603, in run_until_complete
     self.run_forever()
-    │    └ <function BaseEventLoop.run_forever at 0x7f5cb2381040>
+    │    └ <function BaseEventLoop.run_forever at 0x7f762436a040>
     └ <_UnixSelectorEventLoop running=True closed=False debug=False>
   File "/usr/lib/python3.8/asyncio/base_events.py", line 570, in run_forever
     self._run_once()
-    │    └ <function BaseEventLoop._run_once at 0x7f5cb2383b80>
+    │    └ <function BaseEventLoop._run_once at 0x7f762436cb80>
     └ <_UnixSelectorEventLoop running=True closed=False debug=False>
   File "/usr/lib/python3.8/asyncio/base_events.py", line 1859, in _run_once
     handle._run()
-    │      └ <function Handle._run at 0x7f5cb23fb940>
-    └ <Handle <TaskWakeupMethWrapper object at 0x7f5c97c4cb80>(<Future finished result=True>)>
+    │      └ <function Handle._run at 0x7f76243e5940>
+    └ <Handle <TaskWakeupMethWrapper object at 0x7f761390ae20>(<Future finished result=True>)>
   File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
     self._context.run(self._callback, *self._args)
     │    │            │    │           │    └ <member '_args' of 'Handle' objects>
-    │    │            │    │           └ <Handle <TaskWakeupMethWrapper object at 0x7f5c97c4cb80>(<Future finished result=True>)>
+    │    │            │    │           └ <Handle <TaskWakeupMethWrapper object at 0x7f761390ae20>(<Future finished result=True>)>
     │    │            │    └ <member '_callback' of 'Handle' objects>
-    │    │            └ <Handle <TaskWakeupMethWrapper object at 0x7f5c97c4cb80>(<Future finished result=True>)>
+    │    │            └ <Handle <TaskWakeupMethWrapper object at 0x7f761390ae20>(<Future finished result=True>)>
     │    └ <member '_context' of 'Handle' objects>
-    └ <Handle <TaskWakeupMethWrapper object at 0x7f5c97c4cb80>(<Future finished result=True>)>
+    └ <Handle <TaskWakeupMethWrapper object at 0x7f761390ae20>(<Future finished result=True>)>
   File "/home/dev/.local/lib/python3.8/site-packages/discord/ext/tasks/__init__.py", line 178, in _loop
     await self.coro(*args, **kwargs)
           │    │     │       └ {}
-          │    │     └ (<cogs.paperboy.Paperboy object at 0x7f5cb0a62850>,)
-          │    └ <function Paperboy.paperrun_task at 0x7f5caf13ab80>
-          └ <discord.ext.tasks.Loop object at 0x7f5cb1b854f0>
+          │    │     └ (<cogs.paperboy.Paperboy object at 0x7f7622a4d940>,)
+          │    └ <function Paperboy.paperrun_task at 0x7f7621122ca0>
+          └ <discord.ext.tasks.Loop object at 0x7f762110d5e0>
 
   File "/home/dev/Code/autoganj/cogs/paperboy.py", line 49, in paperrun_task
     top_trending_news = self.get_news_top_trending_news()
-                        │    └ <function Paperboy.get_news_top_trending_news at 0x7f5caf13aa60>
-                        └ <cogs.paperboy.Paperboy object at 0x7f5cb0a62850>
+                        │    └ <function Paperboy.get_news_top_trending_news at 0x7f7621122b80>
+                        └ <cogs.paperboy.Paperboy object at 0x7f7622a4d940>
 
   File "/home/dev/Code/autoganj/cogs/paperboy.py", line 37, in get_news_top_trending_news
     news = db.get_top_trending_articles_by_keywords_per_hour_last_n_days()
-           │  └ <function DB.get_top_trending_articles_by_keywords_per_hour_last_n_days at 0x7f5caf13a940>
-           └ <db.DB object at 0x7f5c97b21b50>
+           │  └ <function DB.get_top_trending_articles_by_keywords_per_hour_last_n_days at 0x7f7621122a60>
+           └ <db.DB object at 0x7f76138e85b0>
 
 > File "/home/dev/Code/autoganj/db.py", line 313, in get_top_trending_articles_by_keywords_per_hour_last_n_days
     self.cur.execute(query)
-    │    │   │       └ "SELECT * FROM news_articles_28102022 WHERE date_downloaded > NOW() - INTERVAL '15 minutes' AND keywords && ARRAY[1,2,5,6,7,8...
+    │    │   │       └ "SELECT * FROM news_articles_12122022 WHERE date_downloaded > NOW() - INTERVAL '15 minutes' AND keywords && ARRAY[1,2,5,6,7,8...
     │    │   └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
-    │    └ <cursor object at 0x7f5c979e6c70; closed: 0>
-    └ <db.DB object at 0x7f5c97b21b50>
+    │    └ <cursor object at 0x7f76148ef4f0; closed: 0>
+    └ <db.DB object at 0x7f76138e85b0>
 
-psycopg2.errors.UndefinedTable: relation "news_articles_28102022" does not exist
-LINE 1: SELECT * FROM news_articles_28102022 WHERE date_downloaded >...
+psycopg2.errors.UndefinedTable: relation "news_articles_12122022" does not exist
+LINE 1: SELECT * FROM news_articles_12122022 WHERE date_downloaded >...
+                      ^
+
+2022-12-12T21:01:18.243406+0000 ERROR Error getting top 10 trending keywords per hour over the last 3 days: relation "news_articles_12122022" does not exist
+LINE 1: SELECT * FROM news_articles_12122022 WHERE date_downloaded >...
+                      ^
+
+Traceback (most recent call last):
+
+  File "main.py", line 148, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x7f8bafe2bc10>
+    │       └ <function run at 0x7f8bafe413a0>
+    └ <module 'asyncio' from '/usr/lib/python3.8/asyncio/__init__.py'>
+
+  File "/usr/lib/python3.8/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+           │    │                  └ <coroutine object main at 0x7f8badf2e4c0>
+           │    └ <function BaseEventLoop.run_until_complete at 0x7f8baf7db0d0>
+           └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 603, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x7f8baf7db040>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 570, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x7f8baf7ddb80>
+    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 1859, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x7f8baf856940>
+    └ <Handle <TaskWakeupMethWrapper object at 0x7f8b9ed76610>(<Future finished result=True>)>
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <TaskWakeupMethWrapper object at 0x7f8b9ed76610>(<Future finished result=True>)>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <TaskWakeupMethWrapper object at 0x7f8b9ed76610>(<Future finished result=True>)>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <TaskWakeupMethWrapper object at 0x7f8b9ed76610>(<Future finished result=True>)>
+  File "/home/dev/.local/lib/python3.8/site-packages/discord/ext/tasks/__init__.py", line 178, in _loop
+    await self.coro(*args, **kwargs)
+          │    │     │       └ {}
+          │    │     └ (<cogs.paperboy.Paperboy object at 0x7f8badebe8b0>,)
+          │    └ <function Paperboy.paperrun_task at 0x7f8bac593ca0>
+          └ <discord.ext.tasks.Loop object at 0x7f8bac57e550>
+
+  File "/home/dev/Code/autoganj/cogs/paperboy.py", line 49, in paperrun_task
+    top_trending_news = self.get_news_top_trending_news()
+                        │    └ <function Paperboy.get_news_top_trending_news at 0x7f8bac593b80>
+                        └ <cogs.paperboy.Paperboy object at 0x7f8badebe8b0>
+
+  File "/home/dev/Code/autoganj/cogs/paperboy.py", line 37, in get_news_top_trending_news
+    news = db.get_top_trending_articles_by_keywords_per_hour_last_n_days()
+           │  └ <function DB.get_top_trending_articles_by_keywords_per_hour_last_n_days at 0x7f8bac593a60>
+           └ <db.DB object at 0x7f8b9ed76cd0>
+
+> File "/home/dev/Code/autoganj/db.py", line 313, in get_top_trending_articles_by_keywords_per_hour_last_n_days
+    self.cur.execute(query)
+    │    │   │       └ "SELECT * FROM news_articles_12122022 WHERE date_downloaded > NOW() - INTERVAL '15 minutes' AND keywords && ARRAY[1,2,5,6,7,8...
+    │    │   └ <method 'execute' of 'psycopg2.extensions.cursor' objects>
+    │    └ <cursor object at 0x7f8b956b0400; closed: 0>
+    └ <db.DB object at 0x7f8b9ed76cd0>
+
+psycopg2.errors.UndefinedTable: relation "news_articles_12122022" does not exist
+LINE 1: SELECT * FROM news_articles_12122022 WHERE date_downloaded >...
                       ^
 

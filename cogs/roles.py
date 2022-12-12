@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath(
     os.path.join(os.path.dirname(__file__), '.')))
 
 from clogger import clogger
-from roles_views import RolesLocationView, RolesInterestsView, RolesPetsView, RolesVirtueView
+from roles_views import RolesLocationView, RolesSexView, RolesInterestsView, RolesPetsView, RolesVirtueView
 
 
 class RoleManagement(commands.Cog):
@@ -29,6 +29,7 @@ class RoleManagement(commands.Cog):
             # await ctx.author.send("Choose your Favorite Pets!", view=RolesPetsView(bot=self.client))
             await ctx.send_response("Select Your Roles")
             await ctx.send_followup("Choose your Location!", view=RolesLocationView(bot=self.client))
+            await ctx.send_followup("Choose your Sex!", view=RolesSexView(bot=self.client))
             await ctx.send_followup("Choose your Server Alerts!", view=RolesInterestsView(bot=self.client))
             await ctx.send_followup("Choose your Favorite Pets!", view=RolesPetsView(bot=self.client))
             await ctx.send_followup("Choose your Virtues!", view=RolesVirtueView(bot=self.client))
