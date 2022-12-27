@@ -46,7 +46,7 @@ class Logger(commands.Cog):
         if message.guild == None:
             return
     
-        if config["guilds"][str(message.guild.id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(message.guild.id)]["modules"]["logger"] == False:
             return
 
         author = message.author
@@ -89,7 +89,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
         if isinstance(channel, discord.TextChannel):
-            if config["guilds"][str(channel.guild.id)]["modules"]["realtime_logging"] == False:
+            if config["guilds"][str(channel.guild.id)]["modules"]["logger"] == False:
                 return
 
             TYPING_STRING = f"[{MAGENTA}STARTED TYPING{RESET}]>"
@@ -102,7 +102,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(payload.guild_id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(payload.guild_id)]["modules"]["logger"] == False:
             return
 
         channel = self.client.get_channel(payload.channel_id)
@@ -123,7 +123,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(payload.guild_id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(payload.guild_id)]["modules"]["logger"] == False:
             return
 
         channel = self.client.get_channel(payload.channel_id)
@@ -143,7 +143,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(payload.guild_id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(payload.guild_id)]["modules"]["logger"] == False:
             return
 
         channel = self.client.get_channel(payload.channel_id)
@@ -163,7 +163,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(payload.guild_id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(payload.guild_id)]["modules"]["logger"] == False:
             return
 
         channel = self.client.get_channel(payload.channel_id)
@@ -179,7 +179,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(payload.guild_id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(payload.guild_id)]["modules"]["logger"] == False:
             return
 
         channel = self.client.get_channel(payload.channel_id)
@@ -195,7 +195,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(member.guild.id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(member.guild.id)]["modules"]["logger"] == False:
             return
 
         formatted_log = f"{BOLD}MEMBER JOINED{RESET} [{CYAN}JOIN{RESET}]> {member.display_name}"
@@ -207,7 +207,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(member.guild.id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(member.guild.id)]["modules"]["logger"] == False:
             return
 
         formatted_log = f"{BOLD}MEMBER LEFT{RESET} [{MAGENTA}LEAVE{RESET}]> {member.display_name}"
@@ -219,7 +219,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(channel.guild.id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(channel.guild.id)]["modules"]["logger"] == False:
             return
 
         author = self.client.user
@@ -233,7 +233,7 @@ class Logger(commands.Cog):
         config = load_json_config("config.json")
         strings = load_json_config("strings.json")
 
-        if config["guilds"][str(channel.guild.id)]["modules"]["realtime_logging"] == False:
+        if config["guilds"][str(channel.guild.id)]["modules"]["logger"] == False:
             return
 
         author = self.client.user

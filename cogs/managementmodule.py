@@ -101,7 +101,7 @@ class ManagementModule(commands.Cog):
                 await ctx.send_followup(f"{ctx.author.mention} I don't have permission to delete messages in {channel.mention}")
                 return
 
-        await ctx.send_followup(f"{ctx.author.mention} {count} messages deleted", delete_after=10)
+        await ctx.send_followup(f"```{ctx.author.mention} {count} messages deleted```", delete_after=10)
 
     @commands.slash_command(name="lockrole", description="Restrict a role from postings or reacting in any channel.")
     @commands.has_role('Admin')
@@ -113,7 +113,6 @@ class ManagementModule(commands.Cog):
         overwrite = discord.PermissionOverwrite()
         overwrite.send_messages = False
         overwrite.read_messages = False
-
 
         for channel in ctx.guild.channels:
             if "totw" not in channel.name:
@@ -141,7 +140,7 @@ class ManagementModule(commands.Cog):
                 ganj = message.mentions[0]
                 if str(ganj.status) in ['idle', 'offline', 'dnd']:
                     # create a string with the orangutan emoji and the mention
-                    if random.randint(0,3) == 1:
+                    if random.randint(0, 3) == 1:
                         zoo = [
                             '🦧',
                             '🐵',
@@ -166,13 +165,61 @@ class ManagementModule(commands.Cog):
                             '🐻',
                             '🐼',
                             '🐨',
-                            '🐸'
-                            ]
+                            '🐸',
+                            '🎅',
+                            '🎅',
+                            '🎅',
+                            '🎅'
+                        ]
                         random.shuffle(zoo)
                         response = zoo[0]
                         # send the response
                         await message.reply(response)
                     # do nothing
+
+    @commands.Cog.listener()
+    async def on_raw_reaction_add(self, payload):
+        if payload.user_id == self.client.user.id:
+            return
+
+        if payload.channel_id == 1032057550201430087:
+            channel = self.client.get_channel(payload.channel_id)
+            message = await channel.fetch_message(payload.message_id)
+            if payload.emoji.name == '\u2705':
+                embed = message.embeds[0]
+                embed.colour = discord.Colour(0x00FF00)
+                embed.title = embed.title.replace('[In progress]', '[Fixed]')
+                embed.title = embed.title.replace('[Bug]', '[Fixed]')
+                await message.edit(embed=embed)
+            elif payload.emoji.name == '\U0001F41B':
+                embed = message.embeds[0]
+                embed.colour = discord.Colour(0xFFA500)
+                embed.title = embed.title.replace('[Bug]', '[In progress]')
+                embed.title = embed.title.replace('[Fixed]', '[In progress]')
+                await message.edit(embed=embed)
+            elif payload.emoji.name == '\U0001F5D1':
+                try:
+                    await message.delete()
+                except discord.errors.NotFound:
+                    pass  # Message not found in message cache.
+
+    @commands.Cog.listener()
+    async def on_raw_reaction_remove(self, payload):
+        if payload.channel_id == 1032057550201430087:
+            channel = self.client.get_channel(payload.channel_id)
+            message = await channel.fetch_message(payload.message_id)
+            # Revert title prefix to [Bug] if all other reacts are 0. Otherwise set to the respective prefix.
+            if payload.emoji.name == '\u2705':
+                embed = message.embeds[0]
+                embed.colour = discord.Colour(0xFF0000)
+                embed.title = embed.title.replace('[Fixed]', '[Bug]')
+                await message.edit(embed=embed)
+            elif payload.emoji.name == '\U0001F41B':
+                embed = message.embeds[0]
+                embed.colour = discord.Colour(0xFF0000)
+                embed.title = embed.title.replace('[In progress]', '[Bug]')
+                await message.edit(embed=embed)
+        
 
 def setup(client):
     client.add_cog(ManagementModule(client))

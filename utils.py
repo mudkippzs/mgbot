@@ -1,7 +1,24 @@
 import csv
 import json
+import random
 import requests
 
+def validate_json(json_obj, fields):
+    valid = False
+    if not isinstance(json_obj, dict):
+        return False
+    
+    for field in fields:
+        if field in json_obj:
+            valid = True
+
+        try:
+            if json_obj[field] in [True, False]:
+                valid = True
+        except:
+            pass
+
+    return valid
 
 def load_json_config(file):
     """Read a json file to a dict."""
@@ -44,6 +61,68 @@ def translate_string(string, language, api_key):
     response = requests.post(url, headers=headers, data=data)
     
     return response.json()["translatedText"]
+
+def tenor(search_term, api_key, lmt=5):
+        """Get a gif from Tenor based on a keyword string."""
+
+        # get the top 8 GIFs for the search term
+        r = requests.get(f"https://tenor.googleapis.com/v2/search?q={search_term}&key={api_key}&limit={lmt}")
+
+        if r.status_code == 200:
+            # load the GIFs using the urls for the smaller GIF sizes
+            top_8gifs = json.loads(r.content)
+
+            # get the top 8 results from the search results
+            top_8gifs = top_8gifs["results"]
+
+            random.shuffle(top_8gifs)
+
+            # get the preview version of the GIF using the random integer we generated earlier to select a random result from the top 8
+            preview_gif = top_8gifs[0]["media_formats"]["gif"]["url"]
+
+            # send the gif in chat as an embed with a local source and title of our choosing
+            embed = discord.Embed(title="eMGee responds...")
+            embed.set_image(url=preview_gif)
+            return embed
+        return False
+
+def get_emoji(emotion):
+    if emotion == "neutral":
+        return random.choice([
+            "😐"
+        ])
+
+# Halloween Emojis
+
+    # if emotion == "joy":
+    #     return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌", "👾", "👾", "🧙", "🧙", "🎃"])
+    # if emotion == 'fear':
+    #     return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧","👻", "👻", "🎃"])
+    # if emotion == 'disgust':
+    #     return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒", "🧟", "🧟", "🎃"])
+    # if emotion == 'sadness':
+    #     return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞", "🧚", "🧚", "🎃"])
+
+    # if emotion == 'anger':
+    #     return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢", "🤖", "🤖", "🎃"])
+
+    # if emotion == 'surprise':
+    #     return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯", "👽", "👽", "🧞", "🧞", "🎃"])
+
+    if emotion == "joy":
+        return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌", "🎅"])
+    if emotion == 'fear':
+        return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧", "🎅"])
+    if emotion == 'disgust':
+        return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒", "🎅"])
+    if emotion == 'sadness':
+        return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞", "🎅"])
+
+    if emotion == 'anger':
+        return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢", "🎅"])
+
+    if emotion == 'surprise':
+        return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯", "🎅"])
 
 FORMATTING_CHARS = {
     "COLOURS": {

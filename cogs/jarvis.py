@@ -29,7 +29,7 @@ class Jarvis(commands.Cog):
         self.message_memory = {}
         self.active = None
         self.thinking = False
-        self.primer = """Respond in the voice of JARVIS the AI from Ironman; don't use @'s or label your responses, respond directly. Avoid over use of symbols and emojis."""
+        self.primer = """Respond in the voice of JARVIS the AI from Ironman; don't use @'s or label your responses, respond directly."""
         self.whitelist = load_json_config("roles.json")
         self.whitelist["1001932664548376617"] = "Old Fag"
         
@@ -76,11 +76,11 @@ class Jarvis(commands.Cog):
         # formatted_payload = "\n".join(payload)
         if args == None:
             args = {
-                'temp': 0.85,
-                'max_tokens': 500,
+                'temp': 0.10,
+                'max_tokens': 1200,
                 'top_p': 1.0,
-                'fp': 0.02,
-                'pp': 0.02,
+                'fp': 0.75,
+                'pp': 0.65,
             }
         return openai.Completion.create(
             model="text-davinci-003",
@@ -135,134 +135,90 @@ class Jarvis(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.channel.id == 1016121939833659502:
-            time.sleep(2)
-            # Bot Arena
-            if message.author.id == self.client.user.id:
-                if message.clean_content.startswith("```[eMGee]"):
-                    now = str(datetime.datetime.now(
-                        pytz.timezone('Europe/Dublin')).timestamp())
-                    if len(self.bot_arena_history) < 1:
-                        affirmative_prompt = "Produce a variation of the following: 'Sure Id love to debate/chat/talk/discuss that/with you"
-                        response = self.post_to_gpt3(affirmative_prompt)
-                        reply = response["choices"][0]["text"].strip()
-                        final_prompt = f"[jarvis]: {reply}"
-                        await message.reply(f"```{final_prompt}```")
-                        self.bot_arena_history[now] = final_prompt
-                    else:
-                        self.bot_arena_history[now] = message.clean_content
+        if message.author != self.client.user:            
+            quotas = load_json_config("quotas.json")
+            if str(message.author.id) not in quotas["jarvis"]:
+                quotas["jarvis"][str(message.author.id)] = QUOTA_LIMIT
+            
+            rolelist = [r.name for r in message.author.roles]
+            if len(rolelist):
+                role_lock = True
+                for role in rolelist:
+                    if role in list(self.whitelist.values()):
+                        role_lock = False
+                        break
 
-                    prompt_history = [v for v in list(
-                        self.bot_arena_history.values())]
-                    prompt = "\n\n".join(prompt_history[-3:])
-                    final_prompt = prompt + "\n\nRebuttal:"
+                if role_lock == True:
+                    return                
 
-                    args = {
-                        'temp': 0.29,
-                        'max_tokens': 1500,
-                        'top_p': 1.0,
-                        'fp': 0.15,
-                        'pp': 0.15,
-                    }
+                if not message.content.startswith(self.client.command_prefix) and message.content.lower().startswith("jarvis"):
+                    #message.content.replace("@jarvis", "")
+                    if message.author != self.client.user:
+                        if self.thinking == False:
+                            self.thinking == True
+
+                            if quotas["jarvis"][str(message.author.id)] < 1:
+                                await message.reply(f"```Your quota is 0. Quotas are reset at 00:01 GMT+1 daily. Max quota is {QUOTA_LIMIT}, extensions are not permitted at this time. Please use your quota wisely. Quotas do not carry over between periods.```", delete_after=15)
+                                return
 
 
-                    response = self.post_to_gpt3(prompt, args)
-                    reply = response["choices"][0]["text"].strip()
-                    
-                    while reply.count("[") > 1:                            
-                        response = self.post_to_gpt3(prompt, args)
-                        reply = response["choices"][0]["text"].strip()
+                            author = message.author
+                            if str(author.id) not in self.prompt_history:
+                                self.prompt_history[str(author.id)] = []
 
-                    reply = reply.replace("[eMGee]", "[jarvis]")
+                            if hasattr(message.author, "roles") == False:
+                                return
 
-                    if len(reply) < 3:
-                        reply = "continue."
-                    await message.channel.send(f"```[jarvis]: {reply}```")
-
-        else:
-
-            if message.author != self.client.user:            
-                quotas = load_json_config("quotas.json")
-                if str(message.author.id) not in quotas["jarvis"]:
-                    quotas["jarvis"][str(message.author.id)] = QUOTA_LIMIT
-                
-                rolelist = [r.name for r in message.author.roles]
-                if len(rolelist):
-                    role_lock = True
-                    for role in rolelist:
-                        if role in list(self.whitelist.values()):
-                            role_lock = False
-                            break
-
-                    if role_lock == True:
-                        return                
-
-                    if not message.content.startswith(self.client.command_prefix) and message.content.lower().startswith("jarvis"):
-                        #message.content.replace("@jarvis", "")
-                        if self.active and message.author != self.client.user:
-                            if self.thinking == False:
-                                self.thinking == True
-
-                                if quotas["jarvis"][str(message.author.id)] < 1:
-                                    await message.reply(f"```Your quota is 0. Quotas are reset at 00:01 GMT+1 daily. Max quota is {QUOTA_LIMIT}, extensions are not permitted at this time. Please use your quota wisely. Quotas do not carry over between periods.```", delete_after=15)
-                                    return
-
-                                author = message.author
-                                if str(author.id) not in self.prompt_history:
-                                    self.prompt_history[str(author.id)] = []
-
-                                if hasattr(message.author, "roles") == False:
-                                    return
-
-                                if "Dunce Cap" in rolelist:
-                                    return
+                            if "Dunce Cap" in rolelist:
+                                return
 
 
-                                #if "Old Fag" in rolelist or "Trusted Tester" in rolelist: # or message.channel.id in [1001642398797008987, 1001205346288799877, 844881586008883220]:
-                                channel = message.channel
-                                channel_name = channel.name
-                                channel_id = channel.id
-                                mentions = message.mentions
-                                embeds = message.embeds
-                                attachments = message.attachments
-                                created_at = message.created_at
-                                edited = False
-                                message_content = message.clean_content
-                                role_mentions = message.role_mentions
-                                stickers = message.stickers
+                            #if "Old Fag" in rolelist or "Trusted Tester" in rolelist: # or message.channel.id in [1001642398797008987, 1001205346288799877, 844881586008883220]:
+                            channel = message.channel
+                            channel_name = channel.name
+                            channel_id = channel.id
+                            mentions = message.mentions
+                            embeds = message.embeds
+                            attachments = message.attachments
+                            created_at = message.created_at
+                            edited = False
+                            message_content = message.clean_content
+                            role_mentions = message.role_mentions
+                            stickers = message.stickers
 
-                                if message.edited_at:
-                                    edited = True
+                            if message.edited_at:
+                                edited = True
 
-                                embeds_count = len(embeds)
-                                attachments_count = len(attachments)
-                                stickers_count = len(stickers)
-                                role_mentions_count = len(role_mentions)
-                                role_list = ",".join([r.name for r in role_mentions])
-                                formatted_prompt = f"{message_content}"
-                                
-                                self.prompt_history[str(author.id)].append(formatted_prompt)
-                                # clogger(message_memory_string)
-                                response = self.post_to_gpt3("\n".join(self.prompt_history[str(author.id)][-30:]))
-                                # response = self.post_to_gpt3(message_memory_string + "\n\nPrompt History:" + "\n".join(self.prompt_history[str(author.id)][-30:]))
-                                jarvis_reply = response["choices"][0]["text"]
-                                
-                                if len(jarvis_reply) > 0:
-                                    quotas["jarvis"][str(message.author.id)] -= 1
-                                write_json_config("quotas.json", quotas)
+                            embeds_count = len(embeds)
+                            attachments_count = len(attachments)
+                            stickers_count = len(stickers)
+                            role_mentions_count = len(role_mentions)
+                            role_list = ",".join([r.name for r in role_mentions])
+                            formatted_prompt = f"{message_content}"
+                            
+                            self.prompt_history[str(author.id)].append(formatted_prompt)
+                            # clogger(message_memory_string)
+                            prompt_string_truncated = "\n".join(self.prompt_history[str(author.id)][-10:])[-3500:]
+                            response = self.post_to_gpt3(prompt_string_truncated)
+                            # response = self.post_to_gpt3(message_memory_string + "\n\nPrompt History:" + "\n".join(self.prompt_history[str(author.id)][-30:]))
+                            jarvis_reply = response["choices"][0]["text"]
+                            
+                            if len(jarvis_reply) > 0:
+                                quotas["jarvis"][str(message.author.id)] -= 1
+                            write_json_config("quotas.json", quotas)
 
-                                self.prompt_history[str(author.id)].append(f"{jarvis_reply}")
-                                if len(jarvis_reply):
-                                    await message.reply(f"```{jarvis_reply.strip()}```")
-                                else:
-                                    await message.reply("```Please try again! The AI was unable to determine an appropriate response. Try rephrasing the statement slightly.```", delete_after=10)
-                                self.thinking = False
+                            self.prompt_history[str(author.id)].append(f"{jarvis_reply}")
+                            if len(jarvis_reply):
+                                await message.reply(f"```{jarvis_reply.strip()}```")
                             else:
-                                clogger("Jarvis is thinking... no new messages or prompts will be included.")    
+                                await message.reply("```Please try again! The AI was unable to determine an appropriate response. Try rephrasing the statement slightly.```", delete_after=10)
+                            self.thinking = False
                         else:
-                            return
-                else:
-                    await message.reply("```You need Electron rank or higher to talk to JARVIS.```")
+                            clogger("Jarvis is thinking... no new messages or prompts will be included.")    
+                    else:
+                        return
+            else:
+                await message.reply("```You need Electron rank or higher to talk to JARVIS.```")
 
-def setup(client):
-    client.add_cog(Jarvis(client))
+# def setup(client):
+#     client.add_cog(Jarvis(client))

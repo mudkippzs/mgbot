@@ -14,6 +14,25 @@ from clogger import clogger
 from utils import *
 
 
+async def add_to_based_log(member):
+    basedlog = load_json_config("basedlog.json")
+    
+    if not str(member.id) in basedlog:
+        basedlog[str(member.id)] = {
+            "based_count": 0,
+            "based_expires": None,
+            "cringe_count": 0,
+            "cringe_expires": None,
+            "last_reacted_user_id": None,
+            "last_reacted_timestamp": None,
+            "based_react_log": [],
+            "cringe_react_log": []
+        }
+    
+    write_json_config("basedlog.json", basedlog)
+
+    return
+
 async def post_to_cringe_gallery(payload, client):
     """Get the original message content, embeds and attachments and post and Embed with the message author's details in the cringe gallery channel."""
     clogger(f"Cringe was posted...")
@@ -103,7 +122,13 @@ class Boostcog(commands.Cog):
         if self.cringe_role == None:
             self.cringe_role = [r for r in roles if r.name == "Afflicted with Cringe"][0]
             
-        based_react_log = self.basedlog[str(user_id)]["based_react_log"]
+        try:
+            based_react_log = self.basedlog[str(user_id)]["based_react_log"]
+        except:
+            add_to_based_log(author)
+            # reload based log instance.
+            self.basedlog = load_json_config("basedlog.json")
+
         cringe_react_log = self.basedlog[str(user_id)]["cringe_react_log"]
 
         based_expiry_log = self.basedlog[str(user_id)]["based_expires"]
@@ -132,9 +157,15 @@ class Boostcog(commands.Cog):
 
                 self.basedlog[str(user_id)]["based_react_log"].append((str(payload.message_id), str(user_id)))
             else:
-                based_expiry = datetime.datetime.fromtimestamp(int(based_expiry_log))
-                if based_expiry > current_time:
-                    d = based_expiry + datetime.timedelta(minutes=1)
+                if based_expiry_log != None:
+                    based_expiry = datetime.datetime.fromtimestamp(int(based_expiry_log))
+                    based_expiry = based_expiry.replace(tzinfo=pytz.timezone('Europe/Dublin'))
+                    if based_expiry > current_time:
+                        d = based_expiry + datetime.timedelta(minutes=1)
+                        self.basedlog[str(user_id)]["based_expires"] = int(d.timestamp())
+                else:
+                    based_expiry = None
+                    d = current_time + datetime.timedelta(minutes=5)
                     self.basedlog[str(user_id)]["based_expires"] = int(d.timestamp())
 
             for role in author.roles:
@@ -170,9 +201,15 @@ class Boostcog(commands.Cog):
 
                 self.basedlog[str(user_id)]["cringe_react_log"].append((str(payload.message_id), str(user_id)))
             else:
-                cringe_expiry = datetime.datetime.fromtimestamp(int(cringe_expiry_log))
-                if cringe_expiry > current_time:
-                    d = cringe_expiry + datetime.timedelta(seconds=30)
+                if cringe_expiry_log != None:
+                    cringe_expiry = datetime.datetime.fromtimestamp(int(cringe_expiry_log))
+                    cringe_expiry = cringe_expiry.replace(tzinfo=pytz.timezone('Europe/Dublin'))
+                    if cringe_expiry > current_time:
+                        d = cringe_expiry + datetime.timedelta(seconds=30)
+                        self.basedlog[str(user_id)]["cringe_expires"] = int(d.timestamp())
+                else:
+                    cringe_expiry = None
+                    d = current_time + datetime.timedelta(minutes=5)
                     self.basedlog[str(user_id)]["cringe_expires"] = int(d.timestamp())
 
             for role in author.roles:
@@ -303,21 +340,15 @@ class Boostcog(commands.Cog):
     async def ccount(self, ctx):
         await self._based_or_cringe(ctx, based=False)
 
+    # Display cringe count of user to the channel (message author)
+    @commands.slash_command(name='addtobasedlog', description='Add a user to the based log if they are missing.')
+    async def addtobasedlog(self, ctx, member: discord.Member):
+        await add_to_based_log(member)
+        await ctx.send_response(f"```{member.display_name} added to the based log...```")
+
     @commands.Cog.listener()
-    async def on_member_join(self, member):        
-        self.basedlog = load_json_config("basedlog.json")
-        if not str(member.id) in self.basedlog:
-            self.basedlog[str(member.id)] = {
-                "based_count": 0,
-                "based_expires": None,
-                "cringe_count": 0,
-                "cringe_expires": None,
-                "last_reacted_user_id": None,
-                "last_reacted_timestamp": None,
-                "based_react_log": [],
-                "cringe_react_log": []
-            }
-        write_json_config("basedlog.json", self.basedlog)
+    async def on_member_join(self, member):
+        await add_to_based_log(member)
 
 
 def setup(client):  # Add cog to bot when loaded with extension command (e.g !load cogName). See https://discordpy.readthedocs.io/en/latest/ext/commands/cogs.html

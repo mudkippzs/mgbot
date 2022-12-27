@@ -129,7 +129,7 @@ class Serverlogs(commands.Cog):
         embed.add_field(name="Author", value=f"{message.author}")
         if len(message.content):
             embed.add_field(name="Content", value=f"{message.content}")
-        embed.set_thumbnail(url=after.avatar.url)
+        embed.set_thumbnail(url=message.author.avatar.url)
         embed.set_author(name="MG Log Bot", url=self.client.user.avatar.url)
         
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
@@ -149,7 +149,7 @@ class Serverlogs(commands.Cog):
             if len(message.content):
                 embed.add_field(name="Content", value=f"{message.content}")
             
-            embed.set_thumbnail(url=after.avatar.url)
+            embed.set_thumbnail(url=message.author.avatar.url)
             embed.set_author(name="MG Log Bot", url=self.client.user.avatar.url)            
             
             embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
@@ -185,10 +185,9 @@ class Serverlogs(commands.Cog):
     @commands.Cog.listener()
     async def on_raw_reaction_clear(self, payload):
         """Logs when a reaction is cleared"""
-        user = await self.client.fetch_user(payload.user_id)
-        embed = discord.Embed(title="Reaction Cleared", description=f"A reaction was cleared by {user.display_name} ({payload.user_id}).", color=0x00ff00)
+        embed = discord.Embed(title="Reaction Cleared", description=f"A reaction was cleared.", color=0x00ff00)
         
-        embed.set_thumbnail(url=after.avatar.url)
+        embed.set_thumbnail(url=after.author.avatar.url)
         embed.set_author(name="MG Log Bot", url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
 
@@ -200,7 +199,7 @@ class Serverlogs(commands.Cog):
         user = await self.client.fetch_user(payload.user_id)
         embed = discord.Embed(title="Reaction Removed", description=f"A reaction was removed by {user.display_name} ({payload.user_id}).", color=0x00ff00)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
-        embed.set_thumbnail(url=after.avatar.url)
+        embed.set_thumbnail(url=user.avatar.url)
         embed.set_author(name="MG Log Bot", url=self.client.user.avatar.url)
 
         await self.client.get_channel(CHANNELS["mod"]).send(embed=embed)
@@ -417,13 +416,29 @@ class Serverlogs(commands.Cog):
         """Logs when emojis are updated"""
 
         embed = discord.Embed(title="Emojis Updated", description=f"The server emojis have been updated.", color=0xffff00)
-        embed.add_field(name="Before", value=f"{before}")
-        embed.add_field(name="After", value=f"{after}")
+        emoji_added = []
+        emoji_removed = []
+
         embed.set_thumbnail(url=self.client.user.avatar.url)
         embed.set_author(name="MG Log Bot", url=self.client.user.avatar.url)
         embed.timestamp = datetime.datetime.now(pytz.timezone('Europe/Dublin'))
-
+        
+        for emoji in before:
+            if emoji not in after:
+                emoji_removed.append(emoji)
+        for emoji in after:
+            if emoji not in before:
+                emoji_added.append(emoji)
+        
+        if len(emoji_removed):
+            embed.add_field(name="Removed", value=f"{', '.join([str(e) for e in emoji_removed])}")
+        
+        if len(emoji_added):
+            embed.add_field(name="Added", value=f"{', '.join([str(e) for e in emoji_added])}")
+        
+        
         await self.client.get_channel(CHANNELS["server"]).send(embed=embed)
+
 
     @commands.Cog.listener()
     async def on_guild_integrations_update(self, guild):

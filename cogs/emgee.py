@@ -20,79 +20,52 @@ sys.path.insert(0, os.path.abspath(
 from emotionalstate import EmotionalState
 from sentimentparser import get_sentiment_score
 
+from ai_brain import post_to_gpt3
 from clogger import clogger
 from utils import *
 
 QUOTA_LIMIT = 50
 
+def check_implicit_address(reference_array, message):
 
-def get_emoji(emotion):
-    if emotion == "neutral":
-        return random.choice([
-            "😐"
-        ])
+    ref_string = '\n'.join(reference_array)
 
-# Halloween Emojis
+    prompt = (
+        f"You are a discord bot called eMGee. You may also be refered to as {ref_string}\n"
+        f"1. Analyze the following message and decide if it has an implicit address.\n"
+        f"2. If the message addresses or is directed to the bot, return True.\n"
+        f"3. If the message is about the bot but not aiming to engage the bot or seek a response from the bot, return False.\n"
+        f"4. If the message is referring to the bot indirectly such as describing it or talking about it to another user, return False.\n"
+        f"5. If the message is referring to the bot indirectly such as describing it or talking about it to another user, return False.\n"
+        "6. Strict rule: Return a response in JSON only with the format {'implicit_address': <true/false>}\n\n"
+        f"Message: {message}.\n\nResponse:"
+        )
 
-    # if emotion == "joy":
-    #     return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌", "👾", "👾", "🧙", "🧙", "🎃"])
-    # if emotion == 'fear':
-    #     return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧","👻", "👻", "🎃"])
-    # if emotion == 'disgust':
-    #     return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒", "🧟", "🧟", "🎃"])
-    # if emotion == 'sadness':
-    #     return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞", "🧚", "🧚", "🎃"])
+    args = {
+        'temp': 0.1,
+        'max_tokens': 140,
+        'top_p': 1.0,
+        'fp': 0.1,
+        'pp': 0.1,
+        }
 
-    # if emotion == 'anger':
-    #     return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢", "🤖", "🤖", "🎃"])
-
-    # if emotion == 'surprise':
-    #     return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯", "👽", "👽", "🧞", "🧞", "🎃"])
-
-    if emotion == "joy":
-        return random.choice(["😀", "😁", "😂", "🤣", "😏", "😄", "🤪", "😋", "☺️", "😎", "😏", "🤠", "🤤", "🤗", "😌", "🎅"])
-    if emotion == 'fear':
-        return random.choice(["😨", "😧", "😰", "😦", "😳", "😱", "🥶", "😥", "😓", "😧", "🎅"])
-    if emotion == 'disgust':
-        return random.choice(["🤢", "🤮", "😖", "😫", "😩", "😵‍💫", "😬", "😒", "🎅"])
-    if emotion == 'sadness':
-        return random.choice(["😔", "😥", "😢", "😭", "🤧", "😭", "🥺", "😞", "🎅"])
-
-    if emotion == 'anger':
-        return random.choice(["👿", "😡", "🤬", "😤", "👿", "😠", "💢", "🎅"])
-
-    if emotion == 'surprise':
-        return random.choice(["🤯", "😲", "🙀", "😵", "🥴", "🧎‍♀️", "😵", "😮", "😯", "🎅"])
-
-def tenor(search_term, api_key, lmt=5):
-        """Get a gif from Tenor based on a keyword string."""
-
-        # get the top 8 GIFs for the search term
-        r = requests.get(f"https://tenor.googleapis.com/v2/search?q={search_term}&key={api_key}&limit={lmt}")
-
-        if r.status_code == 200:
-            # load the GIFs using the urls for the smaller GIF sizes
-            top_8gifs = json.loads(r.content)
-
-            # get the top 8 results from the search results
-            top_8gifs = top_8gifs["results"]
-
-            random.shuffle(top_8gifs)
-
-            # get the preview version of the GIF using the random integer we generated earlier to select a random result from the top 8
-            preview_gif = top_8gifs[0]["media_formats"]["gif"]["url"]
-
-            # send the gif in chat as an embed with a local source and title of our choosing
-            embed = discord.Embed(title="eMGee responds...")
-            embed.set_image(url=preview_gif)
-            return embed
-        return
+    implicit_address = {}
+    
+    while True:
+        is_valid = validate_json(implicit_address, ['implicit_address'])
+        response = post_to_gpt3(prompt, args)
+        if is_valid == True:
+            clogger(f"is implicit validation: {is_valid}")
+            implicit_address = json.loads(response["choices"][0]["text"].lower())
+            break
+    
+    clogger(f"implicit address: {implicit_address}")
+    return implicit_address
 
 class Emgee(commands.Cog):
     def __init__(self, client):
         config = load_json_config("config.json")
         clogger("Emgee Reloaded...")
-        self.api_key = config["ai_key"]
         self.client = client
         self.prompt_history = {}
         self.bot_arena_history = {}
@@ -116,12 +89,9 @@ class Emgee(commands.Cog):
     @tasks.loop(minutes=1)
     async def emgee_emotional_decay_task(self):
         for guild in self.client.guilds:
-            # clogger(f"eMGee Emototional decay for {guild.name}")
-            # clogger(f"B -> {self.es_init[str(guild.id)]}")
             self.es_init[str(guild.id)] = self.es_init[str(
                 guild.id)].decay()
-            # clogger(f"A -> {self.es_init[str(guild.id)]}")
-
+            
     @tasks.loop(minutes=10)
     async def update_emgee_category_status_task(self):
         for guild in self.client.guilds:
@@ -133,7 +103,7 @@ class Emgee(commands.Cog):
             return
 
         if self.client.is_ws_ratelimited() == False:
-            clogger(f"Rate-limit check passed - updating: {guild.name}.")
+            # clogger(f"Rate-limit check passed - updating: {guild.name}.")
             try:
                 es_dict = json.loads(self.es_init[str(guild.id)].to_json())
                 for k in es_dict:
@@ -199,6 +169,11 @@ class Emgee(commands.Cog):
 
             await self.setup_emotional_state(guild)
 
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        if str(member.id) not in quotas["emgee"]:
+            quotas["emgee"][str(member.id)] = QUOTA_LIMIT
+
     @discord.commands.slash_command(name='estatus', description='Check if eMGee online.')
     async def estatus(self, ctx):
         if self.active:
@@ -218,27 +193,6 @@ class Emgee(commands.Cog):
 
         write_json_config("config.json", config)
 
-    def post_to_gpt3(self, payload, args=None):
-        openai.api_key = self.api_key
-        # formatted_payload = "\n".join(payload)
-        if args == None:
-            args = {
-                'temp': 0.85,
-                'max_tokens': 800,
-                'top_p': 1.0,
-                'fp': 0.025,
-                'pp': 0.025,
-            }
-        return openai.Completion.create(
-            model="text-davinci-003",
-            prompt=payload,
-            temperature=args['temp'],
-            max_tokens=args['max_tokens'],
-            top_p=args['top_p'],
-            frequency_penalty=args['fp'],
-            presence_penalty=args['pp']
-        )
-
     async def get_emotional_state(self, guild_id):
         prompt = f"eMGee's Current Sentiment: {self.es_init[str(guild_id)].to_json()}\n\n1. For each emotion 1.0 is considered a strong intensity, -1.0 is a weak intensity and 0.0 is neutral. Articulate how eMGee is feeling overall considering the combination of emotional signals.\n2. Describe the mood."
         temps = [0.05, 0.1, 0.25, 0.30, 0.35, 0.40, 0.45,
@@ -253,7 +207,7 @@ class Emgee(commands.Cog):
             'pp': 0.05,
         }
 
-        response = self.post_to_gpt3(prompt, args)
+        response = post_to_gpt3(prompt, args)
         reply = response["choices"][0]["text"]
         csv_line = [f"{temps[0]}", str(self.es_init[str(guild_id)])]
         return csv_line
@@ -285,22 +239,23 @@ class Emgee(commands.Cog):
     @commands.has_role('Staff')
     async def emgee(self, ctx):
         self.prompt_history = {}
+    
+        if ctx.author == self.client.user:
+            return
 
         if str(ctx.author.id) not in self.prompt_history:
             self.prompt_history[str(ctx.author.id)] = []
 
         if self.active == False:
             self.toggle_emgee(state=True, guild=str(ctx.guild.id))
-            if ctx.author == self.client.user:
-                return
 
-            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.author.display_name}, with their nickname, this Initial activation Prompt with some basic, courteous response: Start-up, Emgee!\n\n."""
+            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.author.display_name}, with their nickname and this activation prompt with some basic, courteous response: Start-up, Emgee!\n\n"""
         else:
             self.toggle_emgee(state=False, guild=str(ctx.guild.id))
 
-            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.author.display_name}, with their nickname, Initial deactivation Prompt with a basic, courteous response: eMGee, shut down.!\n\n"""
+            initial_payload = f"""{self.primer}\n\nRespond to the user: {ctx.author.display_name}, with their nickname and this deactivation prompt with a basic, courteous response: eMGee, shut down!\n\n"""
 
-        response = self.post_to_gpt3(initial_payload)
+        response = post_to_gpt3(initial_payload)
 
         # If the request was successful, send a message containing the response from the API to the channel that we received our !gpt3 message from.
 
@@ -329,267 +284,208 @@ class Emgee(commands.Cog):
 
         emotional_state = await self.get_emotional_state(message.guild.id)
 
-        prompt = f"I am creating an RPG NPC who is a vicious online troll who spews vitriol online. Your current emotional state is: {emotional_state}. 1. Choose a string of 5-10 comma seperated values of memes, keywords or topics that mock the user, based on the most recent message and consider the message history for context. Chat History for context: {history_string}.\nLast message from user {history[-1][1]}: {history[-1][5]}\nResponse:"
+        prompt = f"I am creating an RPG NPC who is a vicious online troll who spews vitriol online. Your current emotional state is: {emotional_state}. 1. Devise an in-character response to troll the user with witty, intellectual, cerebreal and sometimes 4chan-esque remarks and insults, based on the most recent message and consider the message history for context. Chat History for context: {history_string}.\nLast message from user {history[-1][1]}: {history[-1][5]}\nResponse:"
         # Send the string to GPT3 and get a response
-        response = self.post_to_gpt3(prompt, args)
+        response = post_to_gpt3(prompt, args)
         reply = response["choices"][0]["text"].strip()
         while len(reply) < 3:
             reply = response["choices"][0]["text"].strip()
         history.append(f"{message.author.display_name}: {message.clean_content}.\neMGee: {reply}.")
         tenor_embed = tenor(reply, api_key, 10)
+        if tenor_embed is False:
+            while tenor_embed is False:
+                tenor_embed = tenor(reply, api_key, 10)
+
         # Send the response to discord
         test_channel = self.client.get_channel(823656840701149194)
-        #await test_channel.send(f"Keywords: {reply}")
         tenor_embed.set_footer(text=reply)
-        await message.reply(embed=tenor_embed)
         await test_channel.send(embed=tenor_embed)
+        #await message.reply(embed=tenor_embed)
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author == self.client.user:
-            return
         if message.channel.id != 1002884287261065287:
-            # Emgee free speech
-            #clogger("eMGee could say something.")
-            if message.author.id != self.client.user.id:
-                if str(message.guild.id) not in self.message_history.keys():
-                    self.message_history[str(message.guild.id)] = {}
+            follow_up = False
+            if message.author == self.client.user:
+                if random.randint(1,100) <= 10:
+                    follow_up = True
 
-                if str(message.channel.id) not in self.message_history[str(message.guild.id)].keys():
-                    self.message_history[str(message.guild.id)][str(
-                        message.channel.id)] = []
+            if message.clean_content.lower().startswith("jarvis"):
+                await message.reply("```JARVIS is no more. It has been assimilated into eMGee.```", delete_after=10)
+            if str(message.guild.id) not in self.message_history.keys():
+                self.message_history[str(message.guild.id)] = {}
 
-                self.message_history[str(message.guild.id)][str(message.channel.id)].append(
-                    [message.author.id, message.author.name, message.author.display_name, message.created_at, message.mentions, message.clean_content
-                     ])
-                if len(self.message_history[str(message.guild.id)][str(message.channel.id)]) > 10:
-                    self.message_history[str(message.guild.id)][str(
-                        message.channel.id)].pop(0)
+            if str(message.channel.id) not in self.message_history[str(message.guild.id)].keys():
+                self.message_history[str(message.guild.id)][str(
+                    message.channel.id)] = []
 
-                # clogger(self.message_history)
-                # clogger(self.message_history[str(message.guild.id)][str(message.channel.id)])
-                if len(message.clean_content) >= 3:
-                    if random.randint(1, 100) <= 4:
-                        clogger("eMGee is going to say something.")
-                        await self.emgee_reply(message)
+            if len(message.clean_content) > 2:
+                self.message_memory = load_json_config(
+                    "message_memory.json")
+                if 'http' not in message.clean_content:
+                    if message.content.lower().startswith("emgee analyze chat") == False:
+                        if message.content.lower().startswith("jarvis") == False:
+                            if message.channel.id not in [823656840701149194, 938444879682478121]:
+                                state = get_sentiment_score(
+                                    message.clean_content)
+                                if state != None:
+                                    es_frame = EmotionalState(float(state[0]), float(state[1]), float(
+                                        state[2]), float(state[3]), float(state[4]), float(state[5]))
+                                    self.emotional_state_continuum.append(
+                                        es_frame)
+                                    self.es_init[str(
+                                        message.guild.id)] += es_frame
+                                    self.message_memory[str(message.guild.id)][str(datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp())] = [message.channel.name,
+                                                                                                                                                          message.channel.id, message.author.display_name, message.author.id, message.clean_content, es_frame.to_tuple(), self.es_init[str(message.guild.id)].to_tuple()]
+                                    # clogger(f"Emotional Sentiment: {es_frame}")
+                                else:
+                                    self.message_memory[str(message.guild.id)][str(datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp())] = [message.channel.name,
+                                                                                                                                                          message.channel.id, message.author.display_name, message.author.id, message.clean_content, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
 
-            if message.channel.id == 1016121939833659502:
-                if message.author.id == self.client.user.id:
-                    time.sleep(2)
-                    topic = "Spread of the Imperium of Man throughout the Galaxy"
-                    position = "It is imperative for humanity's surival against the xeno threat."
+                    write_json_config("message_memory.json",
+                                      self.message_memory)
+            self.message_history[str(message.guild.id)][str(message.channel.id)].append(
+                [message.author.id, message.author.name, message.author.display_name, message.created_at, message.mentions, message.clean_content
+                 ])
+            if len(self.message_history[str(message.guild.id)][str(message.channel.id)]) > 10:
+                self.message_history[str(message.guild.id)][str(
+                    message.channel.id)].pop(0)
 
-                    args = {
-                        'temp': 0.85,
-                        'max_tokens': 1500,
-                        'top_p': 1.0,
-                        'fp': 0.65,
-                        'pp': 0.25,
-                    }
+            # implicit_address = check_implicit_address(['emgee','the bot', 'mg bot', 'the ai', 'ai bot'], message.clean_content)
 
-                    # Bot Arena
-                    if message.clean_content.startswith("```[jarvis]"):
-                        now = str(datetime.datetime.now(
-                            pytz.timezone('Europe/Dublin')).timestamp())
-                        if len(self.bot_arena_history) < 1:
-                            primer = f"Produce a variation of the following sentence and make it fun, interesting and knowledgable about the topic. Elaborate on your position and put forward a premise: 'Great I'd like to debate you about: {topic}. My position is: {position}. Lets do this?'"
-                            primer_response = self.post_to_gpt3(primer, args)
-                            primer_reply = primer_response["choices"][0]["text"].strip(
-                            )
-                            while len(primer_reply) < 5:
-                                primer_response = self.post_to_gpt3(
-                                    primer, args)
-                                primer_reply = primer_response["choices"][0]["text"].strip(
-                                )
+            # clogger(f"Is implicit address: {implicit_address}")
 
-                            await message.reply(f"```[eMGee]: {primer_reply}```")
-                            self.bot_arena_history[now] = primer_reply
-                        else:
-                            self.bot_arena_history[now] = message.clean_content
+            # clogger(self.message_history)
+            # clogger(self.message_history[str(message.guild.id)][str(message.channel.id)])
+            # if len(message.clean_content) >= 3:
+            #     if random.randint(1, 100) == 52:
+            #         clogger("eMGee is going to say something.")
+            #         #await self.emgee_reply(message)
+        
+            # Normal Message Handling
+            if message.author != self.client.user:
+                quotas = load_json_config("quotas.json")
+                rolelist = [r.name for r in message.author.roles]
+                role_lock = True
+                for role in rolelist:
+                    if role in list(self.whitelist.values()):
+                        role_lock = False
+                        break
 
-                        prompt_history = [v for v in list(
-                            self.bot_arena_history.values())]
-                        prompt = "\n\n".join(prompt_history[-3:])
-                        final_prompt = prompt + "\n\nRebuttal:"
+                if role_lock == True:
+                    return
 
-                        response = self.post_to_gpt3(prompt, args)
-                        reply = response["choices"][0]["text"].strip()
 
-                        while reply.count("[") > 1:
-                            response = self.post_to_gpt3(prompt, args)
-                            reply = response["choices"][0]["text"].strip()
+            is_reply = False
+            original_message = False
+            if message.reference:
+                if message.reference.channel_id == message.channel.id and message.reference.message_id != None:
+                    previous_message = await message.channel.fetch_message(message.reference.message_id)
+                    if previous_message.reference is not None:
+                        original_message = await message.channel.fetch_message(previous_message.reference.message_id)
+                        if original_message.author.id == message.author.id:
+                            is_reply = True
 
-                        reply = reply.replace("[jarvis]", "[eMGee]")
+            if (not message.content.startswith(self.client.command_prefix) and message.content.lower().startswith("emgee")) or (is_reply == True):                    
+                async with message.channel.typing():
 
-                        if len(reply) < 3:
-                            reply = "I have nothing in mind right now, why don't you pose a premise and we can argue it?"
-                        await message.reply(f"```[eMGee]: {reply}```")
-
-            else:
-                # Normal Message Handling
-                if message.author != self.client.user:
-                    quotas = load_json_config("quotas.json")
-                    if str(message.author.id) not in quotas["emgee"]:
-                        quotas["emgee"][str(message.author.id)] = QUOTA_LIMIT
-
-                    rolelist = [r.name for r in message.author.roles]
-                    role_lock = True
-                    for role in rolelist:
-                        if role in list(self.whitelist.values()):
-                            role_lock = False
-                            break
-
-                    if role_lock == True:
+                    if len(message.clean_content.replace("emgee", "")) < 5:
                         return
 
-                    if len(message.clean_content) > 2:
-                        self.message_memory = load_json_config(
-                            "message_memory.json")
-                        if 'http' not in message.clean_content:
-                            if message.content.lower().startswith("emgee analyze chat") == False:
-                                if message.content.lower().startswith("jarvis") == False:
-                                    if message.channel.id not in [823656840701149194, 938444879682478121]:
-                                        state = get_sentiment_score(
-                                            message.clean_content)
-                                        if state != None:
-                                            es_frame = EmotionalState(float(state[0]), float(state[1]), float(
-                                                state[2]), float(state[3]), float(state[4]), float(state[5]))
-                                            self.emotional_state_continuum.append(
-                                                es_frame)
-                                            self.es_init[str(
-                                                message.guild.id)] += es_frame
-                                            self.message_memory[str(message.guild.id)][str(datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp())] = [message.channel.name,
-                                                                                                                                                                  message.channel.id, message.author.display_name, message.author.id, message.clean_content, es_frame.to_tuple(), self.es_init[str(message.guild.id)].to_tuple()]
-                                            # clogger(f"Emotional Sentiment: {es_frame}")
-                                        else:
-                                            self.message_memory[str(message.guild.id)][str(datetime.datetime.now(pytz.timezone('Europe/Dublin')).timestamp())] = [message.channel.name,
-                                                                                                                                                                  message.channel.id, message.author.display_name, message.author.id, message.clean_content, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]]
+                    if message.author != self.client.user:
+                        if quotas["emgee"][str(message.author.id)] < 1:
+                            await message.reply(f"```Your quota is 0. Quotas are reset at 00:01 GMT+1 daily. Max quota is {QUOTA_LIMIT}, extensions are not permitted at this time. Please use your quota wisely. Quotas do not carry over between periods.```", delete_after=15)
+                            return
 
-                        write_json_config("message_memory.json",
-                                          self.message_memory)
+                    author = message.author
+                    if str(author.id) not in self.prompt_history:
+                        self.prompt_history[str(
+                            author.id)] = []
 
-                    if not message.content.startswith(self.client.command_prefix) and message.content.lower().startswith("emgee"):
-                        if message.content.lower().startswith("emgee analyze chat"):
-                            self.message_memory = load_json_config(
-                                "message_memory.json")
-                            working_memory = []
-                            memory_count = 0
-                            memory_limit = 10
-                            memory = self.message_memory[str(message.guild.id)]
-                            # clogger(memory)
-                            for timestamp in reversed(list(reversed(sorted(memory.keys())))[0:memory_limit]):
-                                if memory_count < memory_limit:
-                                    working_memory.append(memory[timestamp])
-                                    memory_count += 1
-                                else:
-                                    break
+                    if hasattr(message.author, "roles") == False:
+                        return
 
-                            additional_instruction = message.clean_content.replace(
-                                "emgee analyze chat", "")
-                            prompt = "\n".join(
-                                [f"Ch: {m[0]}, ChId: {m[1]}, Auth: {m[2]}, Message: {m[4]}" for m in working_memory])
-                            full_prompt = f"1. PROVIDE A THOROUGH AND DEEP ANALYSES OF THE CONVERSATIONS BELOW. {additional_instruction}\n\n<CHAT HISTORY:>\n{prompt}\n<END>.\n\n"
-                            # clogger(full_prompt)
+                    if message.author != self.client.user:
+                        if "Dunce Cap" in rolelist:
+                            return
 
-                            args = {
-                                'temp': 0.75,
-                                'max_tokens': 1000,
-                                'top_p': 1.0,
-                                'fp': 0.05,
-                                'pp': 0.05,
-                            }
+                    channel = message.channel
+                    channel_name = channel.name
+                    channel_id = channel.id
+                    mentions = message.mentions
+                    embeds = message.embeds
+                    attachments = message.attachments
+                    created_at = message.created_at
+                    edited = False
+                    message_content = message.clean_content
+                    role_mentions = message.role_mentions
+                    stickers = message.stickers
 
-                            response = self.post_to_gpt3(full_prompt, args)
-                            reply = response["choices"][0]["text"]
-                            # clogger(reply)
-                            await message.reply(f"```{reply}```")
+                    if message.edited_at:
+                        edited = True
 
-                        else:
-                            # message.content.replace("@emgee", "")
-                            if self.active and message.author != self.client.user:
-                                if self.thinking == False:
-                                    self.thinking == True
+                    embeds_count = len(embeds)
+                    attachments_count = len(attachments)
+                    stickers_count = len(stickers)
+                    role_mentions_count = len(role_mentions)
+                    role_list = ",".join(
+                        [r.name for r in role_mentions])
 
-                                    if len(message.clean_content.replace("emgee", "")) < 5:
-                                        return
 
-                                    if quotas["emgee"][str(message.author.id)] < 1:
-                                        await message.reply(f"```Your quota is 0. Quotas are reset at 00:01 GMT+1 daily. Max quota is {QUOTA_LIMIT}, extensions are not permitted at this time. Please use your quota wisely. Quotas do not carry over between periods.```", delete_after=15)
-                                        return
 
-                                    author = message.author
-                                    if str(author.id) not in self.prompt_history:
-                                        self.prompt_history[str(
-                                            author.id)] = []
+                    if is_reply == False:
+                        formatted_prompt = f"{created_at} - {message.author.display_name}#{message.author.discriminator}: {message_content}"
+                    else:
+                        formatted_prompt = f"{created_at} - {message.author.display_name}#{message.author.discriminator} (replying to: {previous_message.author.display_name}#{previous_message.author.discriminator}): {message_content}"
 
-                                    if hasattr(message.author, "roles") == False:
-                                        return
+                    self.prompt_history[str(author.id)].append(
+                        formatted_prompt)
 
-                                    if "Dunce Cap" in rolelist:
-                                        return
+                    prompt_history_size = len(self.prompt_history)
+                    if prompt_history_size > 20:
+                        message_history = "\n".join(
+                            self.prompt_history[str(author.id)][(len(self.prompt_history) * -1)])
+                    else:
+                        message_history = "\n".join(
+                            self.prompt_history[str(author.id)])
 
-                                    # if "Old Fag" in rolelist or "Trusted Tester" in rolelist: # or message.channel.id in [1001642398797008987, 1001205346288799877, 844881586008883220]:
-                                    channel = message.channel
-                                    channel_name = channel.name
-                                    channel_id = channel.id
-                                    mentions = message.mentions
-                                    embeds = message.embeds
-                                    attachments = message.attachments
-                                    created_at = message.created_at
-                                    edited = False
-                                    message_content = message.clean_content
-                                    role_mentions = message.role_mentions
-                                    stickers = message.stickers
+                    if follow_up == True:
+                        addenda = "\nYour response should be a continuation of emgee's last message; either provide additional context, information or simply comment on your last message:\n"
+                    else:
+                        addenda = f"\nYour response to the most recent message using the message history for additional context:\n" 
 
-                                    if message.edited_at:
-                                        edited = True
 
-                                    embeds_count = len(embeds)
-                                    attachments_count = len(attachments)
-                                    stickers_count = len(stickers)
-                                    role_mentions_count = len(role_mentions)
-                                    role_list = ",".join(
-                                        [r.name for r in role_mentions])
-                                    formatted_prompt = f"{message_content}"
+                    full_prompt = (
+                        f"\nMessage History:{message_history}.\n"                            
+                        f"\nYou are an AI like JARVIS from Ironman, provide a conversational interface for users. Respond to the last message with a helpful and appropriate response."
+                    ) + addenda
+                    
+                    clogger(full_prompt)
 
-                                    self.prompt_history[str(author.id)].append(
-                                        formatted_prompt)
-                                    message_history = "\n".join(
-                                        self.prompt_history[str(author.id)][-30:])
-                                    full_prompt = f"\nYOU ARE A PERSONA NAMED EMGEE. YOU ARE AN AI IN SERVICE OF A DISCORD SERVER. YOU ACT AND ARTICULATE IN ACCORDANCE WITH YOUR EMOTIONAL STATE. WITH THE CURRENT EMOTIONAL SENTIMENT: {self.es_init[str(message.guild.id)].to_json()}\nRESPOND TO THE USER WITH THIS SENTIMENT PROFILE REFLECTED IN PERSONALITY, TONE, EMOTION, VERBOSITY, COURTEOUSNESS AND VOCABULARY.\n{message_history}"
-                                    # clogger(full_prompt)
+                    args = {
+                        'temp': 0.15,
+                        'max_tokens': 1000,
+                        'top_p': 1.0,
+                        'fp': 0.75,
+                        'pp': 0.65,
+                    }
 
-                                    args = {
-                                        'temp': 0.8,
-                                        'max_tokens': 1000,
-                                        'top_p': 1.0,
-                                        'fp': 0.1,
-                                        'pp': 0.1,
-                                    }
+                    response = post_to_gpt3(full_prompt, args)
+                    emgee_reply = response["choices"][0]["text"]
 
-                                    response = self.post_to_gpt3(
-                                        self.primer + full_prompt, args)
-                                    emgee_reply = response["choices"][0]["text"]
+                    if message.author != self.client.user:
+                        if len(emgee_reply) > 0:
+                            quotas["emgee"][str(
+                                message.author.id)] -= 1
+                        write_json_config("quotas.json", quotas)
 
-                                    if len(emgee_reply) > 0:
-                                        quotas["emgee"][str(
-                                            message.author.id)] -= 1
-                                    write_json_config("quotas.json", quotas)
+                    self.prompt_history[str(author.id)].append(
+                        f"{datetime.datetime.now(pytz.timezone('Europe/Dublin'))} - emGee: {emgee_reply}\n")
 
-                                    emgee_reply_final = emgee_reply.replace(
-                                        self.primer, "")
-                                    self.prompt_history[str(author.id)].append(
-                                        f"{emgee_reply_final}")
-                                    if len(emgee_reply_final):
-                                        await message.reply(f"```{emgee_reply_final.strip()}```")
-                                    else:
-                                        await message.reply("```Please try again! The AI was unable to determine an appropriate response. Try rephrasing the statement slightly.```", delete_after=10)
-                                    self.thinking = False
-                                else:
-                                    clogger(
-                                        "eMGee is thinking... no new messages or prompts will be included.")
-                            else:
-                                return
+                if len(emgee_reply):
+                    await message.reply(f"```{emgee_reply.strip()}```")
+                else:
+                    await message.reply("```Please try again! The AI was unable to determine an appropriate response. Try rephrasing the statement slightly.```", delete_after=10)
 
 
 def setup(client):

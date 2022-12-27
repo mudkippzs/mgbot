@@ -51,8 +51,11 @@ async def role_manager(select, interaction, bot):
                     await interaction.followup.send(f"Removed {role} from your profile.", ephemeral=True)
                 else:
                     # Add the role to the user's profile.
-                    await member.add_roles(role)
-                    await interaction.followup.send(f"Added {role} to your profile.", ephemeral=True)
+                    if role.name =="Female" and member.id in [90967046837239808, 382348220405383171]:
+                        await interaction.followup.send(f"You will never be a woman, {member.display_name} >:(", ephemeral=True)
+                    else:
+                        await member.add_roles(role)
+                        await interaction.followup.send(f"Added {role} to your profile.", ephemeral=True)
     except Exception as e:
         pass
 
